@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication17;
+package AgendarCitasAPP;
 
 /**
  *
  * @author Sebastian JB
  */
-public class JavaApplication17 {
+public class Model {
 
     /**
      * @param args the command line arguments
