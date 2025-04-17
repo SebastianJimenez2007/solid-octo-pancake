@@ -1,5 +1,94 @@
 @startuml
-class prueba{
 
+class paciente {
+  - int idPaciente;
+  - String nombre;
+  - String apellido;
+  - Date fechaNacimiento;
+  - String genero;
+  - String direccion;
+  - String correo;
+  - String telefono;
 }
+
+class citas {
+  - int idCita;
+  - Date fecha;
+  - Time hora;
+  - String estado;
+  - prioridad prioridadUrgencia;
+}
+
+
+class medico {
+  - int idMedico;
+  - String nombre;
+  - String apellido;
+  - String genero;
+  - String disponibilidad;
+  - String especialidad;
+  - String correo;
+  - String telefono;
+}
+
+class historialMedico {
+  - int idHistorial;
+  - Date fechaCreacion;
+  - List consultaMedica; // Lista de consultas médicas asociadas
+}
+
+class notificacion {
+  - int idNotificacion;
+  - String mensaje;
+  - Date fechaEnvio;
+  - String canal; // Por ejemplo, "SMS", "Email"
+}
+
+class reporte {
+  - int idReporte;
+  - String tipoReporte;
+  - Date fechaGeneracion;
+  - String contenido;
+}
+
+enum prioridad {
+  BAJA;
+  MEDIA;
+  ALTA;
+  URGENTE;
+}
+
+class algoritmo {
+  + prioridad clasificarUrgencia(String sintomas, Map datosClinicos);
+}
+
+class consultaMedica {
+  - int idConsulta;
+  - Date fechaConsulta;
+  - String sintomas;
+  - String observaciones;
+  + registrarConsulta();
+  + actualizarConsulta();
+}
+
+paciente "1" -- "0..n" citas : agenda;
+
+citas --> paciente : para;
+
+citas --> medico : asignada a;
+
+paciente "1" -- "1" historialMedico : posee;
+
+historialMedico "1" -- "0..n" consultaMedica : contiene;
+
+consultaMedica --> paciente : corresponde a;
+
+consultaMedica --> medico : atendida por;
+
+citas ..> algoritmo : utiliza;
+
+notificacion ..> citas : notifica;
+
+reporte ..> historialMedico : genera
+
 @enduml
