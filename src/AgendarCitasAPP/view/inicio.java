@@ -46,9 +46,30 @@ public class inicio extends javax.swing.JFrame {
         PanelInicio = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        BtnLogin = new javax.swing.JButton();
+        BtnRegister = new javax.swing.JButton();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         VentanasInicio = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -121,34 +142,41 @@ public class inicio extends javax.swing.JFrame {
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         PanelInicio.setBackground(new java.awt.Color(204, 204, 255));
+        PanelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setText("Bienvenido a");
+        PanelInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 29, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(49, 82, 192));
         jLabel8.setText("Planifica+");
+        PanelInicio.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 29, -1, -1));
 
-        javax.swing.GroupLayout PanelInicioLayout = new javax.swing.GroupLayout(PanelInicio);
-        PanelInicio.setLayout(PanelInicioLayout);
-        PanelInicioLayout.setHorizontalGroup(
-            PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelInicioLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addContainerGap(517, Short.MAX_VALUE))
-        );
-        PanelInicioLayout.setVerticalGroup(
-            PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelInicioLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(PanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addContainerGap(339, Short.MAX_VALUE))
-        );
+        jLabel9.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus justo, consequat vitae orci interdum, egestas viverra ex. ");
+        PanelInicio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 670, 28));
+
+        jLabel10.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus justo, consequat vitae orci interdum, egestas viverra ex. ");
+        PanelInicio.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 60, 640, 28));
+
+        BtnLogin.setText("Login");
+        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginActionPerformed(evt);
+            }
+        });
+        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
+
+        BtnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnRegister.setForeground(new java.awt.Color(49, 82, 192));
+        BtnRegister.setText("Register");
+        BtnRegister.setBorder(null);
+        BtnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegisterActionPerformed(evt);
+            }
+        });
+        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, 30));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -166,17 +194,25 @@ public class inicio extends javax.swing.JFrame {
         jTabbedPane1.addTab("0", jTabbedPane2);
 
         jPanel10.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel14.setText("Especialidad medica");
+        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        jLabel11.setText("Seleccione el tipo de especialidad medica requerida:");
+        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina General", "Odontologia", "Pedriatia" }));
+        jPanel10.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
+
+        jButton1.setText("Siguiente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -191,6 +227,76 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("tab1", jPanel9);
 
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setText("Motivo principal de la consulta:");
+        jPanel15.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jLabel16.setText("Escriba una breve descripcion (no exeder x caracteres):");
+        jPanel15.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jPanel15.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 290, 50));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel17.setText("Motivo principal de la consulta:");
+        jPanel15.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+
+        jLabel18.setText("Escriba una breve descripcion (no exeder x caracteres):");
+        jPanel15.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jScrollPane2.setViewportView(jPanel15);
+
+        jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
+
+        jTabbedPane3.addTab("General1", jPanel8);
+
+        jLabel13.setText("Odontologia");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel13)
+                .addContainerGap(628, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel13)
+                .addContainerGap(312, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Odontologia1", jPanel13);
+
+        jLabel15.setText("pedriatia");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jLabel15)
+                .addContainerGap(585, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel15)
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("Pedriatia1", jPanel14);
+
         jTabbedPane1.addTab("1", jTabbedPane3);
 
         jPanel12.setBackground(new java.awt.Color(204, 255, 204));
@@ -203,7 +309,7 @@ public class inicio extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 350, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -221,7 +327,7 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("2", VentanasInicio);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -39, 800, 470));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 800, 420));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
@@ -246,6 +352,22 @@ public class inicio extends javax.swing.JFrame {
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         jTabbedPane1.setSelectedIndex(2);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        Login2 login = new Login2();
+        login.setVisible(true); 
+        this.dispose();
+    }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
+        register regist = new register();
+        regist.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnRegisterActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,9 +405,22 @@ public class inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnLogin;
+    private javax.swing.JButton BtnRegister;
     private javax.swing.JPanel PanelInicio;
     private javax.swing.JTabbedPane VentanasInicio;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -293,21 +428,29 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
