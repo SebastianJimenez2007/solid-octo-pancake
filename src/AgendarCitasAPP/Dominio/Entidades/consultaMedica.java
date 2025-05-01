@@ -13,8 +13,7 @@ public class consultaMedica {
     private Date fechaConsulta;
     private String sintomas;
     private String observaciones;
-    private registrarConsulta();
-    private actualizarConsulta();
+    
     
     public consultaMedica(int idConsulta, Date fechaConsulta, String sintomas, String observaciones){
         this.idConsulta = idConsulta;
