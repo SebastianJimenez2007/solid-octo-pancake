@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package AgendarCitasAPP.Documentation;
+package AgendarCitasAPP.Dominio.Entidades;
 import java.util.*;
 /**
  *
@@ -18,11 +18,11 @@ public class Paciente {
     private String correo;
     private String telefono;
     
-    public Paciente (){
+    public Paciente (int idPaciente, String nombre, String apellido, Date fechaNacimiento, String genero, String direccion, String correo, String telefono){
         this.idPaciente =idPaciente;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.fechaNacimiento =fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
         this.direccion = direccion;
         this.correo = correo;
