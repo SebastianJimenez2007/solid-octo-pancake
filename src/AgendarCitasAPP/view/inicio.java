@@ -66,10 +66,50 @@ public class inicio extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel31 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextPane3 = new javax.swing.JTextPane();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel28 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         VentanasInicio = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -229,10 +269,12 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPane2.setBorder(null);
+
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel12.setText("Motivo principal de la consulta:");
+        jLabel12.setText("Motivo principal de la consulta");
         jPanel15.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel16.setText("Escriba una breve descripcion (no exeder x caracteres):");
@@ -240,14 +282,70 @@ public class inicio extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jTextPane1);
 
-        jPanel15.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 290, 50));
+        jPanel15.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 290, 50));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setText("Motivo principal de la consulta:");
+        jLabel17.setText("Ubicacion del malestar o dolor");
         jPanel15.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        jLabel18.setText("Escriba una breve descripcion (no exeder x caracteres):");
+        jLabel18.setText("Seleccione la ubicacion general del malestar:");
         jPanel15.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "Cabeza", "Espalda", "Pecho", "Cintura", "Abdomen", "Pie", "Pierna", "Brazos", "Manos", "Boca", "Gluteos", "Pene o vagina" }));
+        jPanel15.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 150, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setText("Intensidad del dolor o malestar");
+        jPanel15.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        jLabel20.setText("Seleccione si a presentado el dolor o malestar con anterioridad (Si o No): ");
+        jPanel15.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------", "Si", "No" }));
+        jPanel15.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 130, -1));
+
+        jLabel21.setText("Seleccione aproximadamente cuanto tiempo lleva experimentando el malestar o dolor:");
+        jPanel15.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "menos de una semana", "varias semanas", "hace un mes", "hace un año", "hace varios años" }));
+        jPanel15.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 130, -1));
+
+        jLabel22.setText("Escriba si esta consumiendo algun medicamento actualmente. si no escriba \"No\":");
+        jPanel15.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+
+        jScrollPane3.setViewportView(jTextPane2);
+
+        jPanel15.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 290, 50));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel23.setText("Historial");
+        jPanel15.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
+        jLabel24.setText("Seleccione que el nivel de dolor:");
+        jPanel15.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "poco", "moderado", "mucho", " " }));
+        jPanel15.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 150, -1));
+
+        jLabel25.setText(".");
+        jPanel15.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 800, 20, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel29.setText("Seleccionar fecha");
+        jPanel15.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, -1, -1));
+
+        jLabel30.setText("Seleccione la fecha que desea agendar al cita:");
+        jPanel15.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, -1));
+        jPanel15.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 164, -1));
+
+        jLabel31.setText("Seleccione la hora:");
+        jPanel15.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "6:00 AM", "6:30 AM", "7:00 AM", "7:30 AM", "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 AM", "12:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM" }));
+        jPanel15.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 700, 164, -1));
+
+        jButton4.setText("Agendar");
+        jPanel15.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 740, 410, 40));
 
         jScrollPane2.setViewportView(jPanel15);
 
@@ -255,24 +353,50 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("General1", jPanel8);
 
-        jLabel13.setText("Odontologia");
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel13)
-                .addContainerGap(628, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel13)
-                .addContainerGap(312, Short.MAX_VALUE))
-        );
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel32.setText("Motivo principal de la consulta");
+        jPanel17.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jLabel33.setText("Motivo de consulta:");
+        jPanel17.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------", "Revisión general", "Dolor de muela", "Limpieza dental", "Ortodoncia", "Extracción dental", "Caries", "Sensibilidad", " " }));
+        jPanel17.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 130, -1));
+
+        jLabel13.setText("especifique el dolor:");
+        jPanel17.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jScrollPane5.setViewportView(jTextPane3);
+
+        jPanel17.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 290, 50));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel34.setText("Seleccionar fecha");
+        jPanel17.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jLabel35.setText("Seleccione la fecha que desea agendar al cita:");
+        jPanel17.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jPanel17.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 164, -1));
+
+        jLabel36.setText("Seleccione la hora:");
+        jPanel17.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "6:00 AM", "6:30 AM", "7:00 AM", "7:30 AM", "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 AM", "12:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM" }));
+        jPanel17.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 164, -1));
+
+        jButton5.setText("Agendar");
+        jPanel17.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 410, 40));
+
+        jLabel37.setText(".");
+        jPanel17.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 30, -1));
+
+        jScrollPane4.setViewportView(jPanel17);
+
+        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 350));
 
         jTabbedPane3.addTab("Odontologia1", jPanel13);
 
@@ -296,6 +420,27 @@ public class inicio extends javax.swing.JFrame {
         );
 
         jTabbedPane3.addTab("Pedriatia1", jPanel14);
+
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel26.setText("Seleccionar fecha");
+        jPanel16.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 24, -1, -1));
+
+        jLabel27.setText("Seleccione la fecha que desea agendar al cita:");
+        jPanel16.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 55, -1, -1));
+        jPanel16.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 77, 164, -1));
+
+        jLabel28.setText("Seleccione la hora:");
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 111, -1, -1));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------", "6:00 AM", "6:30 AM", "7:00 AM", "7:30 AM", "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 AM", "12:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM" }));
+        jPanel16.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 133, 164, -1));
+
+        jButton3.setText("Agendar");
+        jPanel16.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 167, -1, -1));
+
+        jTabbedPane3.addTab("General2", jPanel16);
 
         jTabbedPane1.addTab("1", jTabbedPane3);
 
@@ -410,7 +555,21 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel PanelInicio;
     private javax.swing.JTabbedPane VentanasInicio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -421,8 +580,27 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -436,6 +614,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -446,11 +626,16 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane jTextPane3;
     // End of variables declaration//GEN-END:variables
 }
