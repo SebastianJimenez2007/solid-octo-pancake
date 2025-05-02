@@ -9,6 +9,7 @@ import java.util.*;
  * @author JAVIER Y KLEVER
  */
 public class Citas {
+    //SEDE, CONSULTORIO, MEDICO, PACIENTE
     private int idCita;
     private Date fecha;
     private Date hora;
