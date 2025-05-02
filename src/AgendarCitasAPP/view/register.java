@@ -29,15 +29,18 @@ public class register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        BtnLogin = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        BtnLogin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,83 +53,64 @@ public class register extends javax.swing.JFrame {
         jLabel2.setText("Planifica+");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel1.setText("Planifica+");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 33, -1, -1));
-
-        BtnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnLogin.setForeground(new java.awt.Color(49, 82, 192));
-        BtnLogin.setText("Log in");
-        BtnLogin.setBorder(null);
-        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLoginActionPerformed(evt);
-            }
-        });
-        jPanel3.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 234, 34));
-
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("correo");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 110, 234, 34));
-
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("contraseña");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 156, 234, 34));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(49, 82, 192));
+        jLabel3.setText("Register to ");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jTextField3.setForeground(new java.awt.Color(153, 153, 153));
         jTextField3.setText("Name");
         jTextField3.setBorder(null);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
 
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("telefono");
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 202, 234, 34));
+        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField2.setText("contraseña");
+        jTextField2.setBorder(null);
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 156, 234, 34));
+
+        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField1.setText("correo");
+        jTextField1.setBorder(null);
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 110, 234, 34));
 
         jButton2.setBackground(new java.awt.Color(49, 82, 192));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Register");
         jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 262, 234, 34));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 234, 34));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel3.setText("Register to ");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 33, -1, -1));
+        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField4.setText("telefono");
+        jTextField4.setBorder(null);
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 234, 34));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 290, 390));
+        BtnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnLogin.setForeground(new java.awt.Color(49, 82, 192));
+        BtnLogin.setText("Log in");
+        BtnLogin.setBorder(null);
+        jPanel2.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 234, 34));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(49, 82, 192));
+        jLabel1.setText("Planifica+");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        jTextField5.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField5.setText("telefono");
+        jTextField5.setBorder(null);
+        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 202, 234, 34));
+
+        jTextField6.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField6.setText("telefono");
+        jTextField6.setBorder(null);
+        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 234, 34));
+
+        jScrollPane1.setViewportView(jPanel2);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 340, 390));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
 
@@ -139,32 +123,6 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        Login2 login = new Login2();
-        login.setVisible(true); 
-        this.dispose();
-    }//GEN-LAST:event_BtnLoginActionPerformed
-
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,10 +166,13 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
