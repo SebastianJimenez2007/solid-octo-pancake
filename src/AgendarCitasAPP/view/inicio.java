@@ -50,7 +50,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
         BtnRegister = new javax.swing.JButton();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jTabbedPaneEspecialidades = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -277,7 +277,7 @@ public class inicio extends javax.swing.JFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane3.addTab("tab1", jPanel9);
+        jTabbedPaneEspecialidades.addTab("tab1", jPanel9);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -363,7 +363,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
 
-        jTabbedPane3.addTab("General1", jPanel8);
+        jTabbedPaneEspecialidades.addTab("General1", jPanel8);
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -410,7 +410,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 350));
 
-        jTabbedPane3.addTab("Odontologia1", jPanel13);
+        jTabbedPaneEspecialidades.addTab("Odontologia1", jPanel13);
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -466,16 +466,16 @@ public class inicio extends javax.swing.JFrame {
         jButton6.setText("Agendar");
         jPanel18.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 410, 40));
 
-        jLabel47.setText(".");
-        jPanel18.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 20, -1));
+        jLabel47.setText("jLabel47");
+        jPanel18.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, -1, -1));
 
         jScrollPane6.setViewportView(jPanel18);
 
         jPanel14.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
 
-        jTabbedPane3.addTab("Pedriatia1", jPanel14);
+        jTabbedPaneEspecialidades.addTab("Pedriatia1", jPanel14);
 
-        jTabbedPane1.addTab("1", jTabbedPane3);
+        jTabbedPane1.addTab("1", jTabbedPaneEspecialidades);
 
         jPanel12.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -487,7 +487,7 @@ public class inicio extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -505,7 +505,7 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("2", VentanasInicio);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 800, 420));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 61, 800, 370));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
@@ -544,7 +544,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegisterActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+         jTabbedPaneEspecialidades.setSelectedIndex(1); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -675,7 +675,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPaneEspecialidades;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
