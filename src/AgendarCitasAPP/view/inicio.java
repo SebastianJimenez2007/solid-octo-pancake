@@ -4,6 +4,8 @@
  */
 package AgendarCitasAPP.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sebastian JB
@@ -40,7 +42,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TabPanePrincipal = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         PanelInicio = new javax.swing.JPanel();
@@ -50,13 +52,13 @@ public class inicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
         BtnRegister = new javax.swing.JButton();
-        jTabbedPaneEspecialidades = new javax.swing.JTabbedPane();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        tabPaneEspecialidades = new javax.swing.JTabbedPane();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        comboEspecialidad = new javax.swing.JComboBox<>();
+        BtnSiguente = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -243,41 +245,41 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("tab1", jPanel6);
 
-        jTabbedPane1.addTab("0", jTabbedPane2);
+        TabPanePrincipal.addTab("0", jTabbedPane2);
 
-        jPanel10.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel19.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel14.setText("Especialidad medica");
-        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel26.setText("Especialidad medica");
+        jPanel19.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        jLabel11.setText("Seleccione el tipo de especialidad medica requerida:");
-        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jLabel27.setText("Seleccione el tipo de especialidad medica requerida:");
+        jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina General", "Odontologia", "Pedriatia" }));
-        jPanel10.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
+        comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatia" }));
+        jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
 
-        jButton1.setText("Siguiente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSiguente.setText("Siguiente");
+        BtnSiguente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnSiguenteActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel19.add(BtnSiguente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPaneEspecialidades.addTab("tab1", jPanel9);
+        tabPaneEspecialidades.addTab("0", jPanel16);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -363,7 +365,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel8.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
 
-        jTabbedPaneEspecialidades.addTab("General1", jPanel8);
+        tabPaneEspecialidades.addTab("General1", jPanel8);
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -410,7 +412,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 350));
 
-        jTabbedPaneEspecialidades.addTab("Odontologia1", jPanel13);
+        tabPaneEspecialidades.addTab("Odontologia1", jPanel13);
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -473,9 +475,9 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel14.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
 
-        jTabbedPaneEspecialidades.addTab("Pedriatia1", jPanel14);
+        tabPaneEspecialidades.addTab("Pedriatia1", jPanel14);
 
-        jTabbedPane1.addTab("1", jTabbedPaneEspecialidades);
+        TabPanePrincipal.addTab("1", tabPaneEspecialidades);
 
         jPanel12.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -503,9 +505,9 @@ public class inicio extends javax.swing.JFrame {
 
         VentanasInicio.addTab("tab1", jPanel11);
 
-        jTabbedPane1.addTab("2", VentanasInicio);
+        TabPanePrincipal.addTab("2", VentanasInicio);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
+        jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
@@ -520,15 +522,15 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-    jTabbedPane1.setSelectedIndex(0);  
+    TabPanePrincipal.setSelectedIndex(0);  
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-     jTabbedPane1.setSelectedIndex(1);   // TODO add your handling code here:
+     TabPanePrincipal.setSelectedIndex(1);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        jTabbedPane1.setSelectedIndex(2);   // TODO add your handling code here:
+      TabPanePrincipal.setSelectedIndex(2);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
@@ -543,9 +545,25 @@ public class inicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnRegisterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         jTabbedPaneEspecialidades.setSelectedIndex(1); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtnSiguenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguenteActionPerformed
+    String opcion = comboEspecialidad.getSelectedItem().toString().trim();
+    System.out.println("Seleccionado: " + opcion); // depuración
+
+    switch(opcion) {
+        case "Medicina general":
+            tabPaneEspecialidades.setSelectedIndex(0);
+            break;
+        case "Odontologia":
+            tabPaneEspecialidades.setSelectedIndex(1);
+            break;
+        case "Pediatria":
+            tabPaneEspecialidades.setSelectedIndex(2);
+            break;
+        default:
+            JOptionPane.showMessageDialog(null, "Seleccione una opcion válida.");
+            break;
+    }
+    }//GEN-LAST:event_BtnSiguenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,13 +603,14 @@ public class inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
     private javax.swing.JButton BtnRegister;
+    private javax.swing.JButton BtnSiguente;
     private javax.swing.JPanel PanelInicio;
+    private javax.swing.JTabbedPane TabPanePrincipal;
     private javax.swing.JTabbedPane VentanasInicio;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> comboEspecialidad;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
@@ -608,10 +627,8 @@ public class inicio extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -624,6 +641,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -651,14 +670,15 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -666,21 +686,19 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPaneEspecialidades;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
+    private javax.swing.JTabbedPane tabPaneEspecialidades;
     // End of variables declaration//GEN-END:variables
 }
