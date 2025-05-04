@@ -53,6 +53,11 @@ public class inicio extends javax.swing.JFrame {
         BtnLogin = new javax.swing.JButton();
         BtnRegister = new javax.swing.JButton();
         tabPaneEspecialidades = new javax.swing.JTabbedPane();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        comboEspecialidad = new javax.swing.JComboBox<>();
+        BtnSiguente = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -121,12 +126,6 @@ public class inicio extends javax.swing.JFrame {
         VentanasInicio = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        comboEspecialidad = new javax.swing.JComboBox<>();
-        BtnSiguente = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -246,6 +245,29 @@ public class inicio extends javax.swing.JFrame {
         jTabbedPane2.addTab("tab1", jPanel6);
 
         TabPanePrincipal.addTab("0", jTabbedPane2);
+
+        jPanel19.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel26.setText("Especialidad medica");
+        jPanel19.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        jLabel27.setText("Seleccione el tipo de especialidad medica requerida:");
+        jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatia" }));
+        jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
+
+        BtnSiguente.setText("Siguiente");
+        BtnSiguente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSiguenteActionPerformed(evt);
+            }
+        });
+        jPanel19.add(BtnSiguente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        tabPaneEspecialidades.addTab("tab4", jPanel19);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -473,40 +495,6 @@ public class inicio extends javax.swing.JFrame {
 
         TabPanePrincipal.addTab("2", VentanasInicio);
 
-        jPanel19.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel26.setText("Especialidad medica");
-        jPanel19.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-
-        jLabel27.setText("Seleccione el tipo de especialidad medica requerida:");
-        jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatia" }));
-        jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
-
-        BtnSiguente.setText("Siguiente");
-        BtnSiguente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSiguenteActionPerformed(evt);
-            }
-        });
-        jPanel19.add(BtnSiguente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        TabPanePrincipal.addTab("3", jPanel16);
-
         jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
@@ -526,18 +514,16 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-     TabPanePrincipal.setSelectedIndex(3);   // TODO add your handling code here:
+     TabPanePrincipal.setSelectedIndex(1);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
       TabPanePrincipal.setSelectedIndex(2);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
-    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        Login2 login = new Login2();
-        login.setVisible(true); 
-        this.dispose();
-    }//GEN-LAST:event_BtnLoginActionPerformed
+    private void BtnSiguenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguenteActionPerformed
+        tabPaneEspecialidades.setSelectedIndex(1);
+    }//GEN-LAST:event_BtnSiguenteActionPerformed
 
     private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
         register regist = new register();
@@ -545,25 +531,11 @@ public class inicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnRegisterActionPerformed
 
-    private void BtnSiguenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguenteActionPerformed
-    String opcion = comboEspecialidad.getSelectedItem().toString().trim();
-    System.out.println("Seleccionado: " + opcion); // depuración
-
-    switch(opcion) {
-        case "Medicina general":
-            comboEspecialidad.setSelectedIndex(0);
-            break;
-        case "Odontologia":
-            comboEspecialidad.setSelectedIndex(1);
-            break;
-        case "Pediatria":
-            comboEspecialidad.setSelectedIndex(2);
-            break;
-        default:
-            JOptionPane.showMessageDialog(null, "Seleccione una opcion válida.");
-            break;
-    }
-    }//GEN-LAST:event_BtnSiguenteActionPerformed
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        Login2 login = new Login2();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -675,7 +647,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
