@@ -256,7 +256,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel27.setText("Seleccione el tipo de especialidad medica requerida:");
         jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatia" }));
+        comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatria" }));
         jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
 
         BtnSiguente.setText("Siguiente");
@@ -522,7 +522,23 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void BtnSiguenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguenteActionPerformed
-        tabPaneEspecialidades.setSelectedIndex(1);
+        String opcion = comboEspecialidad.getSelectedItem().toString().trim();
+
+    switch(opcion) {
+        case "Medicina general":
+            tabPaneEspecialidades.setSelectedIndex(1);
+            break;
+        case "Odontologia":
+            tabPaneEspecialidades.setSelectedIndex(2);
+            break;
+        case "Pediatria":
+            tabPaneEspecialidades.setSelectedIndex(3);
+            break;
+        default:
+            JOptionPane.showMessageDialog(null, "Seleccione una opcion válida.");
+            break;
+    }
+
     }//GEN-LAST:event_BtnSiguenteActionPerformed
 
     private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed

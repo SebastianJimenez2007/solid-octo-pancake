@@ -412,7 +412,7 @@
                                 <StringItem index="0" value="-------------"/>
                                 <StringItem index="1" value="Medicina general"/>
                                 <StringItem index="2" value="Odontologia"/>
-                                <StringItem index="3" value="Pedriatia"/>
+                                <StringItem index="3" value="Pedriatria"/>
                               </StringArray>
                             </Property>
                           </Properties>
