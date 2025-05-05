@@ -51,6 +51,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
+        BtnCerrarSesion = new javax.swing.JButton();
         BtnRegister = new javax.swing.JButton();
         tabPaneEspecialidades = new javax.swing.JTabbedPane();
         jPanel19 = new javax.swing.JPanel();
@@ -126,6 +127,17 @@ public class inicio extends javax.swing.JFrame {
         VentanasInicio = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        BtnRegister1 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        BtnVentanaLogin = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,7 +230,15 @@ public class inicio extends javax.swing.JFrame {
                 BtnLoginActionPerformed(evt);
             }
         });
-        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
+        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 30));
+
+        BtnCerrarSesion.setText("Cerrar sesion");
+        BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarSesionActionPerformed(evt);
+            }
+        });
+        PanelInicio.add(BtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 30));
 
         BtnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BtnRegister.setForeground(new java.awt.Color(49, 82, 192));
@@ -229,7 +249,7 @@ public class inicio extends javax.swing.JFrame {
                 BtnRegisterActionPerformed(evt);
             }
         });
-        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, 30));
+        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 120, 30));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -495,6 +515,90 @@ public class inicio extends javax.swing.JFrame {
 
         TabPanePrincipal.addTab("2", VentanasInicio);
 
+        jPanel10.setBackground(new java.awt.Color(49, 82, 192));
+        jPanel10.setMinimumSize(new java.awt.Dimension(800, 470));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(49, 82, 192));
+        jLabel11.setText("LOGIN");
+        jPanel16.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 21, -1, -1));
+
+        jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
+        jPasswordField1.setText("Password");
+        jPasswordField1.setBorder(null);
+        jPasswordField1.setCaretColor(new java.awt.Color(102, 102, 102));
+        jPanel16.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 126, 220, 34));
+
+        BtnRegister1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnRegister1.setForeground(new java.awt.Color(49, 82, 192));
+        BtnRegister1.setText("Register");
+        BtnRegister1.setBorder(null);
+        BtnRegister1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegister1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(BtnRegister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, 220, 34));
+
+        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField4.setText("Name");
+        jTextField4.setBorder(null);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 80, 220, 34));
+
+        BtnVentanaLogin.setBackground(new java.awt.Color(49, 82, 192));
+        BtnVentanaLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnVentanaLogin.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVentanaLogin.setText("Log in");
+        BtnVentanaLogin.setBorder(null);
+        BtnVentanaLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVentanaLoginActionPerformed(evt);
+            }
+        });
+        jPanel16.add(BtnVentanaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 220, 34));
+
+        jPanel10.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 290, 370));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Planifica+");
+        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AgendarCitasAPP/view/medical-history_10299433.png"))); // NOI18N
+        jLabel28.setText("jLabel3");
+        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 130, -1));
+
+        jLabel48.setFont(new java.awt.Font("Segoe UI Variable", 1, 50)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setText("Planifica+");
+        jPanel10.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        TabPanePrincipal.addTab("3", jPanel9);
+
         jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
@@ -523,7 +627,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void BtnSiguenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguenteActionPerformed
         String opcion = comboEspecialidad.getSelectedItem().toString().trim();
-
+        
     switch(opcion) {
         case "Medicina general":
             tabPaneEspecialidades.setSelectedIndex(1);
@@ -548,10 +652,28 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegisterActionPerformed
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        Login2 login = new Login2();
-        login.setVisible(true);
-        this.dispose();
+    TabPanePrincipal.setSelectedIndex(3);
+
     }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void BtnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegister1ActionPerformed
+        register regist = new register();
+        regist.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnRegister1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void BtnVentanaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentanaLoginActionPerformed
+              TabPanePrincipal.setSelectedIndex(0);
+              BtnLogin.setVisible(false);
+    }//GEN-LAST:event_BtnVentanaLoginActionPerformed
+
+    private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -589,9 +711,12 @@ public class inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrarSesion;
     private javax.swing.JButton BtnLogin;
     private javax.swing.JButton BtnRegister;
+    private javax.swing.JButton BtnRegister1;
     private javax.swing.JButton BtnSiguente;
+    private javax.swing.JButton BtnVentanaLogin;
     private javax.swing.JPanel PanelInicio;
     private javax.swing.JTabbedPane TabPanePrincipal;
     private javax.swing.JTabbedPane VentanasInicio;
@@ -615,8 +740,10 @@ public class inicio extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -631,6 +758,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -652,17 +780,20 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
@@ -673,6 +804,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -683,6 +816,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
