@@ -15,14 +15,17 @@ public class Citas {
     private String especialidad;
     private LocalDate fecha;
     private String estado;
-    private String prioridadUrgencia;
+    private String medicoId;
     
-    public Citas(int idCita,String especialidad, LocalDate fecha, Date hora, String estado, String prioridadUrgencia){
+   
+    
+    public Citas(int idCita,String especialidad, LocalDate fecha, Date hora, String estado, String medicoId){
         this.idCita = idCita;
         this.especialidad = especialidad;
         this.fecha = fecha;
         this.estado = estado;
-        this.prioridadUrgencia = prioridadUrgencia;
+        this.medicoId = medicoId;
+        
     }
 
     public int getIdCita() {
@@ -57,14 +60,14 @@ public class Citas {
         this.estado = estado;
     }
 
-    public String getPrioridadUrgencia() {
-        return prioridadUrgencia;
+    public String getMedicoId() {
+        return medicoId;
     }
 
-    public void setPrioridadUrgencia(String prioridadUrgencia) {
-        this.prioridadUrgencia = prioridadUrgencia;
+    public void setMedicoId(String medicoId) {
+        this.medicoId = medicoId;
     }
-    
+
     
 
 }
