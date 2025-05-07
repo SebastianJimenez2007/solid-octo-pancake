@@ -17,16 +17,16 @@ public class LoginController {
     private JPasswordField pfClave;
     private AuthService authService;
     private JTabbedPane tabPanePrincipal; // Referencia al JTabbedPane
-    private JButton BtnVentanaLogin; // Referencia al botón de login
+    private JButton BtnLogin; // Referencia al botón de login
 
     // Constructor modificado para recibir los nuevos componentes
     public LoginController(JTextField tfCorreo, JPasswordField pfClave, 
-                          JTabbedPane tabPanePrincipal, JButton BtnVentanaLogin) {
+                          JTabbedPane tabPanePrincipal, JButton BtnLogin) {
         this.tfCorreo = tfCorreo;
         this.pfClave = pfClave;
         this.authService = new AuthService();
         this.tabPanePrincipal = tabPanePrincipal;
-        this.BtnVentanaLogin = BtnVentanaLogin;
+        this.BtnLogin = BtnLogin;
     }
 
     public void login() {
@@ -39,7 +39,7 @@ public class LoginController {
             tabPanePrincipal.setSelectedIndex(0);
             
             // 2. Ocultar el botón de login
-            BtnVentanaLogin.setVisible(false);
+            BtnLogin.setVisible(false);
             
             JOptionPane.showMessageDialog(null, "¡Bienvenido, " + usuario.getNombre() + "!");
         } else {

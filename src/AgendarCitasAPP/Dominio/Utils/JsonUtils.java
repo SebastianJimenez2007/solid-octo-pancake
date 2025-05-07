@@ -1,39 +1,43 @@
 package AgendarCitasAPP.Dominio.Utils;
 
 import com.google.gson.*;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class JsonUtils {
-    // Configuración centralizada de Gson con adaptadores
     private static final Gson gson = new GsonBuilder()
         .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
         .setPrettyPrinting()
         .create();
 
-    // --- Métodos principales --- //
-    public static <T> List<T> leerJson(String rutaArchivo, Type tipoLista) {
-        try (FileReader reader = new FileReader(rutaArchivo)) {
+    public static <T> List<T> leerJson(String rutaArchivo, Type tipoLista) throws IOException {
+        // Verificar si el archivo existe
+        File file = new File(rutaArchivo);
+        if (!file.exists()) {
+            throw new FileNotFoundException("Archivo no encontrado: " + rutaArchivo);
+        }
+
+        try (InputStreamReader reader = new InputStreamReader(
+             new FileInputStream(file), StandardCharsets.UTF_8)) {
+             
             return gson.fromJson(reader, tipoLista);
-        } catch (Exception e) {
-            System.err.println("Error al leer JSON: " + e.getMessage());
-            return null;
+        } catch (JsonSyntaxException | JsonIOException e) {
+            throw new IOException("Error al parsear JSON: " + e.getMessage(), e);
         }
     }
 
-    public static <T> void guardarJson(String rutaArchivo, List<T> datos) {
-        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+    public static <T> void guardarJson(String rutaArchivo, List<T> datos) throws IOException {
+        try (OutputStreamWriter writer = new OutputStreamWriter(
+             new FileOutputStream(rutaArchivo), StandardCharsets.UTF_8)) {
+             
             gson.toJson(datos, writer);
-        } catch (Exception e) {
-            System.err.println("Error al guardar JSON: " + e.getMessage());
         }
     }
 
-    // --- Adaptador para LocalDate --- //
     private static class LocalDateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
         private final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
@@ -43,8 +47,13 @@ public class JsonUtils {
         }
 
         @Override
-        public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext context) {
-            return LocalDate.parse(json.getAsString(), formatter);
+        public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext context) 
+            throws JsonParseException {
+            try {
+                return LocalDate.parse(json.getAsString(), formatter);
+            } catch (Exception e) {
+                throw new JsonParseException("Error al parsear fecha: " + json.getAsString(), e);
+            }
         }
     }
 }

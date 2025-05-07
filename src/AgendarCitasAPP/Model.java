@@ -4,6 +4,8 @@
  */
 package AgendarCitasAPP;
 
+import java.io.File;
+
 /**
  *
  * @author Sebastian JB
@@ -14,7 +16,9 @@ public class Model {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Directorio actual: " + System.getProperty("user.dir"));
+        System.out.println("Archivo encontrado: " + new File("Usuarios.json").exists());
+        
     }
     
 }

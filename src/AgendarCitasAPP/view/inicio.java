@@ -21,12 +21,19 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-           System.out.println("tfCorreo: " + (tfCorreo != null));
-    System.out.println("pfClave: " + (pfClave != null));
-    System.out.println("TabPanePrincipal: " + (TabPanePrincipal != null));
-    System.out.println("BtnVentanaLogin: " + (BtnVentanaLogin != null));
+        // Verificar inicialización
+    if (tfCorreo == null || pfClave == null || TabPanePrincipal == null || BtnVentanaLogin == null) {
+        JOptionPane.showMessageDialog(this, 
+            "Error: Componentes no inicializados\n" +
+            "tfCorreo: " + (tfCorreo != null) + "\n" +
+            "pfClave: " + (pfClave != null) + "\n" +
+            "TabPanePrincipal: " + (TabPanePrincipal != null) + "\n" +
+            "BtnVentanaLogin: " + (BtnVentanaLogin != null),
+            "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
     
-    LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnVentanaLogin);
+    LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnLogin);
     BtnVentanaLogin.addActionListener(e -> controller.login());
     }
 
