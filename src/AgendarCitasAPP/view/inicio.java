@@ -4,20 +4,26 @@
  */
 package AgendarCitasAPP.view;
 
+import AgendarCitasAPP.Controllers.LoginController;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 
 /**
  *
  * @author Sebastian JB
  */
 public class inicio extends javax.swing.JFrame {
-
-    /**
-     * Creates new form inicio
-     */
+     
+   
     public inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+         LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnLogin);
+        
+        BtnLogin.addActionListener(e -> controller.login());
     }
 
     /**
@@ -131,9 +137,9 @@ public class inicio extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pfClave = new javax.swing.JPasswordField();
         BtnRegister1 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        tfCorreo = new javax.swing.JTextField();
         BtnVentanaLogin = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -532,11 +538,16 @@ public class inicio extends javax.swing.JFrame {
         jLabel11.setText("LOGIN");
         jPanel16.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 21, -1, -1));
 
-        jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
-        jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setCaretColor(new java.awt.Color(102, 102, 102));
-        jPanel16.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 126, 220, 34));
+        pfClave.setForeground(new java.awt.Color(153, 153, 153));
+        pfClave.setText("Password");
+        pfClave.setBorder(null);
+        pfClave.setCaretColor(new java.awt.Color(102, 102, 102));
+        pfClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfClaveActionPerformed(evt);
+            }
+        });
+        jPanel16.add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 126, 220, 34));
 
         BtnRegister1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnRegister1.setForeground(new java.awt.Color(49, 82, 192));
@@ -549,15 +560,15 @@ public class inicio extends javax.swing.JFrame {
         });
         jPanel16.add(BtnRegister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, 220, 34));
 
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("Name");
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        tfCorreo.setText("Correo");
+        tfCorreo.setBorder(null);
+        tfCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfCorreoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 80, 220, 34));
+        jPanel16.add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 80, 220, 34));
 
         BtnVentanaLogin.setBackground(new java.awt.Color(49, 82, 192));
         BtnVentanaLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -667,13 +678,13 @@ public class inicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnRegister1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfCorreoActionPerformed
 
     private void BtnVentanaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVentanaLoginActionPerformed
-              TabPanePrincipal.setSelectedIndex(0);
-              BtnLogin.setVisible(false);
+        
+        
     }//GEN-LAST:event_BtnVentanaLoginActionPerformed
 
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
@@ -683,6 +694,10 @@ public class inicio extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void pfClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pfClaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -817,7 +832,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -828,7 +842,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JPasswordField pfClave;
     private javax.swing.JTabbedPane tabPaneEspecialidades;
+    private javax.swing.JTextField tfCorreo;
     // End of variables declaration//GEN-END:variables
 }
