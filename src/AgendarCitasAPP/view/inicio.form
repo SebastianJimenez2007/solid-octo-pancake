@@ -521,7 +521,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JTextPane" name="jTextPane1">
+                                    <Component class="javax.swing.JTextPane" name="TextMedicamentosAnteriores">
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -548,7 +548,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                                <Component class="javax.swing.JComboBox" name="ComboUbicacionDolor">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="13">
@@ -600,7 +600,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                                <Component class="javax.swing.JComboBox" name="ComboSiNo">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="3">
@@ -629,7 +629,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox4">
+                                <Component class="javax.swing.JComboBox" name="ComboTiempoMalestar">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="6">
@@ -673,7 +673,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JTextPane" name="jTextPane2">
+                                    <Component class="javax.swing.JTextPane" name="TextDescripcion_general">
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -700,7 +700,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox5">
+                                <Component class="javax.swing.JComboBox" name="ComboIntensidadDolor">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="5">
@@ -754,7 +754,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+                                <Component class="com.toedter.calendar.JDateChooser" name="DataFechaCita">
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                                       <AbsoluteConstraints x="40" y="640" width="164" height="-1"/>
@@ -771,7 +771,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox7">
+                                <Component class="javax.swing.JComboBox" name="ComboHoraCita">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="30">
@@ -821,6 +821,9 @@
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agendar"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                                  </Events>
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                                       <AbsoluteConstraints x="40" y="740" width="410" height="40"/>
@@ -884,7 +887,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox8">
+                                <Component class="javax.swing.JComboBox" name="ComboMotivoConsulta">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="9">
@@ -931,7 +934,7 @@
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                                   <SubComponents>
-                                    <Component class="javax.swing.JTextPane" name="jTextPane3">
+                                    <Component class="javax.swing.JTextPane" name="TextEspecificarDolor">
                                     </Component>
                                   </SubComponents>
                                 </Container>
@@ -958,7 +961,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+                                <Component class="com.toedter.calendar.JDateChooser" name="DateFechaCitaO">
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                                       <AbsoluteConstraints x="40" y="270" width="164" height="-1"/>
@@ -975,7 +978,7 @@
                                     </Constraint>
                                   </Constraints>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="jComboBox9">
+                                <Component class="javax.swing.JComboBox" name="ComboSeleccionarHoraO">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="30">
