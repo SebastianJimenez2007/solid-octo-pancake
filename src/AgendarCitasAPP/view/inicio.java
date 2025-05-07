@@ -21,9 +21,13 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-         LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnLogin);
-        
-        BtnLogin.addActionListener(e -> controller.login());
+           System.out.println("tfCorreo: " + (tfCorreo != null));
+    System.out.println("pfClave: " + (pfClave != null));
+    System.out.println("TabPanePrincipal: " + (TabPanePrincipal != null));
+    System.out.println("BtnVentanaLogin: " + (BtnVentanaLogin != null));
+    
+    LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnVentanaLogin);
+    BtnVentanaLogin.addActionListener(e -> controller.login());
     }
 
     /**
@@ -142,7 +146,6 @@ public class inicio extends javax.swing.JFrame {
         tfCorreo = new javax.swing.JTextField();
         BtnVentanaLogin = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -589,10 +592,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel14.setText("Planifica+");
         jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AgendarCitasAPP/view/medical-history_10299433.png"))); // NOI18N
-        jLabel28.setText("jLabel3");
-        jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 130, -1));
-
         jLabel48.setFont(new java.awt.Font("Segoe UI Variable", 1, 50)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Planifica+");
@@ -785,7 +784,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;

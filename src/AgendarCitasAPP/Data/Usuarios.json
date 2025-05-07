@@ -1,0 +1,14 @@
+[
+{
+    "id": "1",
+    "clave": "123",
+    "nombre": "Klever",
+    "apellido": "polo",
+    "fechaNacimiento": "2006-05-15",
+    "genero": "MASCULINO",
+    "direccion": "calle 123",
+    "correo": "klever@gmail.com",
+    "telefono": "3044590500",
+    "rol": "PACIENTE"
+}
+]   
