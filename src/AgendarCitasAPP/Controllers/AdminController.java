@@ -51,6 +51,24 @@ public class AdminController {
             throw new RuntimeException("Error al cargar pacientes: " + e.getMessage());
         }
     }
+    
+    public static void actualizarUsuario(Usuario usuarioActualizado) throws IOException{
+        //leer todos los usuarios
+        Type tipoLista = new TypeToken<List<Usuario>>(){}.getType();
+        List<Usuario> usuarios = JsonUtils.leerJson("usuarios.jason", tipoLista);
+        
+        //Buscar y actualizar el usuario
+        
+        for(int i = 0; i< usuarios.size();i++ ){
+            if(usuarios.get(i).getId().equals(usuarioActualizado.getId())){
+                usuarios.set(i, usuarioActualizado);
+                break;
+            }
+            
+            JsonUtils.guardarJson("Usuarios.json", usuarios);
+        }
+        
+    }
 }
     
 
