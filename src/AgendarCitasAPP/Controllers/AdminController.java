@@ -69,6 +69,20 @@ public class AdminController {
         }
         
     }
+    
+    public static void eliminarUsuario(String idUsuario)throws IOException{
+        //lee los usuarios
+        Type tipoLista = new TypeToken<List<Usuario>> () {}.getType();
+        List<Usuario> usuarios = JsonUtils.leerJson("Usuarios.jason", tipoLista);
+        
+        //filtra y elimina usuarios
+        usuarios.removeIf(u -> u.getId().equals(idUsuario));
+        
+        //Gusrda cambios
+        
+        JsonUtils.guardarJson("Usuarios.json", usuarios);
+        
+    }
 }
     
 
