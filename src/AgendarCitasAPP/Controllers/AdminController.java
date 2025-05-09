@@ -35,6 +35,11 @@ public class AdminController {
                     modelo.addRow(new Object[]{
                         u.getId(),
                         u.getNombre(),
+                        u.getApellido(),
+                        u.getClave(),
+                        u.getFechaNacimiento(),
+                        u.getDireccion(),
+                        u.getTelefono(),
                         u.getCorreo(),
                         u.getRol().toString(),
                         

@@ -179,31 +179,32 @@ public class Admin extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
 
+        jPanel11.setBackground(new java.awt.Color(204, 204, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Correo", "Rol", "Estado"
+                "ID", "Nombre", "Apellido", "Clave", "Fecha Nacimiento", "Direccion", "tellefono", "Correo"
             }
         ));
         jScrollPane2.setViewportView(tablaUsuarios);
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 328));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 720, 320));
 
         jLabel9.setText("jLabel9");
-        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, -1));
 
         jTextField1.setText("jTextField1");
-        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
         jButton1.setText("jButton1");
-        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
+        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
 
