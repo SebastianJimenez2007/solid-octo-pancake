@@ -5,10 +5,12 @@
 package AgendarCitasAPP.Dominio.Utils;
 
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
+import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.lang.reflect.Type;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -16,7 +18,9 @@ import java.util.List;
  */
 public class AuthService {
     private static final String RUTA_USUARIOS = obtenerRutaUsuarios();
-
+    
+    private List<Usuario> usuarios = new ArrayList<>();
+    
     private static String obtenerRutaUsuarios() {
         // Usar barra como separador de carpetas
         String ruta = "Usuarios.json";
@@ -48,4 +52,39 @@ public class AuthService {
         }
         return null;
     }
+
+    public Usuario registrar(String nombre, String correo, String clave, 
+            String telefono, String genero, String rol) {//inicio metodo registrar
+        // Validar si el correo ya existe
+        for (Usuario u : usuarios) {
+            if (u.getCorreo().equalsIgnoreCase(correo)) {
+                return null; // Ya está registrado
+            }
+        }
+
+        // Crear nuevo usuario
+        Usuario nuevo = new Usuario();
+        nuevo.setNombre(nombre);
+        nuevo.setCorreo(correo);
+        nuevo.setClave(clave);
+        nuevo.setTelefono(telefono);
+
+        // Convertir Strings a enums (con validación básica)
+        try {
+            nuevo.setGenero(GeneroEnum.valueOf(genero.toUpperCase()));
+        } catch (IllegalArgumentException e) {
+            nuevo.setGenero(GeneroEnum.OTROS); // o un valor por defecto
+        }
+
+        try {
+            nuevo.setRol(RolEnum.valueOf(rol.toUpperCase()));
+        } catch (IllegalArgumentException e) {
+            nuevo.setRol(RolEnum.PACIENTE); // por defecto
+        }
+
+        // Guardar en lista temporal
+        usuarios.add(nuevo);
+
+        return nuevo;
+    }//fin metodo register
 }

@@ -4,6 +4,9 @@
  */
 package AgendarCitasAPP.view;
 
+import AgendarCitasAPP.Controllers.SingUpController;
+import javax.swing.*;
+
 /**
  *
  * @author Sebastian JB
@@ -16,6 +19,35 @@ public class register extends javax.swing.JFrame {
     public register() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        if (text_nameSingUp == null || text_correoSingUp == null || text_passSingUp == null || pfConfirmarClave == null ||
+        text_cellSingUp == null || text_generoSingUp == null || pfConfirmarClave == null || 
+        btn_SingUp == null || btn_Login == null) {
+    
+    JOptionPane.showMessageDialog(this, 
+        "Error: Componentes no inicializados\n" +
+        "text_nameSingUp: " + (text_nameSingUp != null) + "\n" +
+        "text_correoSingUp: " + (text_correoSingUp != null) + "\n" +
+        "text_passSingUp: " + (text_passSingUp != null) + "\n" +
+        "pfConfirmarClave: " + (pfConfirmarClave != null) + "\n" +
+        "text_cellSingUp: " + (text_cellSingUp != null) + "\n" +
+        "text_generoSingUp: " + (text_generoSingUp != null) + "\n" +
+        "text_rolSingUp: " + (pfConfirmarClave != null) + "\n" +
+        //"tabPanePrincipal: " + (tabPanePrincipal != null) + "\n" +
+        "btn_SingUp: " + (btn_SingUp != null) + "\n" +
+        "btn_Login: " + (btn_Login != null),
+        "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Crear el controlador y conectar el botón al método registrar
+    SingUpController controller = new SingUpController(
+        text_nameSingUp, text_correoSingUp, text_passSingUp, pfConfirmarClave,
+        text_cellSingUp, text_generoSingUp, pfConfirmarClave, btn_SingUp, btn_Login
+    );
+
+    btn_SingUp.addActionListener(e -> controller.registrarUsuario());
+
     }
 
     /**
@@ -32,15 +64,16 @@ public class register extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        BtnLogin = new javax.swing.JButton();
+        text_nameSingUp = new javax.swing.JTextField();
+        text_correoSingUp = new javax.swing.JTextField();
+        btn_SingUp = new javax.swing.JButton();
+        btn_Login = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        text_cellSingUp = new javax.swing.JTextField();
+        text_generoSingUp = new javax.swing.JTextField();
+        text_rolSingUp1 = new javax.swing.JTextField();
+        pfConfirmarClave = new javax.swing.JPasswordField();
+        text_passSingUp = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,53 +93,64 @@ public class register extends javax.swing.JFrame {
         jLabel3.setText("Register to ");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("Name");
-        jTextField3.setBorder(null);
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
+        text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_nameSingUp.setText("Name");
+        text_nameSingUp.setBorder(null);
+        jPanel2.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 234, 34));
 
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("contraseña");
-        jTextField2.setBorder(null);
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 156, 234, 34));
+        text_correoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_correoSingUp.setText("correo");
+        text_correoSingUp.setBorder(null);
+        jPanel2.add(text_correoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 234, 34));
 
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("correo");
-        jTextField1.setBorder(null);
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 110, 234, 34));
+        btn_SingUp.setBackground(new java.awt.Color(49, 82, 192));
+        btn_SingUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_SingUp.setForeground(new java.awt.Color(255, 255, 255));
+        btn_SingUp.setText("Register");
+        btn_SingUp.setBorder(null);
+        btn_SingUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SingUpActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_SingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 234, 34));
 
-        jButton2.setBackground(new java.awt.Color(49, 82, 192));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Register");
-        jButton2.setBorder(null);
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 234, 34));
-
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("telefono");
-        jTextField4.setBorder(null);
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 234, 34));
-
-        BtnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnLogin.setForeground(new java.awt.Color(49, 82, 192));
-        BtnLogin.setText("Log in");
-        BtnLogin.setBorder(null);
-        jPanel2.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 234, 34));
+        btn_Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_Login.setForeground(new java.awt.Color(49, 82, 192));
+        btn_Login.setText("Log in");
+        btn_Login.setBorder(null);
+        jPanel2.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 234, 34));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(49, 82, 192));
         jLabel1.setText("Planifica+");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        jTextField5.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField5.setText("telefono");
-        jTextField5.setBorder(null);
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 202, 234, 34));
+        text_cellSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_cellSingUp.setText("telefono");
+        text_cellSingUp.setBorder(null);
+        jPanel2.add(text_cellSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 234, 34));
 
-        jTextField6.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField6.setText("telefono");
-        jTextField6.setBorder(null);
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 234, 34));
+        text_generoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_generoSingUp.setText("genero");
+        text_generoSingUp.setBorder(null);
+        jPanel2.add(text_generoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 234, 34));
+
+        text_rolSingUp1.setForeground(new java.awt.Color(153, 153, 153));
+        text_rolSingUp1.setText("rol");
+        text_rolSingUp1.setBorder(null);
+        text_rolSingUp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_rolSingUp1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(text_rolSingUp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 234, 34));
+
+        pfConfirmarClave.setText("pfConfirmarClave");
+        jPanel2.add(pfConfirmarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 230, 30));
+
+        text_passSingUp.setText("jPasswordField1");
+        jPanel2.add(text_passSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 230, 30));
 
         jScrollPane1.setViewportView(jPanel2);
 
@@ -122,6 +166,15 @@ public class register extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_SingUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SingUpActionPerformed
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_SingUpActionPerformed
+
+    private void text_rolSingUp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_rolSingUp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_rolSingUp1ActionPerformed
 
 
     /**
@@ -160,19 +213,20 @@ public class register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnLogin;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_Login;
+    private javax.swing.JButton btn_SingUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JPasswordField pfConfirmarClave;
+    private javax.swing.JTextField text_cellSingUp;
+    private javax.swing.JTextField text_correoSingUp;
+    private javax.swing.JTextField text_generoSingUp;
+    private javax.swing.JTextField text_nameSingUp;
+    private javax.swing.JPasswordField text_passSingUp;
+    private javax.swing.JTextField text_rolSingUp1;
     // End of variables declaration//GEN-END:variables
 }
