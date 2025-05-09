@@ -4,6 +4,13 @@
  */
 package AgendarCitasAPP.view;
 
+import AgendarCitasAPP.Controllers.AdminController;
+import AgendarCitasAPP.Dominio.Entidades.Usuario;
+import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -18,9 +25,17 @@ public class Admin extends javax.swing.JFrame {
      * Creates new form Admin
      */
     public Admin() {
-        initComponents();
-         
+         initComponents(); // Pasar el modelo de la tabla al controlador
+    try {
+        AdminController.cargarPacientesEnTabla(
+            (DefaultTableModel) tablaUsuarios.getModel() // ← Aquí sí usas tablaUsuarios
+        );
+    } catch (RuntimeException e) {
+        JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
+    }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,9 +66,12 @@ public class Admin extends javax.swing.JFrame {
         TabPaneAdmin = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel9 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaUsuarios = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
@@ -161,10 +179,9 @@ public class Admin extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel9.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -175,11 +192,20 @@ public class Admin extends javax.swing.JFrame {
                 "ID", "Nombre", "Correo", "Rol", "Estado"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tablaUsuarios);
 
-        jPanel9.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 328));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 328));
 
-        jScrollPane1.setViewportView(jPanel9);
+        jLabel9.setText("jLabel9");
+        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
+        jButton1.setText("jButton1");
+        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
+
+        jScrollPane1.setViewportView(jPanel11);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -350,6 +376,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel PanelGestionUsuarios;
     private javax.swing.JTabbedPane TabPaneAdmin;
     private javax.swing.JPanel TabPaneReportes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -358,8 +385,10 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -367,16 +396,16 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tablaUsuarios;
     // End of variables declaration//GEN-END:variables
 }
