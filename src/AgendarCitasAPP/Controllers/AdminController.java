@@ -83,6 +83,14 @@ public class AdminController {
         JsonUtils.guardarJson("Usuarios.json", usuarios);
         
     }
+    
+    // Nuevo método para validación
+    public static boolean validarUsuario(Usuario usuario) {
+        return usuario != null && 
+               !usuario.getNombre().isEmpty() && 
+               !usuario.getApellido().isEmpty();
+    }
 }
+
     
 

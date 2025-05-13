@@ -35,6 +35,8 @@ public class Admin extends javax.swing.JFrame {
     }
     }
     
+    
+    
   
 
     /**
@@ -64,7 +66,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         TabPaneAdmin = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
+        paneGestionUsuario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -72,15 +74,15 @@ public class Admin extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jPanel7 = new javax.swing.JPanel();
+        paneGestionCitas = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jPanel8 = new javax.swing.JPanel();
+        paneReportes = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,7 +177,7 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 130, 40));
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        paneGestionUsuario.setBackground(new java.awt.Color(204, 204, 255));
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -208,21 +210,21 @@ public class Admin extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel11);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout paneGestionUsuarioLayout = new javax.swing.GroupLayout(paneGestionUsuario);
+        paneGestionUsuario.setLayout(paneGestionUsuarioLayout);
+        paneGestionUsuarioLayout.setHorizontalGroup(
+            paneGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        paneGestionUsuarioLayout.setVerticalGroup(
+            paneGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
         );
 
-        TabPaneAdmin.addTab("0", jPanel4);
+        TabPaneAdmin.addTab("0", paneGestionUsuario);
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        paneGestionMedicos.setBackground(new java.awt.Color(255, 204, 204));
+        paneGestionMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setBackground(new java.awt.Color(255, 204, 204));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -244,12 +246,12 @@ public class Admin extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jPanel10);
 
-        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, -2, 800, 360));
+        paneGestionMedicos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, -2, 800, 360));
 
-        TabPaneAdmin.addTab("1", jPanel5);
+        TabPaneAdmin.addTab("1", paneGestionMedicos);
 
-        jPanel7.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        paneGestionCitas.setBackground(new java.awt.Color(204, 255, 204));
+        paneGestionCitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -264,24 +266,24 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(jTable4);
 
-        jPanel7.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 328));
+        paneGestionCitas.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 328));
 
-        TabPaneAdmin.addTab("2", jPanel7);
+        TabPaneAdmin.addTab("2", paneGestionCitas);
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 102));
+        paneReportes.setBackground(new java.awt.Color(255, 255, 102));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout paneReportesLayout = new javax.swing.GroupLayout(paneReportes);
+        paneReportes.setLayout(paneReportesLayout);
+        paneReportesLayout.setHorizontalGroup(
+            paneReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        paneReportesLayout.setVerticalGroup(
+            paneReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 355, Short.MAX_VALUE)
         );
 
-        TabPaneAdmin.addTab("3", jPanel8);
+        TabPaneAdmin.addTab("3", paneReportes);
 
         jPanel1.add(TabPaneAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 390));
 
@@ -392,11 +394,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -407,6 +405,10 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel paneGestionCitas;
+    private javax.swing.JPanel paneGestionMedicos;
+    private javax.swing.JPanel paneGestionUsuario;
+    private javax.swing.JPanel paneReportes;
     private javax.swing.JTable tablaUsuarios;
     // End of variables declaration//GEN-END:variables
 }

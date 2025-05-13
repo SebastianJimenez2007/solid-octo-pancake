@@ -32,7 +32,7 @@ public class register extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -60,10 +60,15 @@ public class register extends javax.swing.JFrame {
         jLabel3.setText("Register to ");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("Name");
-        jTextField3.setBorder(null);
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
+        txtId.setForeground(new java.awt.Color(153, 153, 153));
+        txtId.setText("Name");
+        txtId.setBorder(null);
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
         jTextField2.setText("contraseña");
@@ -123,6 +128,10 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -170,9 +179,9 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }
