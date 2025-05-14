@@ -10,6 +10,7 @@ import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -52,35 +53,34 @@ public class AdminController {
         }
     }
     
-    public static void actualizarUsuario(Usuario usuarioActualizado) throws IOException{
-        //leer todos los usuarios
-        Type tipoLista = new TypeToken<List<Usuario>>(){}.getType();
-        List<Usuario> usuarios = JsonUtils.leerJson("usuarios.jason", tipoLista);
-        
-        //Buscar y actualizar el usuario
-        
-        for(int i = 0; i< usuarios.size();i++ ){
-            if(usuarios.get(i).getId().equals(usuarioActualizado.getId())){
-                usuarios.set(i, usuarioActualizado);
-                break;
-            }
-            
-            JsonUtils.guardarJson("Usuarios.json", usuarios);
-        }
-        
-    }
+   public static void actualizarUsuario(String id, String nombre, String apellido, String clave, String fechaNacimiento, String direccion, String telefono, String correo, String genero, String rol) throws Exception {
+    
+    // Crear objeto Usuario con los datos actualizados
+    Usuario usuarioActualizado = new Usuario();
+    usuarioActualizado.setId(id);
+    usuarioActualizado.setNombre(nombre);
+    usuarioActualizado.setApellido(apellido);
+    usuarioActualizado.setClave(clave);
+    usuarioActualizado.setFechaNacimiento(LocalDate.parse(fechaNacimiento));
+    usuarioActualizado.setDireccion(direccion);
+    usuarioActualizado.setTelefono(telefono);
+    usuarioActualizado.setCorreo(correo);
+    
+    // Guardar en la base de datos
+    JsonUtils.actualizarUsuario(usuarioActualizado);
+}
     
     public static void eliminarUsuario(String idUsuario)throws IOException{
         //lee los usuarios
         Type tipoLista = new TypeToken<List<Usuario>> () {}.getType();
-        List<Usuario> usuarios = JsonUtils.leerJson("Usuarios.jason", tipoLista);
+        List<Usuario> usuarios = JsonUtils.leerJson("/Usuarios.jason", tipoLista);
         
         //filtra y elimina usuarios
         usuarios.removeIf(u -> u.getId().equals(idUsuario));
         
         //Gusrda cambios
         
-        JsonUtils.guardarJson("Usuarios.json", usuarios);
+        JsonUtils.guardarJson("/Usuarios.json", usuarios);
         
     }
     

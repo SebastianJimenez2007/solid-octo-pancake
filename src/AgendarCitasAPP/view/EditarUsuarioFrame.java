@@ -4,6 +4,10 @@
  */
 package AgendarCitasAPP.view;
 
+import AgendarCitasAPP.Controllers.AdminController;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sebas
@@ -13,10 +17,90 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
     /**
      * Creates new form EditarUsuarioFrame
      */
-    public EditarUsuarioFrame() {
-        initComponents();
-    }
+    private DefaultTableModel modeloTabla; // Añade esta línea
 
+    public EditarUsuarioFrame(String id, String nombre, String apellido, String clave, 
+        String fechaNacimiento, String direccion, String telefono, String correo,
+        DefaultTableModel modeloTabla) {
+        initComponents();
+        
+        this.modeloTabla = modeloTabla;
+        
+        // Establecer valores en los campos
+        txtId.setText(id);
+        txtNombre.setText(nombre);
+        txtApellido.setText(apellido);
+        txtClave.setText(clave);
+        txtFechaNacimiento.setText(fechaNacimiento);
+        txtDireccion.setText(direccion);
+        txtTele.setText(telefono);
+        txtCorreo.setText(correo);
+        
+        // Limpiar textos por defecto incorrectos
+        txtId.setForeground(java.awt.Color.BLACK);
+        txtNombre.setForeground(java.awt.Color.BLACK);
+        txtApellido.setForeground(java.awt.Color.BLACK);
+        txtClave.setForeground(java.awt.Color.BLACK);
+        txtFechaNacimiento.setForeground(java.awt.Color.BLACK);
+        txtDireccion.setForeground(java.awt.Color.BLACK);
+        txtTele.setForeground(java.awt.Color.BLACK);
+        txtCorreo.setForeground(java.awt.Color.BLACK);
+        
+        // Configurar botón cancelar
+        BtnCancelar.addActionListener(e -> this.dispose());
+        
+        // Configurar botón guardar
+        BtnEditar.addActionListener(e -> guardarCambios());
+    }
+    
+   private void guardarCambios() {
+        try {
+            // Obtener los nuevos valores
+            String id = txtId.getText();
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            String clave = txtClave.getText();
+            String fechaNacimiento = txtFechaNacimiento.getText();
+            String direccion = txtDireccion.getText();
+            String telefono = txtTele.getText();
+            String correo = txtCorreo.getText();
+            String rol = cmbRol.getSelectedItem().toString();
+            String genero = cmbGenero.getSelectedItem().toString();
+            
+            // Validación básica de campos
+            if (nombre.isEmpty() || apellido.isEmpty() || clave.isEmpty() || 
+                fechaNacimiento.isEmpty() || direccion.isEmpty() || 
+                telefono.isEmpty() || correo.isEmpty()) {
+                throw new Exception("Todos los campos son obligatorios");
+            }
+            
+            // Validación de correo electrónico
+            if (!correo.contains("@") || !correo.contains(".")) {
+                throw new Exception("El correo electrónico no es válido");
+            }
+            
+            // Actualizar en la base de datos
+            AdminController.actualizarUsuario(
+                id, nombre, apellido, clave, fechaNacimiento, 
+                direccion, telefono, correo, genero, rol
+            );
+            
+            // Actualizar la tabla en Admin
+            AdminController.cargarPacientesEnTabla(modeloTabla);
+            
+            JOptionPane.showMessageDialog(this, 
+                "Usuario actualizado correctamente", 
+                "Éxito", 
+                JOptionPane.INFORMATION_MESSAGE);
+            
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                "Error al actualizar usuario: " + e.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +112,8 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtId = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
@@ -54,6 +140,8 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jLabel2.setText("Planifica+");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtId.setForeground(new java.awt.Color(153, 153, 153));
@@ -64,6 +152,11 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("contraseña");
         txtNombre.setBorder(null);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 156, 234, 34));
 
         txtClave.setForeground(new java.awt.Color(153, 153, 153));
@@ -118,47 +211,25 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
         jPanel2.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 502, 220, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 300, -1));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 300, -1));
+
+        jScrollPane1.setViewportView(jPanel3);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 380, 430));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarUsuarioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarUsuarioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarUsuarioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarUsuarioFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditarUsuarioFrame().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
@@ -169,6 +240,8 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtClave;
     private javax.swing.JTextField txtCorreo;

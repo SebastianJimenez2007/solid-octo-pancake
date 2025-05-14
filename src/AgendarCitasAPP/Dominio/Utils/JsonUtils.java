@@ -1,5 +1,6 @@
 package AgendarCitasAPP.Dominio.Utils;
 
+import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import com.google.gson.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -36,6 +37,10 @@ public class JsonUtils {
              
             gson.toJson(datos, writer);
         }
+    }
+
+    public static void actualizarUsuario(Usuario usuarioActualizado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private static class LocalDateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {

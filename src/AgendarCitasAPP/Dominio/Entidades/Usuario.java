@@ -26,7 +26,7 @@ public class Usuario {
     protected String telefono;
     protected RolEnum rol;
 
-    public Usuario(String text, String text1, String text2, String text3, LocalDate parse, GeneroEnum par, String text4, String text5, String text6, RolEnum par1) {
+    public Usuario() {
     }
 
     public Usuario(String id, String nombre, String apellido, RolEnum rol) {
