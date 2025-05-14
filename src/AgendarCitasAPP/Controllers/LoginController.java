@@ -33,7 +33,7 @@ public class LoginController {
         String correo = tfCorreo.getText();
         String clave = new String(pfClave.getPassword());
 
-        Usuario usuario = AuthService.login(correo, clave);
+        Usuario usuario = authService.login(correo, clave);
         if (usuario != null) {
             // 1. Cambiar a la pestaña deseada (índice 0)
             tabPanePrincipal.setSelectedIndex(0);
