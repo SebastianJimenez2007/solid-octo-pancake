@@ -24,6 +24,29 @@ public class Usuario {
     protected String correo;
     protected String telefono;
     protected RolEnum rol;
+    
+     // Constructor completo
+    public Usuario(String id, String clave, String nombre, String apellido, 
+                  LocalDate fechaNacimiento, GeneroEnum genero, String direccion, 
+                  String correo, String telefono, RolEnum rol) {
+        this.id = id;
+        this.clave = clave;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.genero = genero;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.rol = rol;
+    }
+    
+    // Constructor mínimo (para casos simples)
+    public Usuario(String id, String clave, String nombre) {
+        this.id = id;
+        this.clave = clave;
+        this.nombre = nombre;
+    }
 
     public Usuario() {
     }
