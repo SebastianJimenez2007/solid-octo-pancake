@@ -64,10 +64,12 @@ public class register extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+
         text_nameSingUp = new javax.swing.JTextField();
         text_correoSingUp = new javax.swing.JTextField();
         btn_SingUp = new javax.swing.JButton();
         btn_Login = new javax.swing.JButton();
+
         jLabel1 = new javax.swing.JLabel();
         text_cellSingUp = new javax.swing.JTextField();
         pfConfirmarClave = new javax.swing.JPasswordField();
@@ -93,10 +95,12 @@ public class register extends javax.swing.JFrame {
         jLabel3.setText("Register to ");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
+
         text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_nameSingUp.setText("Name");
         text_nameSingUp.setBorder(null);
         jPanel2.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 234, 34));
+
 
         text_correoSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_correoSingUp.setText("correo");
@@ -158,10 +162,12 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
     private void btn_SingUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SingUpActionPerformed
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_SingUpActionPerformed
+
 
 
     /**
@@ -210,10 +216,12 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+
     private javax.swing.JPasswordField pfConfirmarClave;
     private javax.swing.JTextField text_cellSingUp;
     private javax.swing.JTextField text_correoSingUp;
     private javax.swing.JTextField text_nameSingUp;
     private javax.swing.JPasswordField text_passSingUp;
+
     // End of variables declaration//GEN-END:variables
 }

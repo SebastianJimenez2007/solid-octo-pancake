@@ -9,6 +9,7 @@ package AgendarCitasAPP.Dominio.constantes;
  * @author Sebastian JB
  */
 public enum GeneroEnum {
+
     MASCULINO("Masculino"),
     FEMENINO("Femenino"),
     OTROS("Otros");
@@ -33,3 +34,6 @@ public enum GeneroEnum {
         return OTROS; // Valor por defecto
     }
 }
+
+
+

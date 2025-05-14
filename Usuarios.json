@@ -10,6 +10,7 @@
     "correo": "klever@gmail.com",
     "telefono": "3044590500",
     "rol": "PACIENTE"
+
   },
   {
     "clave": "mi.hijo",
@@ -18,5 +19,49 @@
     "correo": "javier@gmail.com",
     "telefono": "8004318931",
     "rol": "PACIENTE"
+  },
+
+
+        
+
+  {
+    "id": "2",
+    "clave": "456",
+    "nombre": "Laura",
+    "apellido": "Gómez",
+    "fechaNacimiento": "1995-08-20",
+    "genero": "FEMENINO",
+    "direccion": "avenida 456",
+    "correo": "laura@gmail.com",
+    "telefono": "3001122334",
+    "rol": "PACIENTE"
+  },
+  {
+    "id": "3",
+    "clave": "789",
+    "nombre": "Carlos",
+    "apellido": "Ramírez",
+    "fechaNacimiento": "1988-03-10",
+    "genero": "MASCULINO",
+    "direccion": "carrera 7 #45-89",
+    "correo": "carlos.ramirez@gmail.com",
+    "telefono": "3105566778",
+    "rol": "MEDICO"
+  },
+  {
+    "id": "4",
+    "clave": "321",
+    "nombre": "Valentina",
+    "apellido": "López",
+    "fechaNacimiento": "2002-11-02",
+    "genero": "FEMENINO",
+    "direccion": "calle 80 #32-12",
+    "correo": "valentina.lopez@gmail.com",
+    "telefono": "3119988776",
+    "rol": "PACIENTE"
   }
-]
+
+
+
+]   
+
