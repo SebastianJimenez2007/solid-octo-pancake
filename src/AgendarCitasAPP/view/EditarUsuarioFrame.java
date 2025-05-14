@@ -144,8 +144,9 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtId.setEditable(false);
         txtId.setForeground(new java.awt.Color(153, 153, 153));
-        txtId.setText("Name");
+        txtId.setText("Id");
         txtId.setBorder(null);
         jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
 

@@ -74,8 +74,8 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         BtnEditarUsuarioAdmin = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
@@ -204,9 +204,6 @@ public class Admin extends javax.swing.JFrame {
         jLabel9.setText("jLabel9");
         jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
-
         BtnEditarUsuarioAdmin.setText("Editar");
         BtnEditarUsuarioAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +211,14 @@ public class Admin extends javax.swing.JFrame {
             }
         });
         jPanel11.add(BtnEditarUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
 
@@ -381,6 +386,43 @@ public class Admin extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_BtnEditarUsuarioAdminActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       btnEliminar.addActionListener(e -> {
+    int filaSeleccionada = tablaUsuarios.getSelectedRow();
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, 
+            "Seleccione un usuario para eliminar", 
+            "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        // Confirmación antes de eliminar
+        int confirmacion = JOptionPane.showConfirmDialog(
+            this, 
+            "¿Está seguro de eliminar este usuario?", 
+            "Confirmar eliminación",
+            JOptionPane.YES_NO_OPTION);
+        
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            AdminController.eliminarUsuario(id, (DefaultTableModel) tablaUsuarios.getModel());
+            JOptionPane.showMessageDialog(this, 
+                "Usuario eliminado correctamente", 
+                "Éxito", 
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, 
+            "Error al eliminar usuario: " + ex.getMessage(), 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+    }
+});
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +465,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel PanelGestionUsuarios;
     private javax.swing.JTabbedPane TabPaneAdmin;
     private javax.swing.JPanel TabPaneReportes;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -445,7 +488,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel paneGestionCitas;

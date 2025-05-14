@@ -86,4 +86,28 @@ public class JsonUtils {
             }
         }
     }
+    
+    public static void eliminarUsuario(String idUsuario) throws IOException {
+    // Validación básica
+    if (idUsuario == null || idUsuario.isEmpty()) {
+        throw new IllegalArgumentException("El ID del usuario no puede estar vacío");
+    }
+
+    // 1. Obtener la ruta del archivo (deberías tener esto configurado)
+    String rutaArchivo = "Usuarios.json"; // Reemplaza con tu ruta real
+    
+    // 2. Leer todos los usuarios existentes
+    Type tipoLista = new TypeToken<List<Usuario>>(){}.getType();
+    List<Usuario> usuarios = leerJson(rutaArchivo, tipoLista);
+    
+    // 3. Buscar y eliminar el usuario
+    boolean eliminado = usuarios.removeIf(usuario -> usuario.getId().equals(idUsuario));
+    
+    if (!eliminado) {
+        throw new IllegalArgumentException("No se encontró ningún usuario con ID: " + idUsuario);
+    }
+    
+    // 4. Guardar la lista actualizada
+    guardarJson(rutaArchivo, usuarios);
+}
 }

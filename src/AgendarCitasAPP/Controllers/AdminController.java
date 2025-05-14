@@ -110,19 +110,29 @@ public class AdminController {
     
 }
     
-    public static void eliminarUsuario(String idUsuario)throws IOException{
-        //lee los usuarios
-        Type tipoLista = new TypeToken<List<Usuario>> () {}.getType();
-        List<Usuario> usuarios = JsonUtils.leerJson("/Usuarios.jason", tipoLista);
+   public static void eliminarUsuario(String idUsuario, DefaultTableModel modeloTabla) throws Exception {
+    try {
+        // 1. Validación adicional si es necesaria
+        if (idUsuario == null || idUsuario.trim().isEmpty()) {
+            throw new IllegalArgumentException("ID de usuario inválido");
+        }
         
-        //filtra y elimina usuarios
-        usuarios.removeIf(u -> u.getId().equals(idUsuario));
+        // 2. Eliminar del archivo JSON
+        JsonUtils.eliminarUsuario(idUsuario);
         
-        //Gusrda cambios
-        
-        JsonUtils.guardarJson("/Usuarios.json", usuarios);
-        
+        // 3. Actualizar la tabla (opcional, si estás pasando el modelo)
+        if (modeloTabla != null) {
+            for (int i = 0; i < modeloTabla.getRowCount(); i++) {
+                if (idUsuario.equals(modeloTabla.getValueAt(i, 0).toString())) {
+                    modeloTabla.removeRow(i);
+                    break;
+                }
+            }
+        }
+    } catch (IOException e) {
+        throw new Exception("Error al eliminar el usuario: " + e.getMessage(), e);
     }
+}
     
     // Nuevo método para validación
     public static boolean validarUsuario(Usuario usuario) {
