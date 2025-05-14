@@ -1,5 +1,5 @@
 [
-{
+  {
     "id": "1",
     "clave": "123",
     "nombre": "Klever",
@@ -10,5 +10,13 @@
     "correo": "klever@gmail.com",
     "telefono": "3044590500",
     "rol": "PACIENTE"
-}
-]   
+  },
+  {
+    "clave": "mi.hijo",
+    "nombre": "Javier",
+    "genero": "MASCULINO",
+    "correo": "javier@gmail.com",
+    "telefono": "8004318931",
+    "rol": "PACIENTE"
+  }
+]

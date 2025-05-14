@@ -8,83 +8,77 @@ import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
 import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.reflect.TypeToken;
-import java.io.File;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-/**
- *
- * @author Sebastian JB
- */
 public class AuthService {
     private static final String RUTA_USUARIOS = obtenerRutaUsuarios();
+    private List<Usuario> usuarios;
     
-    private List<Usuario> usuarios = new ArrayList<>();
+    public AuthService() {
+        this.usuarios = cargarUsuarios(); // Carga usuarios desde JSON al iniciar
+    }
     
     private static String obtenerRutaUsuarios() {
-        // Usar barra como separador de carpetas
         String ruta = "Usuarios.json";
         if (new File(ruta).exists()) return ruta;
-
-        // Si no encuentra, intenta con ruta absoluta
+        
         ruta = System.getProperty("user.dir") + "/Usuarios.json";
-        if (new File(ruta).exists()) return ruta;
-
-        throw new RuntimeException("No se encontró el archivo Usuarios.json en ninguna ubicación");
+        return ruta; // Si no existe, se creará luego
     }
-
-    public static Usuario login(String correo, String clave) {
+    
+    private List<Usuario> cargarUsuarios() {
         try {
             Type tipoListaUsuarios = new TypeToken<List<Usuario>>(){}.getType();
             List<Usuario> usuarios = JsonUtils.leerJson(RUTA_USUARIOS, tipoListaUsuarios);
-
-            if (usuarios != null) {
-                for (Usuario usuario : usuarios) {
-                    if (usuario.getCorreo().equalsIgnoreCase(correo) &&
-                        usuario.getClave().equals(clave)) {
-                        return usuario;
-                    }
-                }
-            }
+            return usuarios != null ? usuarios : new ArrayList<>();
         } catch (Exception e) {
-            System.err.println("Error crítico al leer usuarios: " + e.getMessage());
-            e.printStackTrace();
+            System.err.println("Error al cargar usuarios: " + e.getMessage());
+            return new ArrayList<>(); // Lista vacía si hay error
         }
-        return null;
     }
-
+    
     public Usuario registrar(String nombre, String correo, String clave, 
-            String telefono, String genero, String rol) {//inicio metodo registrar
+                           String telefono, String genero, String rol) {
         // Validar si el correo ya existe
-        for (Usuario u : usuarios) {
-            if (u.getCorreo().equalsIgnoreCase(correo)) {
-                return null; // Ya está registrado
-            }
+        if (usuarios.stream().anyMatch(u -> u.getCorreo().equalsIgnoreCase(correo))) {
+            return null;
         }
-
+        
         // Crear nuevo usuario
         Usuario nuevo = new Usuario();
         nuevo.setNombre(nombre);
         nuevo.setCorreo(correo);
         nuevo.setClave(clave);
         nuevo.setTelefono(telefono);
-
-        // Convertir Strings a enums (con validación básica)
-        try {
-            nuevo.setGenero(GeneroEnum.valueOf(genero.toUpperCase()));
-        } catch (IllegalArgumentException e) {
-            nuevo.setGenero(GeneroEnum.OTROS); // o un valor por defecto
-        }
-
-        try {
-            nuevo.setRol(RolEnum.valueOf(rol.toUpperCase()));
-        } catch (IllegalArgumentException e) {
-            nuevo.setRol(RolEnum.PACIENTE); // por defecto
-        }
-
-        // Guardar en lista temporal
+        nuevo.setGenero(GeneroEnum.fromString(genero));
+        nuevo.setRol(RolEnum.fromString(rol));
+        
+        // Guardar en lista y persistir en JSON
         usuarios.add(nuevo);
-
+        guardarUsuarios();
+        
         return nuevo;
-    }//fin metodo register
+    }
+    
+    public Usuario login(String correo, String clave) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCorreo().equalsIgnoreCase(correo) && 
+                usuario.getClave().equals(clave)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+    
+    private void guardarUsuarios() {
+        try {
+            JsonUtils.guardarJson(RUTA_USUARIOS, usuarios);
+        } catch (IOException e) {
+            System.err.println("Error al guardar usuarios: " + e.getMessage());
+            throw new RuntimeException("No se pudo guardar el usuario", e);
+        }
+    }
+    
 }

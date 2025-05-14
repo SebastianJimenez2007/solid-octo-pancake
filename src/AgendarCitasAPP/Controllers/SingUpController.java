@@ -14,23 +14,23 @@ public class SingUpController {
     private JPasswordField text_passSingUp;
     private JPasswordField pfConfirmarClave;
     private JTextField text_cellSingUp;
-    private JTextField text_generoSingUp;
-    private JTextField text_rolSingUp;
+    private JComboBox<String> combo_genero;
+    private JComboBox<String> combo_rol;
     private AuthService authService;
     private JButton btn_SingUp;
     private JButton btn_Login;
 
     public SingUpController(JTextField text_nameSingUp, JTextField text_correoSingUp, JPasswordField text_passSingUp,
                           JPasswordField pfConfirmarClave, JTextField text_cellSingUp, 
-                          JTextField text_generoSingUp, JTextField text_rolSingUp,
+                          JComboBox<String> combo_genero, JComboBox<String> combo_rol,
                           JButton btnSingUp, JButton btnLogin) {
         this.text_nameSingUp = text_nameSingUp;
         this.text_correoSingUp = text_correoSingUp;
         this.text_passSingUp = text_passSingUp;
         this.pfConfirmarClave = pfConfirmarClave;
         this.text_cellSingUp = text_cellSingUp;
-        this.text_generoSingUp = text_generoSingUp;
-        this.text_rolSingUp = text_rolSingUp;
+        this.combo_genero = combo_genero;
+        this.combo_rol = combo_rol;
         this.authService = new AuthService();
         this.btn_SingUp = btnSingUp;
         this.btn_Login = btnLogin;
@@ -43,8 +43,8 @@ public class SingUpController {
         String clave = new String(text_passSingUp.getPassword());
         String confirmarClave = new String(pfConfirmarClave.getPassword());
         String telefono = text_cellSingUp.getText();
-        String genero = text_generoSingUp.getText();
-        String rol = text_rolSingUp.getText();
+        String genero = (String) combo_genero.getSelectedItem().toString();
+        String rol = (String) combo_rol.getSelectedItem().toString();
 
         // Validaciones básicas
         if (nombre.isEmpty() || correo.isEmpty() || clave.isEmpty() || 
@@ -82,8 +82,8 @@ public class SingUpController {
             text_passSingUp.setText("");
             pfConfirmarClave.setText("");
             text_cellSingUp.setText("");
-            text_generoSingUp.setText("");
-            text_rolSingUp.setText("");
+            combo_genero.setSelectedItem(0);
+            combo_rol.setSelectedItem(0);
         } else {
             JOptionPane.showMessageDialog(null, "Error: El correo ya está registrado", 
                                       "Error", JOptionPane.ERROR_MESSAGE);

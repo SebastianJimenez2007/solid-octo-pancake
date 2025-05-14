@@ -7,7 +7,6 @@ package AgendarCitasAPP.Dominio.Entidades;
 import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
 import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *
