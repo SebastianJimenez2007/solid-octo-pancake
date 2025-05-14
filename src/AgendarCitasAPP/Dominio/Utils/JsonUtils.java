@@ -2,6 +2,7 @@ package AgendarCitasAPP.Dominio.Utils;
 
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -39,9 +40,33 @@ public class JsonUtils {
         }
     }
 
-    public static void actualizarUsuario(Usuario usuarioActualizado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   public static void actualizarUsuario(Usuario usuarioActualizado) throws IOException {
+    // 1. Definir la ruta del archivo JSON (deberías tenerla configurada)
+    String rutaArchivo = "Usuarios.json"; // Cambia esto por tu ruta real
+    
+    // 2. Definir el Type para la lista de usuarios
+    Type tipoLista = new TypeToken<List<Usuario>>(){}.getType();
+    
+    // 3. Leer todos los usuarios existentes
+    List<Usuario> usuarios = leerJson(rutaArchivo, tipoLista);
+    
+    // 4. Buscar y actualizar el usuario
+    boolean encontrado = false;
+    for (int i = 0; i < usuarios.size(); i++) {
+        if (usuarios.get(i).getId().equals(usuarioActualizado.getId())) {
+            usuarios.set(i, usuarioActualizado);
+            encontrado = true;
+            break;
+        }
     }
+    
+    if (!encontrado) {
+        throw new IOException("Usuario con ID " + usuarioActualizado.getId() + " no encontrado");
+    }
+    
+    // 5. Guardar la lista actualizada
+    guardarJson(rutaArchivo, usuarios);
+}
 
     private static class LocalDateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
         private final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;

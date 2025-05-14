@@ -6,11 +6,13 @@ package AgendarCitasAPP.Controllers;
 
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
 import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -53,21 +55,59 @@ public class AdminController {
         }
     }
     
-   public static void actualizarUsuario(String id, String nombre, String apellido, String clave, String fechaNacimiento, String direccion, String telefono, String correo, String genero, String rol) throws Exception {
+  public static void actualizarUsuario(String id, String nombre, String apellido, String clave, 
+                                   String fechaNacimiento, String direccion, String telefono, 
+                                   String correo, String genero, String rol) throws Exception {
     
-    // Crear objeto Usuario con los datos actualizados
+    // 1. Validaciones básicas
+    if (id == null || id.isEmpty()) {
+        throw new IllegalArgumentException("El ID no puede estar vacío");
+    }
+    
+    if (nombre == null || nombre.isEmpty()) {
+        throw new IllegalArgumentException("El nombre es obligatorio");
+    }
+    
+    // Validar formato de correo
+    if (!correo.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+        throw new IllegalArgumentException("Formato de correo electrónico inválido");
+    }
+
+    // 2. Parseo seguro de la fecha
+    LocalDate fechaNac;
+    try {
+        fechaNac = LocalDate.parse(fechaNacimiento);
+    } catch (DateTimeParseException e) {
+        throw new IllegalArgumentException("Formato de fecha inválido. Use YYYY-MM-DD");
+    }
+
+    // 3. Conversión de género y rol a Enum
+    GeneroEnum generoEnum;
+    RolEnum rolEnum;
+    try {
+        generoEnum = GeneroEnum.valueOf(genero.toUpperCase());
+        rolEnum = RolEnum.valueOf(rol.toUpperCase());
+    } catch (IllegalArgumentException e) {
+        throw new IllegalArgumentException("Valor inválido para género o rol");
+    }
+
+    // 4. Creación del objeto Usuario
     Usuario usuarioActualizado = new Usuario();
     usuarioActualizado.setId(id);
     usuarioActualizado.setNombre(nombre);
     usuarioActualizado.setApellido(apellido);
     usuarioActualizado.setClave(clave);
-    usuarioActualizado.setFechaNacimiento(LocalDate.parse(fechaNacimiento));
+    usuarioActualizado.setFechaNacimiento(fechaNac);
     usuarioActualizado.setDireccion(direccion);
     usuarioActualizado.setTelefono(telefono);
     usuarioActualizado.setCorreo(correo);
-    
-    // Guardar en la base de datos
+    usuarioActualizado.setGenero(generoEnum);
+    usuarioActualizado.setRol(rolEnum);
+
+    // 5. Actualización en JSON
+   
     JsonUtils.actualizarUsuario(usuarioActualizado);
+    
 }
     
     public static void eliminarUsuario(String idUsuario)throws IOException{
