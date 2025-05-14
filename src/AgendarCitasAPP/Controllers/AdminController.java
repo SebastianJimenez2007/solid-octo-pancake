@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class AdminController {
     
     // Método que recibe el modelo como parámetro
-    public static void cargarPacientesEnTabla(DefaultTableModel modelo) {
+    public static void cargarUsuariosEnTabla(DefaultTableModel modelo) {
         try {
             modelo.setRowCount(0); // Limpiar tabla
             
@@ -54,6 +54,9 @@ public class AdminController {
             throw new RuntimeException("Error al cargar pacientes: " + e.getMessage());
         }
     }
+    
+    
+    
     
   public static void actualizarUsuario(String id, String nombre, String apellido, String clave, 
                                    String fechaNacimiento, String direccion, String telefono, 

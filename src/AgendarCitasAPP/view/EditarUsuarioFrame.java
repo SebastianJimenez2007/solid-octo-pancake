@@ -86,7 +86,7 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
             );
             
             // Actualizar la tabla en Admin
-            AdminController.cargarPacientesEnTabla(modeloTabla);
+            AdminController.cargarUsuariosEnTabla(modeloTabla);
             
             JOptionPane.showMessageDialog(this, 
                 "Usuario actualizado correctamente", 
