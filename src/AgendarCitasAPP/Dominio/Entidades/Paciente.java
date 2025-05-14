@@ -19,8 +19,26 @@ public class Paciente extends Usuario {
                    LocalDate fechaNacimiento, GeneroEnum genero, String direccion, 
                    String correo, String telefono, RolEnum rol, String historialMedico) {
         
-       
+        super(id, clave, nombre, apellido, fechaNacimiento, genero, direccion, correo, telefono, rol);
+        
     }
+     
+     public Paciente(String id, String clave, String nombre, String historialMedico){
+         super (id, clave, nombre);
+         this.historialMedico = historialMedico;
+                 
+         
+     }
+
+    public String getHistorialMedico() {
+        return historialMedico;
+    }
+
+    public void setHistorialMedico(String historialMedico) {
+        this.historialMedico = historialMedico;
+    }
+     
+     
 }
 
     

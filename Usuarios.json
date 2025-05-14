@@ -10,7 +10,19 @@
     "correo": "klever@gmail.com",
     "telefono": "3044590500",
     "rol": "PACIENTE"
+
+
   },
+  {
+    "clave": "mi.hijo",
+    "nombre": "Javier",
+    "genero": "MASCULINO",
+    "correo": "javier@gmail.com",
+    "telefono": "8004318931",
+    "rol": "PACIENTE"
+  },
+
+
   {
     "id": "2",
     "clave": "456",
@@ -47,4 +59,10 @@
     "telefono": "3119988776",
     "rol": "PACIENTE"
   }
-]
+
+
+
+
+]   
+
+

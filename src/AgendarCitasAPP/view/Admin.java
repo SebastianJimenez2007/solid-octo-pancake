@@ -29,7 +29,7 @@ public class Admin extends javax.swing.JFrame {
     public Admin() {
          initComponents(); // Pasar el modelo de la tabla al controlador
     try {
-        AdminController.cargarPacientesEnTabla(
+        AdminController.cargarUsuariosEnTabla(
             (DefaultTableModel) tablaUsuarios.getModel() // ← Aquí sí usas tablaUsuarios
         );
     } catch (RuntimeException e) {

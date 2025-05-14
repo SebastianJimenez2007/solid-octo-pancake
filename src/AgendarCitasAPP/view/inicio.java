@@ -675,7 +675,6 @@ public class inicio extends javax.swing.JFrame {
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
     TabPanePrincipal.setSelectedIndex(3);
-
     }//GEN-LAST:event_BtnLoginActionPerformed
 
     private void BtnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegister1ActionPerformed
