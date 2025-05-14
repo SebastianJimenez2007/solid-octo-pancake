@@ -17,6 +17,7 @@ public class Paciente {
     private String direccion;
     private String correo;
     private String telefono;
+    private String historialMedico;
     
     public Paciente (int idPaciente, String nombre, String apellido, Date fechaNacimiento, String genero, String direccion, String correo, String telefono){
         this.idPaciente =idPaciente;
