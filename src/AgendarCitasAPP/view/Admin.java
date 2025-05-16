@@ -7,7 +7,9 @@ package AgendarCitasAPP.view;
 import AgendarCitasAPP.Controllers.AdminController;
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.view.EditarUsuarioFrame;
 import com.google.gson.reflect.TypeToken;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -27,7 +29,7 @@ public class Admin extends javax.swing.JFrame {
     public Admin() {
          initComponents(); // Pasar el modelo de la tabla al controlador
     try {
-        AdminController.cargarPacientesEnTabla(
+        AdminController.cargarUsuariosEnTabla(
             (DefaultTableModel) tablaUsuarios.getModel() // ← Aquí sí usas tablaUsuarios
         );
     } catch (RuntimeException e) {
@@ -72,8 +74,8 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BtnEditarUsuarioAdmin = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
@@ -197,16 +199,26 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaUsuarios);
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 720, 320));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 320));
 
         jLabel9.setText("jLabel9");
-        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, -1));
+        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+        BtnEditarUsuarioAdmin.setText("Editar");
+        BtnEditarUsuarioAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarUsuarioAdminActionPerformed(evt);
+            }
+        });
+        jPanel11.add(BtnEditarUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
-        jButton1.setText("jButton1");
-        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
 
@@ -338,6 +350,79 @@ public class Admin extends javax.swing.JFrame {
        TabPaneAdmin.setSelectedIndex(2);
     }//GEN-LAST:event_PanelGestionCitas1MouseClicked
 
+    private void BtnEditarUsuarioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdminActionPerformed
+        int filaSeleccionada = tablaUsuarios.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, 
+            "Por favor seleccione un usuario de la tabla para editar", 
+            "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    try {
+        // Obtener los datos de la fila seleccionada
+        String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
+        String nombre = tablaUsuarios.getValueAt(filaSeleccionada, 1).toString();
+        String apellido = tablaUsuarios.getValueAt(filaSeleccionada, 2).toString();
+        String clave = tablaUsuarios.getValueAt(filaSeleccionada, 3).toString();
+        String fechaNacimiento = tablaUsuarios.getValueAt(filaSeleccionada, 4).toString();
+        String direccion = tablaUsuarios.getValueAt(filaSeleccionada, 5).toString();
+        String telefono = tablaUsuarios.getValueAt(filaSeleccionada, 6).toString();
+        String correo = tablaUsuarios.getValueAt(filaSeleccionada, 7).toString();
+        
+        // Crear y mostrar el frame de edición
+        EditarUsuarioFrame editarFrame = new EditarUsuarioFrame(
+            id, nombre, apellido, clave, fechaNacimiento, direccion, 
+            telefono, correo, (DefaultTableModel) tablaUsuarios.getModel()
+        );
+        editarFrame.setVisible(true);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, 
+            "Error al obtener datos del usuario: " + e.getMessage(), 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_BtnEditarUsuarioAdminActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       btnEliminar.addActionListener(e -> {
+    int filaSeleccionada = tablaUsuarios.getSelectedRow();
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, 
+            "Seleccione un usuario para eliminar", 
+            "Advertencia", 
+            JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
+    
+    try {
+        // Confirmación antes de eliminar
+        int confirmacion = JOptionPane.showConfirmDialog(
+            this, 
+            "¿Está seguro de eliminar este usuario?", 
+            "Confirmar eliminación",
+            JOptionPane.YES_NO_OPTION);
+        
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            AdminController.eliminarUsuario(id, (DefaultTableModel) tablaUsuarios.getModel());
+            JOptionPane.showMessageDialog(this, 
+                "Usuario eliminado correctamente", 
+                "Éxito", 
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, 
+            "Error al eliminar usuario: " + ex.getMessage(), 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+    }
+});
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,12 +459,13 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEditarUsuarioAdmin;
     private javax.swing.JPanel PanelGestionCitas1;
     private javax.swing.JPanel PanelGestionMedicos;
     private javax.swing.JPanel PanelGestionUsuarios;
     private javax.swing.JTabbedPane TabPaneAdmin;
     private javax.swing.JPanel TabPaneReportes;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -402,7 +488,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel paneGestionCitas;

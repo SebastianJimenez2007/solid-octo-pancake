@@ -4,6 +4,8 @@
  */
 package AgendarCitasAPP.Dominio.Entidades;
 
+import java.util.List;
+
 /**
  *
  * @author JAVIER Y KLEVER
@@ -17,6 +19,7 @@ public class Medico {
     private String especialidad;
     private String correo;
     private String telefono;
+    private List<Citas> citasAsignadas;
     
     public Medico(int idMedico, String nombre, String apellido, String genero, String disponibilidad, String especialidad, String correo, String telefono){
     this.idMedico = idMedico;
