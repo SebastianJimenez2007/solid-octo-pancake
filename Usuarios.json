@@ -57,5 +57,16 @@
     "correo": "javier@gmail.com",
     "telefono": "4003125312",
     "rol": "PACIENTE"
+  },
+  {
+    "id": "8881151460",
+    "clave": "mi.sobrino",
+    "nombre": "Javito",
+    "apellido": "Polo",
+    "genero": "MASCULINO",
+    "direccion": "Calle 69",
+    "correo": "javid@gmail.com",
+    "telefono": "4004314941",
+    "rol": "MEDICO"
   }
 ]
