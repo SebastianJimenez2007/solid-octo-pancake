@@ -5,16 +5,7 @@
 package AgendarCitasAPP.view;
 
 import AgendarCitasAPP.Controllers.AdminController;
-import AgendarCitasAPP.Dominio.Entidades.Usuario;
-import AgendarCitasAPP.Dominio.Utils.JsonUtils;
-import AgendarCitasAPP.view.EditarUsuarioFrame;
-import com.google.gson.reflect.TypeToken;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,19 +14,59 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Admin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Admin
-     */
-    public Admin() {
-         initComponents(); // Pasar el modelo de la tabla al controlador
-    try {
-        AdminController.cargarUsuariosEnTabla(
-            (DefaultTableModel) tablaUsuarios.getModel() // ← Aquí sí usas tablaUsuarios
-        );
-    } catch (RuntimeException e) {
-        JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+   public Admin() {
+        initComponents();
+        inicializarVentana();
     }
+    
+    private void inicializarVentana() {
+        setLocationRelativeTo(null); // Centrar la ventana
+        cargarDatosIniciales();
+        configurarBotonEditar();
     }
+    
+    private void cargarDatosIniciales() {
+        try {
+            // Cargar datos y manejar posibles errores
+            DefaultTableModel modelo = (DefaultTableModel) tablaUsuarios.getModel();
+            modelo.setRowCount(0); // Limpiar tabla antes de cargar
+            AdminController.cargarUsuariosEnTabla(modelo);
+        } catch (Exception e) {
+            mostrarError("Error al cargar usuarios: " + e.getMessage());
+        }
+    }
+    
+    private void configurarBotonEditar() {
+        BtnEditarUsuarioAdmin.addActionListener(e -> editarUsuarioSeleccionado());
+    }
+    
+    private void editarUsuarioSeleccionado() {
+        int filaSeleccionada = tablaUsuarios.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            mostrarAdvertencia("Seleccione un usuario de la tabla");
+            return;
+        }
+        
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tablaUsuarios.getModel();
+            AdminController.editarUsuarioSeleccionado(tablaUsuarios, jPanel1);
+        } catch (Exception e) {
+            mostrarError("Error al editar usuario: " + e.getMessage());
+        }
+    }
+    
+    private void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    private void mostrarAdvertencia(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Advertencia", JOptionPane.WARNING_MESSAGE);
+    }
+
+    
+    
+    
     
     
     
@@ -195,13 +226,13 @@ public class Admin extends javax.swing.JFrame {
 
         tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "Clave", "Correo"
+                "ID", "Nombre", "Apellido", "Clave", "Correo", "Rol"
             }
         ));
         jScrollPane2.setViewportView(tablaUsuarios);
@@ -383,39 +414,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_PanelGestionCitas1MouseClicked
 
     private void BtnEditarUsuarioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdminActionPerformed
-        int filaSeleccionada = tablaUsuarios.getSelectedRow();
-    
-    if (filaSeleccionada == -1) {
-        JOptionPane.showMessageDialog(this, 
-            "Por favor seleccione un usuario de la tabla para editar", 
-            "Advertencia", 
-            JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    
-    try {
-        // Obtener los datos de la fila seleccionada
-        String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
-        String nombre = tablaUsuarios.getValueAt(filaSeleccionada, 1).toString();
-        String apellido = tablaUsuarios.getValueAt(filaSeleccionada, 2).toString();
-        String clave = tablaUsuarios.getValueAt(filaSeleccionada, 3).toString();
-        String fechaNacimiento = tablaUsuarios.getValueAt(filaSeleccionada, 4).toString();
-        String direccion = tablaUsuarios.getValueAt(filaSeleccionada, 5).toString();
-        String telefono = tablaUsuarios.getValueAt(filaSeleccionada, 6).toString();
-        String correo = tablaUsuarios.getValueAt(filaSeleccionada, 7).toString();
-        
-        // Crear y mostrar el frame de edición
-        EditarUsuarioFrame editarFrame = new EditarUsuarioFrame(
-            id, nombre, apellido, clave, fechaNacimiento, direccion, 
-            telefono, correo, (DefaultTableModel) tablaUsuarios.getModel()
-        );
-        editarFrame.setVisible(true);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, 
-            "Error al obtener datos del usuario: " + e.getMessage(), 
-            "Error", 
-            JOptionPane.ERROR_MESSAGE);
-    }
+     
     }//GEN-LAST:event_BtnEditarUsuarioAdminActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

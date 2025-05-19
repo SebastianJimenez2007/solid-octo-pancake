@@ -5,6 +5,11 @@
 package AgendarCitasAPP.view;
 
 import AgendarCitasAPP.Controllers.AdminController;
+import AgendarCitasAPP.Dominio.Entidades.Paciente;
+import AgendarCitasAPP.Dominio.Utils.ValidacionUtils;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
+import AgendarCitasAPP.Dominio.constantes.RolEnum;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,95 +17,137 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sebas
  */
-public class EditarUsuarioFrame extends javax.swing.JFrame {
+public class EditarPacienteFrame extends javax.swing.JFrame {
+        private final Paciente paciente;
+    private final DefaultTableModel modeloTabla;
 
-    /**
-     * Creates new form EditarUsuarioFrame
-     */
-    private DefaultTableModel modeloTabla; // Añade esta línea
-
-    public EditarUsuarioFrame(String id, String nombre, String apellido, String clave, 
-        String fechaNacimiento, String direccion, String telefono, String correo,
-        DefaultTableModel modeloTabla) {
-        initComponents();
-        
+    public EditarPacienteFrame(Paciente paciente, DefaultTableModel modeloTabla) {
+        this.paciente = paciente;
         this.modeloTabla = modeloTabla;
         
-        // Establecer valores en los campos
-        txtId.setText(id);
-        txtNombre.setText(nombre);
-        txtApellido.setText(apellido);
-        txtClave.setText(clave);
-        txtFechaNacimiento.setText(fechaNacimiento);
-        txtDireccion.setText(direccion);
-        txtTele.setText(telefono);
-        txtCorreo.setText(correo);
+        initComponents();
+        configurarInterfaz();
+        cargarDatosPaciente();
+        configurarEventos();
+    }
+
+    private void configurarInterfaz() {
         
-        // Limpiar textos por defecto incorrectos
-        txtId.setForeground(java.awt.Color.BLACK);
-        txtNombre.setForeground(java.awt.Color.BLACK);
-        txtApellido.setForeground(java.awt.Color.BLACK);
-        txtClave.setForeground(java.awt.Color.BLACK);
-        txtFechaNacimiento.setForeground(java.awt.Color.BLACK);
-        txtDireccion.setForeground(java.awt.Color.BLACK);
-        txtTele.setForeground(java.awt.Color.BLACK);
-        txtCorreo.setForeground(java.awt.Color.BLACK);
+        setLocationRelativeTo(null);
         
-        // Configurar botón cancelar
+        // Configurar combobox de género
+        cmbGenero.removeAllItems();
+        for (GeneroEnum genero : GeneroEnum.values()) {
+            cmbGenero.addItem(genero.toString());
+        }
+        
+        // Configurar combobox de rol (solo lectura si es necesario)
+        cmbRol.removeAllItems();
+        cmbRol.addItem(RolEnum.PACIENTE.toString());
+        cmbRol.setEnabled(false); // El rol no se puede modificar
+    }
+
+    private void cargarDatosPaciente() {
+        // Datos básicos
+        txtId.setText(paciente.getId());
+        txtNombre.setText(paciente.getNombre());
+        txtApellido.setText(paciente.getApellido());
+        txtClave.setText(paciente.getClave());
+        txtCorreo.setText(paciente.getCorreo());
+        
+        // Fecha de nacimiento
+        if (paciente.getFechaNacimiento() != null) {
+            txtFechaNacimiento.setText(paciente.getFechaNacimiento().toString());
+        }
+        
+        // Otros campos
+        txtDireccion.setText(paciente.getDireccion());
+        txtTele.setText(paciente.getTelefono());
+        
+        // Seleccionar género y rol
+        if (paciente.getGenero() != null) {
+            cmbGenero.setSelectedItem(paciente.getGenero().toString());
+        }
+        cmbRol.setSelectedItem(paciente.getRol().toString());
+        
+       
+    }
+
+    private void configurarEventos() {
         BtnCancelar.addActionListener(e -> this.dispose());
         
-        // Configurar botón guardar
-        BtnEditar.addActionListener(e -> guardarCambios());
+        BtnEditar.addActionListener(e -> {
+            try {
+                guardarCambios();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, 
+                    "Error al guardar: " + ex.getMessage(), 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        });
     }
-    
-   private void guardarCambios() {
+
+    private void guardarCambios() throws Exception {
+        validarCampos();
+        actualizarDatosPaciente();
+        
+        AdminController.actualizarUsuario(
+            paciente.getId(),
+            paciente.getNombre(),
+            paciente.getApellido(),
+            paciente.getClave(),
+            paciente.getFechaNacimiento().toString(),
+            paciente.getDireccion(),
+            paciente.getTelefono(),
+            paciente.getCorreo(),
+            paciente.getGenero().toString(),
+            paciente.getRol().toString()
+        );
+        
+        // Actualizar tabla
+        AdminController.cargarUsuariosEnTabla(modeloTabla);
+        
+        JOptionPane.showMessageDialog(this,
+            "Paciente actualizado correctamente",
+            "Éxito",
+            JOptionPane.INFORMATION_MESSAGE);
+        
+        this.dispose();
+    }
+
+    private void validarCampos() throws Exception {
+        if (txtNombre.getText().trim().isEmpty() || 
+            txtApellido.getText().trim().isEmpty()) {
+            throw new Exception("Nombre y apellido son obligatorios");
+        }
+        
+        if (!ValidacionUtils.esCorreoValido(txtCorreo.getText())) {
+            throw new Exception("El correo electrónico no es válido");
+        }
+        
         try {
-            // Obtener los nuevos valores
-            String id = txtId.getText();
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            String clave = txtClave.getText();
-            String fechaNacimiento = txtFechaNacimiento.getText();
-            String direccion = txtDireccion.getText();
-            String telefono = txtTele.getText();
-            String correo = txtCorreo.getText();
-            String rol = cmbRol.getSelectedItem().toString();
-            String genero = cmbGenero.getSelectedItem().toString();
-            
-            // Validación básica de campos
-            if (nombre.isEmpty() || apellido.isEmpty() || clave.isEmpty() || 
-                fechaNacimiento.isEmpty() || direccion.isEmpty() || 
-                telefono.isEmpty() || correo.isEmpty()) {
-                throw new Exception("Todos los campos son obligatorios");
-            }
-            
-            // Validación de correo electrónico
-            if (!correo.contains("@") || !correo.contains(".")) {
-                throw new Exception("El correo electrónico no es válido");
-            }
-            
-            // Actualizar en la base de datos
-            AdminController.actualizarUsuario(
-                id, nombre, apellido, clave, fechaNacimiento, 
-                direccion, telefono, correo, genero, rol
-            );
-            
-            // Actualizar la tabla en Admin
-            AdminController.cargarUsuariosEnTabla(modeloTabla);
-            
-            JOptionPane.showMessageDialog(this, 
-                "Usuario actualizado correctamente", 
-                "Éxito", 
-                JOptionPane.INFORMATION_MESSAGE);
-            
-            this.dispose();
+            LocalDate.parse(txtFechaNacimiento.getText());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                "Error al actualizar usuario: " + e.getMessage(), 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
+            throw new Exception("Formato de fecha inválido. Use YYYY-MM-DD");
         }
     }
+
+    private void actualizarDatosPaciente() {
+        paciente.setNombre(txtNombre.getText().trim());
+        paciente.setApellido(txtApellido.getText().trim());
+        paciente.setClave(txtClave.getText());
+        paciente.setCorreo(txtCorreo.getText().trim());
+        paciente.setFechaNacimiento(LocalDate.parse(txtFechaNacimiento.getText()));
+        paciente.setDireccion(txtDireccion.getText());
+        paciente.setTelefono(txtTele.getText());
+        paciente.setGenero(GeneroEnum.valueOf(cmbGenero.getSelectedItem().toString()));
+        
+    
+
+    // Actualizar campo específico de Paciente
+    //paciente.setHistorialMedico(txtHistorialMedico.getText());
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,6 +235,11 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
 
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreo.setBorder(null);
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 234, 34));
 
         txtTele.setForeground(new java.awt.Color(153, 153, 153));
@@ -225,6 +277,10 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     /**
      * @param args the command line arguments
