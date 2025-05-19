@@ -59,7 +59,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-
         TabPanePrincipal = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -77,16 +76,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         comboEspecialidad = new javax.swing.JComboBox<>();
         BtnSiguente = new javax.swing.JButton();
-=======
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -155,7 +144,6 @@ public class inicio extends javax.swing.JFrame {
         VentanasInicio = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -166,17 +154,6 @@ public class inicio extends javax.swing.JFrame {
         BtnVentanaLogin = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-=======
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel6 = new javax.swing.JPanel();
-        PanelInicio = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        BtnLogin = new javax.swing.JButton();
-        BtnRegister = new javax.swing.JButton();
-
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,7 +220,6 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
-
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         PanelInicio.setBackground(new java.awt.Color(204, 204, 255));
@@ -308,10 +284,6 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel19.setBackground(new java.awt.Color(255, 204, 204));
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-=======
-        jPanel10.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel26.setText("Especialidad medica");
@@ -564,7 +536,6 @@ public class inicio extends javax.swing.JFrame {
 
         TabPanePrincipal.addTab("2", VentanasInicio);
 
-
         jPanel10.setBackground(new java.awt.Color(49, 82, 192));
         jPanel10.setMinimumSize(new java.awt.Dimension(800, 470));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -651,63 +622,6 @@ public class inicio extends javax.swing.JFrame {
         TabPanePrincipal.addTab("3", jPanel9);
 
         jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
-=======
-        jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
-
-        PanelInicio.setBackground(new java.awt.Color(204, 204, 255));
-        PanelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel7.setText("Bienvenido a");
-        PanelInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 29, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel8.setText("Planifica+");
-        PanelInicio.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 29, -1, -1));
-
-        jLabel9.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus justo, consequat vitae orci interdum, egestas viverra ex. ");
-        PanelInicio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 670, 28));
-
-        jLabel10.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus justo, consequat vitae orci interdum, egestas viverra ex. ");
-        PanelInicio.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 60, 640, 28));
-
-        BtnLogin.setText("Login");
-        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLoginActionPerformed(evt);
-            }
-        });
-        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
-
-        BtnRegister.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnRegister.setForeground(new java.awt.Color(49, 82, 192));
-        BtnRegister.setText("Register");
-        BtnRegister.setBorder(null);
-        BtnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRegisterActionPerformed(evt);
-            }
-        });
-        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 110, 30));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jTabbedPane2.addTab("tab1", jPanel6);
-
-        jTabbedPane1.addTab("0", jTabbedPane2);
-
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 800, 420));
-
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
