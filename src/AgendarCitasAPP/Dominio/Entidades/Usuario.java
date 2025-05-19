@@ -136,7 +136,6 @@ public class Usuario {
 
     public void setRol(RolEnum rol) {
         this.rol = rol;
-    }
-    
+    }    
   
 }

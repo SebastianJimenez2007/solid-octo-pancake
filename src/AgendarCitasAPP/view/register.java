@@ -5,6 +5,7 @@
 package AgendarCitasAPP.view;
 
 import AgendarCitasAPP.Controllers.SingUpController;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 /**
@@ -20,17 +21,28 @@ public class register extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        if (text_nameSingUp == null || text_correoSingUp == null || text_passSingUp == null || pfConfirmarClave == null ||
-        text_cellSingUp == null || combo_genero == null || pfConfirmarClave == null || 
-        btn_SingUp == null || btn_Login == null) {
+        if (text_idSingUp == null || text_nameSingUp == null || text_apellidoSingUp == null || text_correoSingUp == null || text_passSingUp == null || pfConfirmarClave == null ||
+        text_cellSingUp == null || combo_genero == null || pfConfirmarClave == null || text_fechaNacimientoSingUp == null ||
+        text_direccionSingUp == null || btn_SingUp == null || btn_Login == null) {
     
     JOptionPane.showMessageDialog(this, 
         "Error: Componentes no inicializados\n" +
+        "text_idSingUp: " + (text_idSingUp != null) + "\n" +
+                
         "text_nameSingUp: " + (text_nameSingUp != null) + "\n" +
+                
+        "text_apellidoSingUp: " + (text_apellidoSingUp != null) + "\n" +
+                
         "text_correoSingUp: " + (text_correoSingUp != null) + "\n" +
         "text_passSingUp: " + (text_passSingUp != null) + "\n" +
         "pfConfirmarClave: " + (pfConfirmarClave != null) + "\n" +
+                
+        "text_fechaNacimientoSingUp: " + (text_fechaNacimientoSingUp != null) + "\n" +
+                
         "text_cellSingUp: " + (text_cellSingUp != null) + "\n" +
+                
+        "text_direccionSingUp: " + (text_direccionSingUp != null) + "\n" +
+                
         "combo_genero: " + (combo_genero != null) + "\n" +
         "combo_rol: " + (combo_rol != null) + "\n" +
         //"tabPanePrincipal: " + (tabPanePrincipal != null) + "\n" +
@@ -42,8 +54,8 @@ public class register extends javax.swing.JFrame {
 
 // Crear el controlador y conectar el botón al método registrar
     SingUpController controller = new SingUpController(
-        text_nameSingUp, text_correoSingUp, text_passSingUp, pfConfirmarClave,
-        text_cellSingUp, combo_genero, combo_rol, btn_SingUp, btn_Login
+        text_idSingUp, text_nameSingUp, text_apellidoSingUp, text_correoSingUp, text_passSingUp, pfConfirmarClave,
+        text_cellSingUp, combo_genero, combo_rol, text_fechaNacimientoSingUp, text_direccionSingUp, btn_SingUp, btn_Login
     );
 
     btn_SingUp.addActionListener(e -> controller.registrarUsuario());
@@ -64,18 +76,20 @@ public class register extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-
-        text_nameSingUp = new javax.swing.JTextField();
         text_correoSingUp = new javax.swing.JTextField();
         btn_SingUp = new javax.swing.JButton();
-        btn_Login = new javax.swing.JButton();
-
         jLabel1 = new javax.swing.JLabel();
         text_cellSingUp = new javax.swing.JTextField();
         pfConfirmarClave = new javax.swing.JPasswordField();
         text_passSingUp = new javax.swing.JPasswordField();
         combo_genero = new javax.swing.JComboBox<>();
         combo_rol = new javax.swing.JComboBox<>();
+        btn_Login = new javax.swing.JButton();
+        text_nameSingUp = new javax.swing.JTextField();
+        text_idSingUp = new javax.swing.JTextField();
+        text_apellidoSingUp = new javax.swing.JTextField();
+        text_fechaNacimientoSingUp = new javax.swing.JTextField();
+        text_direccionSingUp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,65 +107,87 @@ public class register extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(49, 82, 192));
         jLabel3.setText("Register to ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
-
-
-        text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_nameSingUp.setText("Name");
-        text_nameSingUp.setBorder(null);
-        jPanel2.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 234, 34));
-
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         text_correoSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_correoSingUp.setText("correo");
         text_correoSingUp.setBorder(null);
-        jPanel2.add(text_correoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 234, 34));
+        jPanel2.add(text_correoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 230, 34));
 
         btn_SingUp.setBackground(new java.awt.Color(49, 82, 192));
         btn_SingUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_SingUp.setForeground(new java.awt.Color(255, 255, 255));
-        btn_SingUp.setText("Register");
+        btn_SingUp.setText("Sign up");
         btn_SingUp.setBorder(null);
         btn_SingUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_SingUpActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_SingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 234, 34));
-
-        btn_Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btn_Login.setForeground(new java.awt.Color(49, 82, 192));
-        btn_Login.setText("Log in");
-        btn_Login.setBorder(null);
-        jPanel2.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 234, 34));
+        jPanel2.add(btn_SingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 230, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(49, 82, 192));
         jLabel1.setText("Planifica+");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         text_cellSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_cellSingUp.setText("telefono");
         text_cellSingUp.setBorder(null);
-        jPanel2.add(text_cellSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 234, 34));
+        jPanel2.add(text_cellSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 230, 34));
 
+        pfConfirmarClave.setForeground(new java.awt.Color(153, 153, 153));
         pfConfirmarClave.setText("pfConfirmarClave");
-        jPanel2.add(pfConfirmarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 230, 30));
+        jPanel2.add(pfConfirmarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 230, 30));
 
+        text_passSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_passSingUp.setText("jPasswordField1");
-        jPanel2.add(text_passSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 230, 30));
+        jPanel2.add(text_passSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 230, 30));
 
         combo_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
-        jPanel2.add(combo_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 230, 30));
+        combo_genero.setBorder(null);
+        jPanel2.add(combo_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 230, 30));
 
         combo_rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Empleado", "Medico", "Admin", " " }));
-        jPanel2.add(combo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 230, 30));
+        combo_rol.setBorder(null);
+        jPanel2.add(combo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 230, 30));
+
+        btn_Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_Login.setForeground(new java.awt.Color(51, 102, 255));
+        btn_Login.setText("Log in");
+        btn_Login.setBorder(null);
+        jPanel2.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 230, 30));
+
+        text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_nameSingUp.setText("name");
+        text_nameSingUp.setBorder(null);
+        jPanel2.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, 30));
+
+        text_idSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_idSingUp.setText("ID");
+        text_idSingUp.setBorder(null);
+        jPanel2.add(text_idSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 230, 30));
+
+        text_apellidoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_apellidoSingUp.setText("apellido");
+        text_apellidoSingUp.setBorder(null);
+        jPanel2.add(text_apellidoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 30));
+
+        text_fechaNacimientoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_fechaNacimientoSingUp.setText("yyyy-MM-dd");
+        text_fechaNacimientoSingUp.setBorder(null);
+        jPanel2.add(text_fechaNacimientoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 230, 30));
+
+        text_direccionSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_direccionSingUp.setText("direccion");
+        text_direccionSingUp.setBorder(null);
+        jPanel2.add(text_direccionSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 230, 30));
 
         jScrollPane1.setViewportView(jPanel2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 340, 390));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 330, 580));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,12 +252,14 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-
     private javax.swing.JPasswordField pfConfirmarClave;
+    private javax.swing.JTextField text_apellidoSingUp;
     private javax.swing.JTextField text_cellSingUp;
     private javax.swing.JTextField text_correoSingUp;
+    private javax.swing.JTextField text_direccionSingUp;
+    private javax.swing.JTextField text_fechaNacimientoSingUp;
+    private javax.swing.JTextField text_idSingUp;
     private javax.swing.JTextField text_nameSingUp;
     private javax.swing.JPasswordField text_passSingUp;
-
     // End of variables declaration//GEN-END:variables
 }

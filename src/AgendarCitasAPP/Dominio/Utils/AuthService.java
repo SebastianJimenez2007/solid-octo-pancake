@@ -10,6 +10,7 @@ import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.*;
 
 public class AuthService {
@@ -39,19 +40,30 @@ public class AuthService {
         }
     }
     
-    public Usuario registrar(String nombre, String correo, String clave, 
-                           String telefono, String genero, String rol) {
+    public Usuario registrar(String id, String nombre, String apellido, String correo, String clave, 
+                           String telefono, String genero, String rol, String fechaNacimiento, String direccion ) {
         // Validar si el correo ya existe
         if (usuarios.stream().anyMatch(u -> u.getCorreo().equalsIgnoreCase(correo))) {
             return null;
         }
         
+        LocalDate fecha;
+    try {
+        fecha = LocalDate.parse(fechaNacimiento); // Formato: yyyy-MM-dd
+    } catch (Exception e) {
+        System.err.println("Error: Formato de fecha inválido -> " + fechaNacimiento);
+        return null;
+    }
+        
         // Crear nuevo usuario
         Usuario nuevo = new Usuario();
+        nuevo.setId(id);
         nuevo.setNombre(nombre);
         nuevo.setCorreo(correo);
+        nuevo.setApellido(apellido);
         nuevo.setClave(clave);
         nuevo.setTelefono(telefono);
+        nuevo.setDireccion(direccion);
         nuevo.setGenero(GeneroEnum.fromString(genero));
         nuevo.setRol(RolEnum.fromString(rol));
         

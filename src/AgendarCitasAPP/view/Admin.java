@@ -76,6 +76,13 @@ public class Admin extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         BtnEditarUsuarioAdmin = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
@@ -188,21 +195,21 @@ public class Admin extends javax.swing.JFrame {
 
         tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "Clave", "Fecha Nacimiento", "Direccion", "tellefono", "Correo"
+                "ID", "Nombre", "Apellido", "Clave", "Correo"
             }
         ));
         jScrollPane2.setViewportView(tablaUsuarios);
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 320));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 730, 200));
 
-        jLabel9.setText("jLabel9");
-        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
+        jLabel9.setText(".");
+        jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
         BtnEditarUsuarioAdmin.setText("Editar");
         BtnEditarUsuarioAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +217,7 @@ public class Admin extends javax.swing.JFrame {
                 BtnEditarUsuarioAdminActionPerformed(evt);
             }
         });
-        jPanel11.add(BtnEditarUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        jPanel11.add(BtnEditarUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +225,32 @@ public class Admin extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
+        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 30));
+
+        jLabel10.setText("Buscar por ID:");
+        jPanel11.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
+
+        jButton1.setText("Filtrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
+
+        jLabel11.setText("Filtrar por:");
+        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel11.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 90, -1));
+
+        jButton2.setText("Buscar");
+        jPanel11.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel12.setText("Gestion de usuarios");
+        jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
 
@@ -423,6 +455,10 @@ public class Admin extends javax.swing.JFrame {
 });
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -466,7 +502,13 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TabPaneAdmin;
     private javax.swing.JPanel TabPaneReportes;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -488,6 +530,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel paneGestionCitas;

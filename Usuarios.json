@@ -10,19 +10,7 @@
     "correo": "klever@gmail.com",
     "telefono": "3044590500",
     "rol": "PACIENTE"
-
-
   },
-  {
-    "clave": "mi.hijo",
-    "nombre": "Javier",
-    "genero": "MASCULINO",
-    "correo": "javier@gmail.com",
-    "telefono": "8004318931",
-    "rol": "PACIENTE"
-  },
-
-
   {
     "id": "2",
     "clave": "456",
@@ -58,11 +46,27 @@
     "correo": "valentina.lopez@gmail.com",
     "telefono": "3119988776",
     "rol": "PACIENTE"
+  },
+  {
+    "id": "9994671151",
+    "clave": "mi.hijo",
+    "nombre": "Javier",
+    "apellido": "Polo",
+    "genero": "MASCULINO",
+    "direccion": "Calle 20",
+    "correo": "javier@gmail.com",
+    "telefono": "4003125312",
+    "rol": "PACIENTE"
+  },
+  {
+    "id": "8881151460",
+    "clave": "mi.sobrino",
+    "nombre": "Javito",
+    "apellido": "Polo",
+    "genero": "MASCULINO",
+    "direccion": "Calle 69",
+    "correo": "javid@gmail.com",
+    "telefono": "4004314941",
+    "rol": "MEDICO"
   }
-
-
-
-
-]   
-
-
+]

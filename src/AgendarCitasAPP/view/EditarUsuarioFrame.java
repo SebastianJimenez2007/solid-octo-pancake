@@ -115,12 +115,10 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        txtId = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtClave = new javax.swing.JTextField();
-        BtnEditar = new javax.swing.JButton();
-        BtnCancelar = new javax.swing.JButton();
         LabelEditarUsuario = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtClave = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
@@ -128,6 +126,8 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         txtTele = new javax.swing.JTextField();
         cmbRol = new javax.swing.JComboBox<>();
         cmbGenero = new javax.swing.JComboBox<>();
+        BtnEditar = new javax.swing.JButton();
+        BtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,12 +143,23 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, -370, 300, -1));
+
+        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        LabelEditarUsuario.setForeground(new java.awt.Color(49, 82, 192));
+        LabelEditarUsuario.setText("Editar Usuario");
+        jPanel3.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         txtId.setEditable(false);
         txtId.setForeground(new java.awt.Color(153, 153, 153));
         txtId.setText("Id");
         txtId.setBorder(null);
-        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 70, 234, 34));
+        jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 234, 34));
+
+        txtClave.setForeground(new java.awt.Color(153, 153, 153));
+        txtClave.setText("correo");
+        txtClave.setBorder(null);
+        jPanel3.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 234, 34));
 
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("contraseña");
@@ -158,65 +169,53 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 156, 234, 34));
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 234, 34));
 
-        txtClave.setForeground(new java.awt.Color(153, 153, 153));
-        txtClave.setText("correo");
-        txtClave.setBorder(null);
-        jPanel2.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 110, 234, 34));
+        txtApellido.setForeground(new java.awt.Color(153, 153, 153));
+        txtApellido.setText("telefono");
+        txtApellido.setBorder(null);
+        jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 234, 34));
+
+        txtFechaNacimiento.setForeground(new java.awt.Color(153, 153, 153));
+        txtFechaNacimiento.setText("telefono");
+        txtFechaNacimiento.setBorder(null);
+        jPanel3.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 234, 34));
+
+        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion.setText("telefono");
+        txtDireccion.setBorder(null);
+        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
+
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo.setBorder(null);
+        jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 234, 34));
+
+        txtTele.setForeground(new java.awt.Color(153, 153, 153));
+        txtTele.setBorder(null);
+        jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 234, 34));
+
+        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
+        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 230, 30));
+
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
+        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 230, 30));
 
         BtnEditar.setBackground(new java.awt.Color(49, 82, 192));
         BtnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnEditar.setForeground(new java.awt.Color(255, 255, 255));
         BtnEditar.setText("Editar");
         BtnEditar.setBorder(null);
-        jPanel2.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 234, 34));
+        jPanel3.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
         BtnCancelar.setText("Cancelar");
         BtnCancelar.setBorder(null);
-        jPanel2.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 234, 34));
-
-        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        LabelEditarUsuario.setForeground(new java.awt.Color(49, 82, 192));
-        LabelEditarUsuario.setText("Editar Usuario");
-        jPanel2.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
-
-        txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido.setText("telefono");
-        txtApellido.setBorder(null);
-        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 202, 234, 34));
-
-        txtFechaNacimiento.setForeground(new java.awt.Color(153, 153, 153));
-        txtFechaNacimiento.setText("telefono");
-        txtFechaNacimiento.setBorder(null);
-        jPanel2.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 234, 34));
-
-        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        txtDireccion.setText("telefono");
-        txtDireccion.setBorder(null);
-        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 234, 34));
-
-        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        txtCorreo.setBorder(null);
-        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 234, 34));
-
-        txtTele.setForeground(new java.awt.Color(153, 153, 153));
-        txtTele.setBorder(null);
-        jPanel2.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 234, 34));
-
-        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
-        jPanel2.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 230, 30));
-
-        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
-        jPanel2.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 502, 220, 30));
-
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 300, -1));
+        jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 234, 34));
 
         jScrollPane1.setViewportView(jPanel3);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 380, 430));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
 
