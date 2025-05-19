@@ -1,0 +1,280 @@
+[33mcommit 58fc89baeb0b92a3770172c133562c8bc7cc80be[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelope[m[33m, [m[1;31morigin/develope[m[33m)[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 14 13:17:04 2025 -0500
+
+    creaciond e clases jason
+
+[33mcommit b511000c9509943f824b7eaec5142e982b9ec349[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 14 12:46:34 2025 -0500
+
+    modificacion clase Paciente para extenderlo de Usuario
+
+[33mcommit 27c3a5b05c88f809cf3977ee229477630867c41e[m
+Merge: 144d3d0 763d91d
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 14 10:49:32 2025 -0500
+
+     solucione conflicto de merge
+
+[33mcommit 763d91d53d71468c3dc63eb0ef8e23687dac0305[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 14 10:46:46 2025 -0500
+
+    modifique Paciente
+
+[33mcommit b2616cde41b991ba810338e93e1e9dc74826c2dd[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 14 08:39:59 2025 -0500
+
+    implementando relaciones
+
+[33mcommit c6e9dd74c2a1428f031a67d92b78981626596c5f[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 23:58:18 2025 -0500
+
+    eliminar usuarios listo
+
+[33mcommit c88cd4e380271c22219fac3cd622fa08c71356ee[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 23:42:57 2025 -0500
+
+    editar usuarios funcionando
+
+[33mcommit ddb559d9f9f8315138685efba7829751a56c3ff8[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 23:27:26 2025 -0500
+
+    actualizar usuarios adelantado todavia sale error y no actualiza
+
+[33mcommit 144d3d0553fadd1a416cab51be115515005c67d3[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 22:11:57 2025 -0500
+
+    cambio de version del proyecto
+
+[33mcommit 5afe6aa0bb63ef826565d3d7697507dda237e190[m
+Merge: 706627a 98987bb
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 22:04:24 2025 -0500
+
+    finalizado merge y corregido por medio de archivos de texto conflictos
+
+[33mcommit 706627a9a37cc34e7930dfcc379bd329a64a1456[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 21:17:22 2025 -0500
+
+    hice pull y cambie las librerias
+
+[33mcommit 62462d6546caf6c64311b4de54793fa762c5f321[m
+Merge: 546fa3e b513f68
+Author: Klever Adriano Polo Bolivar <96903326+KleverPoloBolivar@users.noreply.github.com>
+Date:   Tue May 13 20:50:40 2025 -0500
+
+    Merge pull request #11 from SebastianJimenez2007/F/singUp
+    
+    Feat ComboBox, persistencia, conexion JSON, logica en clases enum y f…
+
+[33mcommit b513f6816df22f427c9ffc53624e06c4c6229b15[m
+Author: Klever <kleverpolobolivar@gmail.com>
+Date:   Tue May 13 20:38:26 2025 -0500
+
+    Feat ComboBox, persistencia, conexion JSON, logica en clases enum y fromString()
+
+[33mcommit 98987bbe3de577050b9f9c343f5494b74971e489[m
+Merge: 241732a 0f06611
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 06:15:07 2025 -0500
+
+    Merge branch 'desarrolloAdmin' of https://github.com/SebastianJimenez2007/solid-octo-pancake into desarrolloAdmin
+
+[33mcommit 241732adf18d4c42e1a0a03fabb623059e2bee5a[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 13 06:10:31 2025 -0500
+
+    formulario listo
+
+[33mcommit 0f06611ad1b2ebfb3af4e31537c4a8b179066873[m
+Merge: e2effb4 5c67ebb
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Mon May 12 10:30:53 2025 -0500
+
+    agregue las librerias correctas a mi rama
+
+[33mcommit e2effb4600adad4921a740f274b2d13d827666d5[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Mon May 12 10:23:07 2025 -0500
+
+    propiedades
+
+[33mcommit 5c67ebb06e196d5519b3e7929a499f6b06f9bef9[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Fri May 9 00:40:21 2025 -0500
+
+    agregue pacientes a Usuarios.jason
+
+[33mcommit bbf700f277267424eddacf2dc975d0a093fab396[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Fri May 9 00:33:11 2025 -0500
+
+    metodo eliminar usuarios listo
+
+[33mcommit 1b4223effa94d2c85aa5a7f2f24b075fa8caced0[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Fri May 9 00:25:41 2025 -0500
+
+    agregue al controlador del admin metodo para editar usuario
+
+[33mcommit 02f8e241296ae68923434e462f962b5f689fbafa[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 8 23:57:45 2025 -0500
+
+    agregue mas campos para cargar en la tabla
+
+[33mcommit 52706154833a2b57b2713eb8c4a1cedf98889384[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 8 23:48:36 2025 -0500
+
+    mostrar usuarios teminado
+
+[33mcommit 8917d9bf94d7a7f9c2bc218f16b73c1398336084[m
+Author: Sebastian <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 8 23:46:04 2025 -0500
+
+    terminado metodo mostrar usuarios en ventana administrador
+
+[33mcommit 546fa3e0efd9b60a2819115560bd20d98857aa77[m
+Merge: 26679d3 98cae3e
+Author: Klever Adriano Polo Bolivar <96903326+KleverPoloBolivar@users.noreply.github.com>
+Date:   Thu May 8 23:40:33 2025 -0500
+
+    Merge pull request #10 from SebastianJimenez2007/F/singUp
+    
+    F/sing up
+
+[33mcommit 98cae3e7dba9d31402563aac11ddca3be56217e5[m
+Author: Klever <kleverpolobolivar@gmail.com>
+Date:   Thu May 8 23:39:25 2025 -0500
+
+    Clase singUp controller, funcion register, conexiones entre clases
+
+[33mcommit 07d776c22b520f36e8333b47ab241a445148a1c4[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 8 21:12:12 2025 -0500
+
+    cambios en tablas
+
+[33mcommit 4276e12f25532a3e29107f0133169f389df9b25c[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 7 23:07:11 2025 -0500
+
+    creacion de GUI
+
+[33mcommit c30db32e5000de41a82214cc0ceabbe8cc3d1153[m
+Author: Klever <kleverpolobolivar@gmail.com>
+Date:   Wed May 7 21:49:20 2025 -0500
+
+    cargar archivos
+
+[33mcommit 26679d3b8e4fb80651152a36f6883c38720f4fd2[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 7 21:08:02 2025 -0500
+
+    nada
+
+[33mcommit 17731931b2176e73584da767afee1ddac48d5aac[m[33m ([m[1;31morigin/desarrollo[m[33m, [m[1;31morigin/F/interfazGeneral[m[33m)[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed May 7 11:23:43 2025 -0500
+
+    login terminado ya ustilizando json
+
+[33mcommit 5db22b174139fd5a6ce21ef199a9b291919f60d3[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 6 23:48:44 2025 -0500
+
+    no se puede iniciar sesion
+
+[33mcommit 5d6100bcf80a16c8dd34bbf3899b7b8fb3a6b62d[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 6 23:15:45 2025 -0500
+
+    funcionamiento login con jason
+
+[33mcommit e0e7915a4960e72034684c4c8e8cd9cf88a45472[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 6 21:15:19 2025 -0500
+
+    modifique clase Citas
+
+[33mcommit 78d34b29777df80fa91460e1fde5f81e1db692d5[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Tue May 6 21:09:50 2025 -0500
+
+    agregue clase Trabajador
+
+[33mcommit 52c99a9e02defe82aa8393248eb50be201612817[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Mon May 5 06:35:14 2025 -0500
+
+    btnLogin se deja de ver y solo es visible el boton de cerrar sesion cuando el usuario inicia sesion
+
+[33mcommit d0617461e989e036edbbad222c12b0f76649db06[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Sat May 3 20:33:46 2025 -0500
+
+    Cambio entre pestañas de Especialidades terminado
+
+[33mcommit f1eafe443c6f1474a96080b3adf94d732fc55fe3[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Sat May 3 20:26:54 2025 -0500
+
+    bug solucionado
+
+[33mcommit eb369b3c7392da77b20994329e055f12c2b43a96[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Sat May 3 18:23:23 2025 -0500
+
+    cambio de variable en el switch
+
+[33mcommit fac06b6b79b132e7b2deef86df65ea7ded016691[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Sat May 3 18:13:53 2025 -0500
+
+    cambios malos
+
+[33mcommit 4e68c67515474999f7a55db346474f4aa18ef5e9[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Fri May 2 09:05:30 2025 -0500
+
+    Ajustes de la interfaz inicio y un comentario
+
+[33mcommit 51d28bd7f15fb147511a0a146f05a5f1a1a2f92f[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Fri May 2 08:16:27 2025 -0500
+
+    haciendo funcionar el boton para escoger la especialidad medica
+
+[33mcommit 581808a2bf63d589d35d32f816d41173f211b2c2[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 1 20:15:08 2025 -0500
+
+    pediatra finalizado cambios en register
+
+[33mcommit 2f5d5f729169f7ecfbfbda908669553dc65a14c9[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 1 19:38:50 2025 -0500
+
+     interfaz odontologia y general listas
+
+[33mcommit a8ebb96c62eb8e6b60b78c39c041e71f9707a947[m[33m ([m[1;31morigin/F/interfazPediatra[m[33m)[m
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Thu May 1 18:05:40 2025 -0500
+
+    adelanto de interfaz
+
+[33mcommit 7eb1137574ab7499527fd88782e67400c977beb3[m
+Merge: 0d58d06 5703376
+Author: SebastianJimenez2007 <sebastianjimenezjjb@gmail.com>
+Date:   Wed Apr 30 23:49:01 2025 -0500
+
+    Merge branch 'desarrollo' of https://github.com/SebastianJimenez2007/solid-octo-pancake into desarrollo
