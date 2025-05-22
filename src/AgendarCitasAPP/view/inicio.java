@@ -21,19 +21,7 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        // Verificar inicialización
-    if (tfCorreo == null || pfClave == null || TabPanePrincipal == null || BtnVentanaLogin == null) {
-        JOptionPane.showMessageDialog(this, 
-            "Error: Componentes no inicializados\n" +
-            "tfCorreo: " + (tfCorreo != null) + "\n" +
-            "pfClave: " + (pfClave != null) + "\n" +
-            "TabPanePrincipal: " + (TabPanePrincipal != null) + "\n" +
-            "BtnVentanaLogin: " + (BtnVentanaLogin != null),
-            "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    LoginController controller = new LoginController(tfCorreo, pfClave, TabPanePrincipal, BtnLogin);
+      LoginController controller = new LoginController(tfCorreo, pfClave, comboRol, TabPanePrincipal, BtnLogin, BtnCerrarSesion);
     BtnVentanaLogin.addActionListener(e -> controller.login());
     }
 
@@ -156,7 +144,7 @@ public class inicio extends javax.swing.JFrame {
         BtnVentanaLogin = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboRol = new javax.swing.JComboBox<>();
         jLabel48 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -550,11 +538,11 @@ public class inicio extends javax.swing.JFrame {
 
         jSeparator3.setBackground(new java.awt.Color(102, 102, 255));
         jSeparator3.setForeground(new java.awt.Color(102, 102, 255));
-        jPanel16.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 210, 20));
+        jPanel16.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 210, 20));
 
         jSeparator2.setBackground(new java.awt.Color(102, 102, 255));
         jSeparator2.setForeground(new java.awt.Color(102, 102, 255));
-        jPanel16.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 210, 30));
+        jPanel16.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 210, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(49, 82, 192));
@@ -570,7 +558,7 @@ public class inicio extends javax.swing.JFrame {
                 pfClaveActionPerformed(evt);
             }
         });
-        jPanel16.add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 220, 34));
+        jPanel16.add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 220, 20));
 
         BtnRegister1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnRegister1.setForeground(new java.awt.Color(49, 82, 192));
@@ -591,7 +579,7 @@ public class inicio extends javax.swing.JFrame {
                 tfCorreoActionPerformed(evt);
             }
         });
-        jPanel16.add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 220, 30));
+        jPanel16.add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 220, 20));
 
         BtnVentanaLogin.setBackground(new java.awt.Color(49, 82, 192));
         BtnVentanaLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -613,8 +601,8 @@ public class inicio extends javax.swing.JFrame {
         jLabel49.setText("Contraseña");
         jPanel16.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", " " }));
-        jPanel16.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, 30));
+        comboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "MEDICO", "ADMIN" }));
+        jPanel16.add(comboRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 240, 30));
 
         jPanel10.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 310, 360));
 
@@ -781,10 +769,10 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JTextPane TextMedicamentosAnteriores;
     private javax.swing.JTabbedPane VentanasInicio;
     private javax.swing.JComboBox<String> comboEspecialidad;
+    private javax.swing.JComboBox<String> comboRol;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;

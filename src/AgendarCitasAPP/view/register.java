@@ -123,11 +123,12 @@ public class register extends javax.swing.JFrame {
         jLabel2.setText("Planifica+");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel3.setText("Register");
+        jLabel3.setText("Registro");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         text_correoSingUp.setForeground(new java.awt.Color(153, 153, 153));
@@ -176,7 +177,7 @@ public class register extends javax.swing.JFrame {
         btn_SingUp.setBackground(new java.awt.Color(49, 82, 192));
         btn_SingUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_SingUp.setForeground(new java.awt.Color(255, 255, 255));
-        btn_SingUp.setText("Sign up");
+        btn_SingUp.setText("Crear cuenta");
         btn_SingUp.setBorder(null);
         btn_SingUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,8 +196,13 @@ public class register extends javax.swing.JFrame {
 
         btn_Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_Login.setForeground(new java.awt.Color(51, 102, 255));
-        btn_Login.setText("Log in");
+        btn_Login.setText("Regresar");
         btn_Login.setBorder(null);
+        btn_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LoginActionPerformed(evt);
+            }
+        });
         jPanel3.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 230, 30));
 
         text_direccionSingUp.setForeground(new java.awt.Color(153, 153, 153));
@@ -299,6 +305,12 @@ public class register extends javax.swing.JFrame {
     private void pfConfirmarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfConfirmarClaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pfConfirmarClaveActionPerformed
+
+    private void btn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginActionPerformed
+     inicio in = new inicio();
+        in.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_LoginActionPerformed
 
 
 
