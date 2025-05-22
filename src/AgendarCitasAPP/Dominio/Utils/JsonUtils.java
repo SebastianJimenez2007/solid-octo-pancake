@@ -109,5 +109,5 @@ public class JsonUtils {
     
     // 4. Guardar la lista actualizada
     guardarJson(rutaArchivo, usuarios);
-}
+    }
 }

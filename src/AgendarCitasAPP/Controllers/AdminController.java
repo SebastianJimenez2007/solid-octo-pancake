@@ -144,6 +144,3 @@ public class AdminController {
                !usuario.getApellido().isEmpty();
     }
 }
-
-    
-

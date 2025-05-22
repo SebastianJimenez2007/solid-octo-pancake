@@ -1,0 +1,30 @@
+[
+  {
+    "idCita": 0,
+    "especialidad": "Pediatria",
+    "fechaTexto": "2025-05-23",
+    "horaTexto": "10:30 AM",
+    "generoPaciente": "Niño",
+    "motivo": "Vacunación"
+  },
+  {
+    "idCita": 0,
+    "especialidad": "Medicina general",
+    "fechaTexto": "2025-05-23",
+    "horaTexto": "12:30 AM",
+    "descripcion": "Dolor punzante constante",
+    "medicamentos": "Si",
+    "presenciaMalestar": "menos de una semana",
+    "malestarPrevio": "Si",
+    "intensidad": "moderado",
+    "ubicacionDolor": "Cabeza"
+  },
+  {
+    "idCita": 0,
+    "especialidad": "Odontologia",
+    "fechaTexto": "2025-05-23",
+    "horaTexto": "11:30 AM",
+    "descripcion": "Adormecimeinto en la boca",
+    "motivo": "Dolor de muela"
+  }
+]

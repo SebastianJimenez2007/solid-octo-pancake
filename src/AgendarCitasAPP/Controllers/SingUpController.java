@@ -6,6 +6,7 @@ package AgendarCitasAPP.Controllers;
 
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
 import AgendarCitasAPP.Dominio.Utils.AuthService;
+import java.time.LocalDate;
 import javax.swing.*;
 
 public class SingUpController {
@@ -58,6 +59,15 @@ public class SingUpController {
         String genero = (String) combo_genero.getSelectedItem().toString();
         String rol = (String) combo_rol.getSelectedItem().toString();
         String fechaNacimiento = text_fechaNacimientoSingUp.getText();
+        
+                try {
+            LocalDate.parse(fechaNacimiento); // formato debe ser yyyy-MM-dd
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fecha inválida. Usa el formato: yyyy-MM-dd", 
+                                          "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         String direccion = text_direccionSingUp.getText();
 
         // Validaciones básicas
