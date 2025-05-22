@@ -147,12 +147,16 @@ public class inicio extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         pfClave = new javax.swing.JPasswordField();
         BtnRegister1 = new javax.swing.JButton();
         tfCorreo = new javax.swing.JTextField();
         BtnVentanaLogin = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel48 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -173,9 +177,10 @@ public class inicio extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 768, -1, -1));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 790, 58, -1));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(153, 153, 255));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.setFocusable(false);
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +195,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 40));
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(195, 193, 252));
         jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -204,7 +209,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 40));
 
-        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel7.setBackground(new java.awt.Color(195, 193, 252));
         jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -518,7 +523,7 @@ public class inicio extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -543,13 +548,21 @@ public class inicio extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jSeparator3.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator3.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel16.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 210, 20));
+
+        jSeparator2.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator2.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel16.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 210, 30));
+
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(49, 82, 192));
         jLabel11.setText("LOGIN");
-        jPanel16.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 21, -1, -1));
+        jPanel16.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
+        pfClave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         pfClave.setForeground(new java.awt.Color(153, 153, 153));
-        pfClave.setText("Password");
         pfClave.setBorder(null);
         pfClave.setCaretColor(new java.awt.Color(102, 102, 102));
         pfClave.addActionListener(new java.awt.event.ActionListener() {
@@ -557,7 +570,7 @@ public class inicio extends javax.swing.JFrame {
                 pfClaveActionPerformed(evt);
             }
         });
-        jPanel16.add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 126, 220, 34));
+        jPanel16.add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 220, 34));
 
         BtnRegister1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnRegister1.setForeground(new java.awt.Color(49, 82, 192));
@@ -568,17 +581,17 @@ public class inicio extends javax.swing.JFrame {
                 BtnRegister1ActionPerformed(evt);
             }
         });
-        jPanel16.add(BtnRegister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 242, 220, 34));
+        jPanel16.add(BtnRegister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 240, 34));
 
+        tfCorreo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tfCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        tfCorreo.setText("Correo");
         tfCorreo.setBorder(null);
         tfCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCorreoActionPerformed(evt);
             }
         });
-        jPanel16.add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 80, 220, 34));
+        jPanel16.add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 220, 30));
 
         BtnVentanaLogin.setBackground(new java.awt.Color(49, 82, 192));
         BtnVentanaLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -590,14 +603,20 @@ public class inicio extends javax.swing.JFrame {
                 BtnVentanaLoginActionPerformed(evt);
             }
         });
-        jPanel16.add(BtnVentanaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 220, 34));
+        jPanel16.add(BtnVentanaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 240, 34));
 
-        jPanel10.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 290, 370));
+        jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jLabel28.setText("Correo");
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Planifica+");
-        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jLabel49.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jLabel49.setText("Contraseña");
+        jPanel16.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", " " }));
+        jPanel16.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, 30));
+
+        jPanel10.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 310, 360));
 
         jLabel48.setFont(new java.awt.Font("Segoe UI Variable", 1, 50)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
@@ -621,7 +640,7 @@ public class inicio extends javax.swing.JFrame {
 
         TabPanePrincipal.addTab("3", jPanel9);
 
-        jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 800, 390));
+        jPanel1.add(TabPanePrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -39, 800, 470));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
@@ -765,6 +784,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
@@ -775,7 +795,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -790,6 +809,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -812,6 +832,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -842,6 +863,8 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

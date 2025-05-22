@@ -73,28 +73,49 @@ public class register extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         text_correoSingUp = new javax.swing.JTextField();
-        btn_SingUp = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         text_cellSingUp = new javax.swing.JTextField();
         pfConfirmarClave = new javax.swing.JPasswordField();
         text_passSingUp = new javax.swing.JPasswordField();
-        combo_genero = new javax.swing.JComboBox<>();
-        combo_rol = new javax.swing.JComboBox<>();
-        btn_Login = new javax.swing.JButton();
         text_nameSingUp = new javax.swing.JTextField();
         text_idSingUp = new javax.swing.JTextField();
         text_apellidoSingUp = new javax.swing.JTextField();
         text_fechaNacimientoSingUp = new javax.swing.JTextField();
+        btn_SingUp = new javax.swing.JButton();
+        combo_genero = new javax.swing.JComboBox<>();
+        combo_rol = new javax.swing.JComboBox<>();
+        btn_Login = new javax.swing.JButton();
         text_direccionSingUp = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 470));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(49, 82, 192));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 470));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -102,17 +123,55 @@ public class register extends javax.swing.JFrame {
         jLabel2.setText("Planifica+");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel3.setText("Register to ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jLabel3.setText("Register");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         text_correoSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_correoSingUp.setText("correo");
         text_correoSingUp.setBorder(null);
-        jPanel2.add(text_correoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 230, 34));
+        jPanel3.add(text_correoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, 20));
+
+        text_cellSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_cellSingUp.setText("telefono");
+        text_cellSingUp.setBorder(null);
+        jPanel3.add(text_cellSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 230, 20));
+
+        pfConfirmarClave.setForeground(new java.awt.Color(153, 153, 153));
+        pfConfirmarClave.setText("pfConfirmarClave");
+        pfConfirmarClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfConfirmarClaveActionPerformed(evt);
+            }
+        });
+        jPanel3.add(pfConfirmarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 230, 20));
+
+        text_passSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_passSingUp.setText("jPasswordField1");
+        jPanel3.add(text_passSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 230, 20));
+
+        text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_nameSingUp.setText("name");
+        text_nameSingUp.setBorder(null);
+        jPanel3.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 230, 20));
+
+        text_idSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_idSingUp.setText("ID");
+        text_idSingUp.setBorder(null);
+        jPanel3.add(text_idSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 230, 20));
+
+        text_apellidoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_apellidoSingUp.setText("apellido");
+        text_apellidoSingUp.setBorder(null);
+        jPanel3.add(text_apellidoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 230, 20));
+
+        text_fechaNacimientoSingUp.setForeground(new java.awt.Color(153, 153, 153));
+        text_fechaNacimientoSingUp.setText("yyyy-MM-dd");
+        text_fechaNacimientoSingUp.setBorder(null);
+        jPanel3.add(text_fechaNacimientoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 230, 20));
 
         btn_SingUp.setBackground(new java.awt.Color(49, 82, 192));
         btn_SingUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -124,70 +183,103 @@ public class register extends javax.swing.JFrame {
                 btn_SingUpActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_SingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 230, 30));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(49, 82, 192));
-        jLabel1.setText("Planifica+");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
-
-        text_cellSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_cellSingUp.setText("telefono");
-        text_cellSingUp.setBorder(null);
-        jPanel2.add(text_cellSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 230, 34));
-
-        pfConfirmarClave.setForeground(new java.awt.Color(153, 153, 153));
-        pfConfirmarClave.setText("pfConfirmarClave");
-        jPanel2.add(pfConfirmarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 230, 30));
-
-        text_passSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_passSingUp.setText("jPasswordField1");
-        jPanel2.add(text_passSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 230, 30));
+        jPanel3.add(btn_SingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 230, 30));
 
         combo_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
         combo_genero.setBorder(null);
-        jPanel2.add(combo_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 230, 30));
+        jPanel3.add(combo_genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 230, 20));
 
         combo_rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Empleado", "Medico", "Admin", " " }));
         combo_rol.setBorder(null);
-        jPanel2.add(combo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 230, 30));
+        jPanel3.add(combo_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 230, 20));
 
         btn_Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_Login.setForeground(new java.awt.Color(51, 102, 255));
         btn_Login.setText("Log in");
         btn_Login.setBorder(null);
-        jPanel2.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 230, 30));
-
-        text_nameSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_nameSingUp.setText("name");
-        text_nameSingUp.setBorder(null);
-        jPanel2.add(text_nameSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, 30));
-
-        text_idSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_idSingUp.setText("ID");
-        text_idSingUp.setBorder(null);
-        jPanel2.add(text_idSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 230, 30));
-
-        text_apellidoSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_apellidoSingUp.setText("apellido");
-        text_apellidoSingUp.setBorder(null);
-        jPanel2.add(text_apellidoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 30));
-
-        text_fechaNacimientoSingUp.setForeground(new java.awt.Color(153, 153, 153));
-        text_fechaNacimientoSingUp.setText("yyyy-MM-dd");
-        text_fechaNacimientoSingUp.setBorder(null);
-        jPanel2.add(text_fechaNacimientoSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 230, 30));
+        jPanel3.add(btn_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 230, 30));
 
         text_direccionSingUp.setForeground(new java.awt.Color(153, 153, 153));
         text_direccionSingUp.setText("direccion");
         text_direccionSingUp.setBorder(null);
-        jPanel2.add(text_direccionSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 230, 30));
+        jPanel3.add(text_direccionSingUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 230, 20));
 
-        jScrollPane1.setViewportView(jPanel2);
+        jLabel4.setText("confirmar contraseña");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 330, 580));
+        jLabel5.setText("Rol");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 620));
+        jLabel6.setText("Nombre");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
+
+        jLabel7.setText("Apellido");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+
+        jLabel8.setText("Correo");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+
+        jLabel9.setText("Contraseña");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+
+        jLabel10.setText("Identificacion");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+
+        jLabel11.setText("Fecha nacimiento (yyyy-MM-dd)");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, 20));
+
+        jLabel12.setText("Numero de telefono");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, 20));
+
+        jLabel13.setText("Numero de telefono");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, 20));
+
+        jLabel14.setText("Genero");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, 20));
+
+        jSeparator3.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator3.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 230, 20));
+
+        jSeparator4.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator4.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 230, 20));
+
+        jSeparator5.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator5.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 230, 20));
+
+        jSeparator6.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator6.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 230, 20));
+
+        jSeparator7.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator7.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 230, 20));
+
+        jSeparator8.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator8.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 230, 20));
+
+        jSeparator9.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator9.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 230, 20));
+
+        jSeparator10.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator10.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 230, 20));
+
+        jSeparator11.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator11.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 230, 20));
+
+        jSeparator12.setBackground(new java.awt.Color(102, 102, 255));
+        jSeparator12.setForeground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 230, 20));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +295,10 @@ public class register extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_SingUpActionPerformed
+
+    private void pfConfirmarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfConfirmarClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pfConfirmarClaveActionPerformed
 
 
 
@@ -246,12 +342,31 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JButton btn_SingUp;
     private javax.swing.JComboBox<String> combo_genero;
     private javax.swing.JComboBox<String> combo_rol;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JPasswordField pfConfirmarClave;
     private javax.swing.JTextField text_apellidoSingUp;
     private javax.swing.JTextField text_cellSingUp;

@@ -1,10 +1,6 @@
 package AgendarCitasAPP.Dominio.Utils;
 
-
-import AgendarCitasAPP.Dominio.Entidades.Medico;
-import AgendarCitasAPP.Dominio.Entidades.Paciente;
 import AgendarCitasAPP.Dominio.Entidades.Usuario;
-import AgendarCitasAPP.Dominio.constantes.RolEnum;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
