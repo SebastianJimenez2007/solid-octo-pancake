@@ -43,7 +43,7 @@ public class Admin extends javax.swing.JFrame {
         }
     }
 
-    private void llenarTablaMedicos(List<Medico> medicos) {
+    void llenarTablaMedicos(List<Medico> medicos) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
@@ -511,7 +511,14 @@ private Medico obtenerMedicoSeleccionado() {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void BtnEditarUsuarioAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdmin1ActionPerformed
-        // TODO add your handling code here:
+     Medico medicoSeleccionado = obtenerMedicoSeleccionado();
+    if (medicoSeleccionado == null) {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar un médico para editar.");
+        return;
+    }
+
+    EditarMedicoFrame editarFrame = new EditarMedicoFrame(medicoSeleccionado, this);
+    editarFrame.setVisible(true);     
     }//GEN-LAST:event_BtnEditarUsuarioAdmin1ActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed

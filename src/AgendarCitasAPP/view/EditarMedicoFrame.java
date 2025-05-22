@@ -4,18 +4,94 @@
  */
 package AgendarCitasAPP.view;
 
+import AgendarCitasAPP.Dominio.Entidades.Medico;
+import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sebastian JB
  */
 public class EditarMedicoFrame extends javax.swing.JFrame {
-
+    private Medico medicoOriginal;
+    private Admin adminRef;
     /**
      * Creates new form EditarMedicoFrame
      */
-    public EditarMedicoFrame() {
+    public EditarMedicoFrame(Medico medico, Admin admin) {
         initComponents();
+        this.medicoOriginal = medico;
+        this.adminRef = admin;
+        cargarDatosMedico();
     }
+     private void cargarDatosMedico() {
+         txtId.setText(medicoOriginal.getId());
+        txtNombre.setText(medicoOriginal.getNombre());
+        txtApellido.setText(medicoOriginal.getApellido());
+        txtCorreo.setText(medicoOriginal.getCorreo());
+        txtTele.setText(medicoOriginal.getTelefono());
+        txtClave.setText(medicoOriginal.getClave());
+       
+        
+        // Llenar y seleccionar el género
+    cmbGenero.removeAllItems();
+    for (GeneroEnum genero : GeneroEnum.values()) {
+        cmbGenero.addItem(genero.getNombre());
+    }
+    cmbGenero.setSelectedItem(medicoOriginal.getGenero());
+
+   
+       
+    }
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+             // Actualizar datos del objeto
+        medicoOriginal.setNombre(txtNombre.getText());
+        medicoOriginal.setApellido(txtApellido.getText());
+        medicoOriginal.setCorreo(txtCorreo.getText());
+        medicoOriginal.setTelefono(txtTele.getText());
+        medicoOriginal.setClave(txtClave.getText());
+        
+
+       
+
+        // Género (guardado como String)
+        String generoSeleccionado = cmbGenero.getSelectedItem().toString();
+        medicoOriginal.setGenero(generoSeleccionado);
+
+           
+
+            // Leer lista de médicos desde JSON
+            java.lang.reflect.Type tipoLista = new TypeToken<List<Medico>>(){}.getType();
+            List<Medico> medicos = JsonUtils.leerJson("medicos.json", tipoLista);
+
+            // Actualizar médico en la lista
+            for (int i = 0; i < medicos.size(); i++) {
+                if (medicos.get(i).getId().equals(medicoOriginal.getId())) {
+                    medicos.set(i, medicoOriginal);
+                    break;
+                }
+            }
+
+            // Guardar cambios
+            JsonUtils.guardarJson("medicos.json", medicos);
+
+            JOptionPane.showMessageDialog(this, "Médico actualizado.");
+            adminRef.llenarTablaMedicos(medicos); // Actualizar tabla en Admin
+            this.dispose();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al guardar cambios.");
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +114,6 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
-        cmbRol = new javax.swing.JComboBox<>();
         cmbGenero = new javax.swing.JComboBox<>();
         btnEditarMedico = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
@@ -100,11 +175,8 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         txtTele.setBorder(null);
         jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
 
-        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
-        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 230, 30));
-
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
-        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 230, 30));
+        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 230, 30));
 
         btnEditarMedico.setBackground(new java.awt.Color(49, 82, 192));
         btnEditarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -116,13 +188,13 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
                 btnEditarMedicoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnEditarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 234, 34));
+        jPanel3.add(btnEditarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
         BtnCancelar.setText("Cancelar");
         BtnCancelar.setBorder(null);
-        jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 234, 34));
+        jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 234, 34));
 
         jScrollPane1.setViewportView(jPanel3);
 
@@ -141,47 +213,13 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
      
     }//GEN-LAST:event_btnEditarMedicoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditarMedicoFrame().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JLabel LabelEditarUsuario;
     private javax.swing.JButton btnEditarMedico;
     private javax.swing.JComboBox<String> cmbGenero;
-    private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
