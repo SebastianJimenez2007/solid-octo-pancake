@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +29,9 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         this.medicoOriginal = medico;
         this.adminRef = admin;
         cargarDatosMedico();
+         btnGuardarMedico.addActionListener(evt -> btnGuardarActionPerformed(evt));
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
      private void cargarDatosMedico() {
          txtId.setText(medicoOriginal.getId());
@@ -107,7 +111,6 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        LabelEditarUsuario = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtClave = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
@@ -115,8 +118,9 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
         cmbGenero = new javax.swing.JComboBox<>();
-        btnEditarMedico = new javax.swing.JButton();
+        btnGuardarMedico = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
+        LabelEditarUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,16 +138,11 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, -370, 300, -1));
 
-        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        LabelEditarUsuario.setForeground(new java.awt.Color(49, 82, 192));
-        LabelEditarUsuario.setText("Editar Medico");
-        jPanel3.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
         txtId.setEditable(false);
         txtId.setForeground(new java.awt.Color(153, 153, 153));
         txtId.setText("Id");
         txtId.setBorder(null);
-        jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 234, 34));
+        jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 234, 34));
 
         txtClave.setForeground(new java.awt.Color(153, 153, 153));
         txtClave.setText("clave");
@@ -178,17 +177,17 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
         jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 230, 30));
 
-        btnEditarMedico.setBackground(new java.awt.Color(49, 82, 192));
-        btnEditarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarMedico.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarMedico.setText("Editar");
-        btnEditarMedico.setBorder(null);
-        btnEditarMedico.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarMedico.setBackground(new java.awt.Color(49, 82, 192));
+        btnGuardarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarMedico.setText("Editar");
+        btnGuardarMedico.setBorder(null);
+        btnGuardarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarMedicoActionPerformed(evt);
+                btnGuardarMedicoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnEditarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 234, 34));
+        jPanel3.add(btnGuardarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
@@ -200,6 +199,11 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
+        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        LabelEditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        LabelEditarUsuario.setText("Editar Medico");
+        jPanel1.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
 
         pack();
@@ -209,16 +213,16 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void btnEditarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMedicoActionPerformed
+    private void btnGuardarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarMedicoActionPerformed
      
-    }//GEN-LAST:event_btnEditarMedicoActionPerformed
+    }//GEN-LAST:event_btnGuardarMedicoActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JLabel LabelEditarUsuario;
-    private javax.swing.JButton btnEditarMedico;
+    private javax.swing.JButton btnGuardarMedico;
     private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
