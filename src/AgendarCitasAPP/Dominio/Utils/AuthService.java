@@ -64,6 +64,7 @@ public class AuthService {
         nuevo.setClave(clave);
         nuevo.setTelefono(telefono);
         nuevo.setDireccion(direccion);
+        nuevo.setFechaNacimiento(fecha);
         nuevo.setGenero(GeneroEnum.fromString(genero));
         nuevo.setRol(RolEnum.fromString(rol));
         

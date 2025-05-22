@@ -36,9 +36,7 @@ public class Paciente extends Usuario {
 
     public void setHistorialMedico(String historialMedico) {
         this.historialMedico = historialMedico;
-    }
-     
-     
+    } 
 }
 
     

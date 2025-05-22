@@ -48,12 +48,25 @@
     "rol": "PACIENTE"
   },
   {
-    "id": "9994671151",
+    "id": "4699983452",
+    "clave": "dance12345",
+    "nombre": "Keiser",
+    "apellido": "Polo",
+    "fechaNacimiento": "2003-02-12",
+    "genero": "MASCULINO",
+    "direccion": "avenida pedro heredia",
+    "correo": "keiser@gmail.com",
+    "telefono": "7274941369",
+    "rol": "EMPLEADO"
+  },
+  {
+    "id": "4327695146",
     "clave": "mi.hijo",
     "nombre": "Javier",
     "apellido": "Polo",
+    "fechaNacimiento": "1980-10-13",
     "genero": "MASCULINO",
-    "direccion": "Calle 20",
+    "direccion": "calle SanJuan #22",
     "correo": "javier@gmail.com",
     "telefono": "4003125312",
     "rol": "PACIENTE"
