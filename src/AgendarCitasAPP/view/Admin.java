@@ -4,17 +4,18 @@
  */
 package AgendarCitasAPP.view;
 
-import AgendarCitasAPP.Controllers.AdminController;
-import AgendarCitasAPP.Dominio.Entidades.Usuario;
+
+import AgendarCitasAPP.Dominio.Entidades.Medico;
+import AgendarCitasAPP.Dominio.Entidades.Paciente;
 import AgendarCitasAPP.Dominio.Utils.JsonUtils;
-import AgendarCitasAPP.view.EditarUsuarioFrame;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.awt.event.ActionEvent;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,22 +23,117 @@ import javax.swing.table.DefaultTableModel;
  * @author Sebastian JB
  */
 public class Admin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Admin
-     */
+    
     public Admin() {
-         initComponents(); // Pasar el modelo de la tabla al controlador
+       initComponents();
+       List<Medico> listaMedicos = cargarMedicos();
+       llenarTablaMedicos(listaMedicos);
+       
+        List<Paciente> listaPacientes = cargarPacientes();
+        llenarTablaPacientes(listaPacientes);
+    }
+    
+     private List<Medico> cargarMedicos() {
+        try (Reader reader = new FileReader("Medicos.json")) {
+            java.lang.reflect.Type listType = new TypeToken<List<Medico>>() {}.getType();
+            return new Gson().fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private void llenarTablaMedicos(List<Medico> medicos) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Correo");
+        modelo.addColumn("Teléfono");
+        modelo.addColumn("Género");
+        modelo.addColumn("Rol");
+        modelo.addColumn("Especialidad");
+
+        for (Medico m : medicos) {
+            modelo.addRow(new Object[]{
+                m.getId(),
+                m.getNombre(),
+                m.getApellido(),
+                m.getCorreo(),
+                m.getTelefono(),
+                m.getGenero(),
+                m.getRol(),
+                m.getEspecialidad()
+            });
+        }
+
+        TablaMedicos.setModel(modelo); // Asegúrate que 'tablaMedicos' es tu JTable en el formulario
+    }
+    private List<Paciente> cargarPacientes() {
     try {
-        AdminController.cargarUsuariosEnTabla(
-            (DefaultTableModel) tablaUsuarios.getModel() // ← Aquí sí usas tablaUsuarios
-        );
-    } catch (RuntimeException e) {
-        JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        java.lang.reflect.Type tipoLista = new TypeToken<List<Paciente>>() {}.getType();
+        return JsonUtils.leerJson("Pacientes.json", tipoLista);
+    } catch (Exception e) {
+        e.printStackTrace();
+        return List.of();
     }
+}
+
+void llenarTablaPacientes(List<Paciente> pacientes) {
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID");
+    modelo.addColumn("Nombre");
+    modelo.addColumn("Apellido");
+    modelo.addColumn("Correo");
+    modelo.addColumn("Teléfono");
+    modelo.addColumn("Género");
+    modelo.addColumn("Rol");
+
+    for (Paciente p : pacientes) {
+        modelo.addRow(new Object[]{
+            p.getId(),
+            p.getNombre(),
+            p.getApellido(),
+            p.getCorreo(),
+            p.getTelefono(),
+            p.getGenero(),
+            p.getRol(),
+            
+        });
     }
-    
-    
+
+    TablaPacientes.setModel(modelo); // Asegúrate que este sea el nombre correcto de tu JTable
+}
+
+private Paciente obtenerPacienteSeleccionado() {
+    int fila = TablaPacientes.getSelectedRow();
+    if (fila == -1) {
+        return null; // No hay fila seleccionada
+    }
+
+    String id = TablaPacientes.getValueAt(fila, 0).toString();
+    for (Paciente p : cargarPacientes()) {
+        if (p.getId().equals(id)) {
+            return p;
+        }
+    }
+    return null;
+}
+
+private Medico obtenerMedicoSeleccionado() {
+    int fila = TablaMedicos.getSelectedRow(); // Asegúrate de que tablaMedicos sea el nombre correcto
+    if (fila == -1) {
+        return null; // No hay médico seleccionado
+    }
+
+    String id = TablaMedicos.getValueAt(fila, 0).toString(); // ID está en la primera columna
+    for (Medico m : cargarMedicos()) {
+        if (m.getId().equals(id)) {
+            return m;
+        }
+    }
+    return null;
+}
     
   
 
@@ -72,22 +168,25 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaUsuarios = new javax.swing.JTable();
+        TablaPacientes = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        BtnEditarUsuarioAdmin = new javax.swing.JButton();
+        BtnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtBuscarPacientePorID = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtBuscarMedicoPorID = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TablaMedicos = new javax.swing.JTable();
+        BtnEditarUsuarioAdmin1 = new javax.swing.JButton();
+        btnEliminar1 = new javax.swing.JButton();
         paneGestionCitas = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -149,7 +248,7 @@ public class Admin extends javax.swing.JFrame {
         });
         PanelGestionUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText(" Gestión de usuarios");
+        jLabel1.setText(" Gestión de Pacientes");
         PanelGestionUsuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel3.add(PanelGestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
@@ -193,31 +292,31 @@ public class Admin extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(204, 204, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "Clave", "Correo"
+                "ID", "Nombre", "Apellido", "Correo", "Telefono", "Genero", "Rol"
             }
         ));
-        jScrollPane2.setViewportView(tablaUsuarios);
+        jScrollPane2.setViewportView(TablaPacientes);
 
         jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 730, 200));
 
         jLabel9.setText(".");
         jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
-        BtnEditarUsuarioAdmin.setText("Editar");
-        BtnEditarUsuarioAdmin.addActionListener(new java.awt.event.ActionListener() {
+        BtnEditar.setText("Editar");
+        BtnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEditarUsuarioAdminActionPerformed(evt);
+                BtnEditarActionPerformed(evt);
             }
         });
-        jPanel11.add(BtnEditarUsuarioAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
+        jPanel11.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -229,27 +328,13 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel10.setText("Buscar por ID:");
         jPanel11.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
-
-        jButton1.setText("Filtrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
-
-        jLabel11.setText("Filtrar por:");
-        jPanel11.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel11.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 90, -1));
+        jPanel11.add(txtBuscarPacientePorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
 
         jButton2.setText("Buscar");
         jPanel11.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel12.setText("Gestion de usuarios");
+        jLabel12.setText("Gestion de Pacientes");
         jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
@@ -273,7 +358,18 @@ public class Admin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(255, 204, 204));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel13.setText("Gestion de Medicos");
+        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jLabel14.setText("Buscar por ID:");
+        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jPanel10.add(txtBuscarMedicoPorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
+
+        jButton3.setText("Buscar");
+        jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+
+        TablaMedicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -281,12 +377,28 @@ public class Admin extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Especialidad", "Email", "Disponibilidad"
+                "ID", "Nombre", "Apellido", "rol", "Correo"
             }
         ));
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane4.setViewportView(TablaMedicos);
 
-        jPanel10.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 328));
+        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 730, 200));
+
+        BtnEditarUsuarioAdmin1.setText("Editar");
+        BtnEditarUsuarioAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarUsuarioAdmin1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(BtnEditarUsuarioAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
+
+        btnEliminar1.setText("Eliminar");
+        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminar1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 30));
 
         jScrollPane3.setViewportView(jPanel10);
 
@@ -382,82 +494,29 @@ public class Admin extends javax.swing.JFrame {
        TabPaneAdmin.setSelectedIndex(2);
     }//GEN-LAST:event_PanelGestionCitas1MouseClicked
 
-    private void BtnEditarUsuarioAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdminActionPerformed
-        int filaSeleccionada = tablaUsuarios.getSelectedRow();
-    
-    if (filaSeleccionada == -1) {
-        JOptionPane.showMessageDialog(this, 
-            "Por favor seleccione un usuario de la tabla para editar", 
-            "Advertencia", 
-            JOptionPane.WARNING_MESSAGE);
-        return;
+    private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
+    BtnEditar.addActionListener(e -> {
+    Paciente seleccionado = obtenerPacienteSeleccionado();
+    if (seleccionado != null) {
+        EditarPacienteFrame frame = new EditarPacienteFrame(seleccionado, this);
+        frame.setVisible(true);
+    } else {
+        JOptionPane.showMessageDialog(this, "Seleccione un paciente primero.");
     }
-    
-    try {
-        // Obtener los datos de la fila seleccionada
-        String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
-        String nombre = tablaUsuarios.getValueAt(filaSeleccionada, 1).toString();
-        String apellido = tablaUsuarios.getValueAt(filaSeleccionada, 2).toString();
-        String clave = tablaUsuarios.getValueAt(filaSeleccionada, 3).toString();
-        String fechaNacimiento = tablaUsuarios.getValueAt(filaSeleccionada, 4).toString();
-        String direccion = tablaUsuarios.getValueAt(filaSeleccionada, 5).toString();
-        String telefono = tablaUsuarios.getValueAt(filaSeleccionada, 6).toString();
-        String correo = tablaUsuarios.getValueAt(filaSeleccionada, 7).toString();
-        
-        // Crear y mostrar el frame de edición
-        EditarUsuarioFrame editarFrame = new EditarUsuarioFrame(
-            id, nombre, apellido, clave, fechaNacimiento, direccion, 
-            telefono, correo, (DefaultTableModel) tablaUsuarios.getModel()
-        );
-        editarFrame.setVisible(true);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, 
-            "Error al obtener datos del usuario: " + e.getMessage(), 
-            "Error", 
-            JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_BtnEditarUsuarioAdminActionPerformed
+});     
+    }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       btnEliminar.addActionListener(e -> {
-    int filaSeleccionada = tablaUsuarios.getSelectedRow();
-    if (filaSeleccionada == -1) {
-        JOptionPane.showMessageDialog(this, 
-            "Seleccione un usuario para eliminar", 
-            "Advertencia", 
-            JOptionPane.WARNING_MESSAGE);
-        return;
-    }
-    
-    String id = tablaUsuarios.getValueAt(filaSeleccionada, 0).toString();
-    
-    try {
-        // Confirmación antes de eliminar
-        int confirmacion = JOptionPane.showConfirmDialog(
-            this, 
-            "¿Está seguro de eliminar este usuario?", 
-            "Confirmar eliminación",
-            JOptionPane.YES_NO_OPTION);
-        
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            AdminController.eliminarUsuario(id, (DefaultTableModel) tablaUsuarios.getModel());
-            JOptionPane.showMessageDialog(this, 
-                "Usuario eliminado correctamente", 
-                "Éxito", 
-                JOptionPane.INFORMATION_MESSAGE);
-        }
-    } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, 
-            "Error al eliminar usuario: " + ex.getMessage(), 
-            "Error", 
-            JOptionPane.ERROR_MESSAGE);
-    }
-});
+      
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnEditarUsuarioAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdmin1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnEditarUsuarioAdmin1ActionPerformed
+
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -495,20 +554,24 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnEditarUsuarioAdmin;
+    private javax.swing.JButton BtnEditar;
+    private javax.swing.JButton BtnEditarUsuarioAdmin1;
     private javax.swing.JPanel PanelGestionCitas1;
     private javax.swing.JPanel PanelGestionMedicos;
     private javax.swing.JPanel PanelGestionUsuarios;
     private javax.swing.JTabbedPane TabPaneAdmin;
     private javax.swing.JPanel TabPaneReportes;
+    private javax.swing.JTable TablaMedicos;
+    private javax.swing.JTable TablaPacientes;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEliminar1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -526,17 +589,16 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel paneGestionCitas;
     private javax.swing.JPanel paneGestionMedicos;
     private javax.swing.JPanel paneGestionUsuario;
     private javax.swing.JPanel paneReportes;
-    private javax.swing.JTable tablaUsuarios;
+    private javax.swing.JTextField txtBuscarMedicoPorID;
+    private javax.swing.JTextField txtBuscarPacientePorID;
     // End of variables declaration//GEN-END:variables
 }

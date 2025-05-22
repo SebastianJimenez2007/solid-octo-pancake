@@ -4,103 +4,19 @@
  */
 package AgendarCitasAPP.view;
 
-import AgendarCitasAPP.Controllers.AdminController;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author sebas
+ * @author Sebastian JB
  */
-public class EditarUsuarioFrame extends javax.swing.JFrame {
+public class EditarMedicoFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form EditarUsuarioFrame
+     * Creates new form EditarMedicoFrame
      */
-    private DefaultTableModel modeloTabla; // Añade esta línea
-
-    public EditarUsuarioFrame(String id, String nombre, String apellido, String clave, 
-        String fechaNacimiento, String direccion, String telefono, String correo,
-        DefaultTableModel modeloTabla) {
+    public EditarMedicoFrame() {
         initComponents();
-        
-        this.modeloTabla = modeloTabla;
-        
-        // Establecer valores en los campos
-        txtId.setText(id);
-        txtNombre.setText(nombre);
-        txtApellido.setText(apellido);
-        txtClave.setText(clave);
-        txtFechaNacimiento.setText(fechaNacimiento);
-        txtDireccion.setText(direccion);
-        txtTele.setText(telefono);
-        txtCorreo.setText(correo);
-        
-        // Limpiar textos por defecto incorrectos
-        txtId.setForeground(java.awt.Color.BLACK);
-        txtNombre.setForeground(java.awt.Color.BLACK);
-        txtApellido.setForeground(java.awt.Color.BLACK);
-        txtClave.setForeground(java.awt.Color.BLACK);
-        txtFechaNacimiento.setForeground(java.awt.Color.BLACK);
-        txtDireccion.setForeground(java.awt.Color.BLACK);
-        txtTele.setForeground(java.awt.Color.BLACK);
-        txtCorreo.setForeground(java.awt.Color.BLACK);
-        
-        // Configurar botón cancelar
-        BtnCancelar.addActionListener(e -> this.dispose());
-        
-        // Configurar botón guardar
-        BtnEditar.addActionListener(e -> guardarCambios());
     }
-    
-   private void guardarCambios() {
-        try {
-            // Obtener los nuevos valores
-            String id = txtId.getText();
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            String clave = txtClave.getText();
-            String fechaNacimiento = txtFechaNacimiento.getText();
-            String direccion = txtDireccion.getText();
-            String telefono = txtTele.getText();
-            String correo = txtCorreo.getText();
-            String rol = cmbRol.getSelectedItem().toString();
-            String genero = cmbGenero.getSelectedItem().toString();
-            
-            // Validación básica de campos
-            if (nombre.isEmpty() || apellido.isEmpty() || clave.isEmpty() || 
-                fechaNacimiento.isEmpty() || direccion.isEmpty() || 
-                telefono.isEmpty() || correo.isEmpty()) {
-                throw new Exception("Todos los campos son obligatorios");
-            }
-            
-            // Validación de correo electrónico
-            if (!correo.contains("@") || !correo.contains(".")) {
-                throw new Exception("El correo electrónico no es válido");
-            }
-            
-            // Actualizar en la base de datos
-            AdminController.actualizarUsuario(
-                id, nombre, apellido, clave, fechaNacimiento, 
-                direccion, telefono, correo, genero, rol
-            );
-            
-            // Actualizar la tabla en Admin
-            AdminController.cargarUsuariosEnTabla(modeloTabla);
-            
-            JOptionPane.showMessageDialog(this, 
-                "Usuario actualizado correctamente", 
-                "Éxito", 
-                JOptionPane.INFORMATION_MESSAGE);
-            
-            this.dispose();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                "Error al actualizar usuario: " + e.getMessage(), 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
-        }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,13 +36,11 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         txtClave = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        txtFechaNacimiento = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
         cmbRol = new javax.swing.JComboBox<>();
         cmbGenero = new javax.swing.JComboBox<>();
-        BtnEditar = new javax.swing.JButton();
+        btnEditarMedico = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,7 +61,7 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
 
         LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         LabelEditarUsuario.setForeground(new java.awt.Color(49, 82, 192));
-        LabelEditarUsuario.setText("Editar Usuario");
+        LabelEditarUsuario.setText("Editar Medico");
         jPanel3.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         txtId.setEditable(false);
@@ -157,12 +71,12 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 234, 34));
 
         txtClave.setForeground(new java.awt.Color(153, 153, 153));
-        txtClave.setText("correo");
+        txtClave.setText("clave");
         txtClave.setBorder(null);
         jPanel3.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 234, 34));
 
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("contraseña");
+        txtNombre.setText("nombre");
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,46 +86,43 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 234, 34));
 
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido.setText("telefono");
+        txtApellido.setText("apellido");
         txtApellido.setBorder(null);
         jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 234, 34));
 
-        txtFechaNacimiento.setForeground(new java.awt.Color(153, 153, 153));
-        txtFechaNacimiento.setText("telefono");
-        txtFechaNacimiento.setBorder(null);
-        jPanel3.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 234, 34));
-
-        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        txtDireccion.setText("telefono");
-        txtDireccion.setBorder(null);
-        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
-
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo.setText("correo");
         txtCorreo.setBorder(null);
-        jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 234, 34));
+        jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 234, 34));
 
         txtTele.setForeground(new java.awt.Color(153, 153, 153));
+        txtTele.setText("telefono");
         txtTele.setBorder(null);
-        jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 234, 34));
+        jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
 
         cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
-        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 230, 30));
+        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 230, 30));
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
-        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 230, 30));
+        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 230, 30));
 
-        BtnEditar.setBackground(new java.awt.Color(49, 82, 192));
-        BtnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnEditar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnEditar.setText("Editar");
-        BtnEditar.setBorder(null);
-        jPanel3.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 234, 34));
+        btnEditarMedico.setBackground(new java.awt.Color(49, 82, 192));
+        btnEditarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarMedico.setText("Editar");
+        btnEditarMedico.setBorder(null);
+        btnEditarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarMedicoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnEditarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
         BtnCancelar.setText("Cancelar");
         BtnCancelar.setBorder(null);
-        jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 234, 34));
+        jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 234, 34));
 
         jScrollPane1.setViewportView(jPanel3);
 
@@ -226,15 +137,49 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void btnEditarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMedicoActionPerformed
+     
+    }//GEN-LAST:event_btnEditarMedicoActionPerformed
+
     /**
      * @param args the command line arguments
      */
-   
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EditarMedicoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EditarMedicoFrame().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
-    private javax.swing.JButton BtnEditar;
     private javax.swing.JLabel LabelEditarUsuario;
+    private javax.swing.JButton btnEditarMedico;
     private javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JLabel jLabel2;
@@ -245,8 +190,6 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtClave;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTele;

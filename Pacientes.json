@@ -1,3 +1,49 @@
-{
-    "name": "Sebastian JB"
-}
+[
+  {
+    "id": "1",
+    "clave": "123",
+    "nombre": "Klever",
+    "apellido": "polo",
+    "fechaNacimiento": "2006-05-15",
+    "genero": "MASCULINO",
+    "direccion": "calle 123",
+    "correo": "klever@gmail.com",
+    "telefono": "3044590500",
+    "rol": "PACIENTE"
+  },
+  {
+    "id": "2",
+    "clave": "456",
+    "nombre": "Laura",
+    "apellido": "Jimeenz",
+    "fechaNacimiento": "1995-08-20",
+    "genero": "Femenino",
+    "direccion": "avenida 456",
+    "correo": "laura@gmail.com",
+    "telefono": "3001122334",
+    "rol": "PACIENTE"
+  },
+  {
+    "id": "4",
+    "clave": "321",
+    "nombre": "Valentina",
+    "apellido": "López",
+    "fechaNacimiento": "2002-11-02",
+    "genero": "FEMENINO",
+    "direccion": "calle 80 #32-12",
+    "correo": "valentina.lopez@gmail.com",
+    "telefono": "3119988776",
+    "rol": "PACIENTE"
+  },
+  {
+    "id": "9994671151",
+    "clave": "mi.hijo",
+    "nombre": "Javier",
+    "apellido": "Polo",
+    "genero": "MASCULINO",
+    "direccion": "Calle 20",
+    "correo": "javier@gmail.com",
+    "telefono": "4003125312",
+    "rol": "PACIENTE"
+  }
+]
