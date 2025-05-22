@@ -286,6 +286,11 @@ public class inicio extends javax.swing.JFrame {
         jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatria" }));
+        comboEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEspecialidadActionPerformed(evt);
+            }
+        });
         jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 290, 30));
 
         BtnSiguente.setText("Siguiente");
@@ -713,6 +718,10 @@ public class inicio extends javax.swing.JFrame {
     private void pfClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfClaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pfClaveActionPerformed
+
+    private void comboEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEspecialidadActionPerformed
 
     /**
      * @param args the command line arguments

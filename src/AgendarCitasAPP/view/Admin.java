@@ -521,7 +521,7 @@ private void buscarPacientePorId(String id) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 100, 40));
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, -10, 100, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -584,7 +584,7 @@ private void buscarPacientePorId(String id) {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-               // TODO add your handling code here:
+                
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIdActionPerformed

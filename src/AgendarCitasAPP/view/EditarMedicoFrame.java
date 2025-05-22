@@ -5,20 +5,85 @@
 package AgendarCitasAPP.view;
 
 import AgendarCitasAPP.Dominio.Entidades.Medico;
+import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.view.Admin;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.util.List;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Sebastian JB
- */
+    
 public class EditarMedicoFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EditarMedicoFrame
-     */
-    public EditarMedicoFrame(Medico medicoSeleccionado, Admin aThis) {
+    private Medico medicoOriginal;
+    private Admin adminRef;
+    
+    public EditarMedicoFrame(Medico medico, Admin adminRef) {
         initComponents();
+        
+        
+           btnGuardarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarMedicoActionPerformed(evt);
+            }
+        });
+
+        this.medicoOriginal = medico;
+        this.adminRef = adminRef;
+        cargarDatosMedico();
+    }
+     private void cargarDatosMedico() {
+        txtId.setText(medicoOriginal.getId());
+        txtNombre.setText(medicoOriginal.getNombre());
+        txtApellido.setText(medicoOriginal.getApellido());
+        txtCorreo.setText(medicoOriginal.getCorreo());
+        txtTele.setText(medicoOriginal.getTelefono());
+        
+        txtClave.setText(medicoOriginal.getClave());
+        cmbEspecialidad.setSelectedItem(medicoOriginal.getEspecialidad());
+        // ... completar con otros campos si tienes
+        // También podrías llenar un combo de género, rol, etc., igual que en paciente
+    }
+      private void btnGuardarMedicoActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            // Actualizar datos del objeto medicoOriginal con los valores de los campos
+            medicoOriginal.setNombre(txtNombre.getText());
+            medicoOriginal.setApellido(txtApellido.getText());
+            medicoOriginal.setCorreo(txtCorreo.getText());
+            medicoOriginal.setTelefono(txtTele.getText());
+            medicoOriginal.setClave(txtClave.getText());
+            medicoOriginal.setEspecialidad(cmbEspecialidad.getSelectedItem().toString());
+            // actualizar otros campos si tienes...
+
+            // Leer lista de médicos desde JSON
+            java.lang.reflect.Type tipoLista = new TypeToken<List<Medico>>(){}.getType();
+            List<Medico> medicos = JsonUtils.leerJson("Medicos.json", tipoLista);
+
+            // Buscar y reemplazar el médico editado
+            for (int i = 0; i < medicos.size(); i++) {
+                if (medicos.get(i).getId().equals(medicoOriginal.getId())) {
+                    medicos.set(i, medicoOriginal);
+                    break;
+                }
+            }
+
+            // Guardar la lista actualizada
+            JsonUtils.guardarJson("Medicos.json", medicos);
+
+            JOptionPane.showMessageDialog(this, "Médico actualizado.");
+            adminRef.llenarTablaMedicos(medicos);
+            this.dispose();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al guardar cambios.");
+        }
     }
 
+   
+
+   
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,17 +98,17 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        LabelEditarUsuario = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtClave = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
-        cmbRol = new javax.swing.JComboBox<>();
         cmbGenero = new javax.swing.JComboBox<>();
-        btnEditarMedico = new javax.swing.JButton();
+        btnGuardarMedico = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
+        cmbEspecialidad = new javax.swing.JComboBox<>();
+        LabelEditarUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,16 +126,11 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, -370, 300, -1));
 
-        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        LabelEditarUsuario.setForeground(new java.awt.Color(49, 82, 192));
-        LabelEditarUsuario.setText("Editar Medico");
-        jPanel3.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
         txtId.setEditable(false);
         txtId.setForeground(new java.awt.Color(153, 153, 153));
         txtId.setText("Id");
         txtId.setBorder(null);
-        jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 234, 34));
+        jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 234, 34));
 
         txtClave.setForeground(new java.awt.Color(153, 153, 153));
         txtClave.setText("clave");
@@ -102,23 +162,20 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         txtTele.setBorder(null);
         jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
 
-        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
-        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 230, 30));
-
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
         jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 230, 30));
 
-        btnEditarMedico.setBackground(new java.awt.Color(49, 82, 192));
-        btnEditarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarMedico.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditarMedico.setText("Editar");
-        btnEditarMedico.setBorder(null);
-        btnEditarMedico.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarMedico.setBackground(new java.awt.Color(49, 82, 192));
+        btnGuardarMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarMedico.setText("Editar");
+        btnGuardarMedico.setBorder(null);
+        btnGuardarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarMedicoActionPerformed(evt);
+                btnGuardarMedicoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnEditarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 234, 34));
+        jPanel3.add(btnGuardarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
@@ -126,9 +183,17 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         BtnCancelar.setBorder(null);
         jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 234, 34));
 
+        cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(cmbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 62, 230, 30));
+
         jScrollPane1.setViewportView(jPanel3);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+
+        LabelEditarUsuario.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        LabelEditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        LabelEditarUsuario.setText("Editar Medico");
+        jPanel1.add(LabelEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
 
@@ -140,7 +205,7 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnEditarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMedicoActionPerformed
-     
+      
     }//GEN-LAST:event_btnEditarMedicoActionPerformed
 
  
@@ -148,9 +213,9 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JLabel LabelEditarUsuario;
-    private javax.swing.JButton btnEditarMedico;
+    private javax.swing.JButton btnGuardarMedico;
+    private javax.swing.JComboBox<String> cmbEspecialidad;
     private javax.swing.JComboBox<String> cmbGenero;
-    private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
