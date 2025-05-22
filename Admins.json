@@ -1,7 +1,5 @@
 [{
     "clave": "123",
-    "correo": "admin@gmail.com",
-    "telefono": "4004314941",
-    "rol": "ADMIN"
+    "correo": "admin@gmail.com"
   }
 ]

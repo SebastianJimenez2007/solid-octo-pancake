@@ -9,6 +9,7 @@ import AgendarCitasAPP.Dominio.Entidades.Paciente;
 import AgendarCitasAPP.Dominio.Entidades.Medico;
 import AgendarCitasAPP.Dominio.Utils.JsonUtils;
 import AgendarCitasAPP.view.Admin;
+import AgendarCitasAPP.view.inicio;
 
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -22,15 +23,17 @@ public class LoginController {
     private JTabbedPane tabPanePrincipal;
     private JButton BtnLogin;
     private JButton BtnCerrarSesion;
+    private JFrame ventanaInicio;
 
-    public LoginController(JTextField tfCorreo, JPasswordField pfClave, JComboBox<String> comboRol1,
-                            JTabbedPane tabPanePrincipal, JButton BtnLogin, JButton BtnCerrarSesion1) {
-         this.tfCorreo = tfCorreo;
-         this.pfClave = pfClave;
-         this.comboRol = comboRol1;          // Aquí sí se asigna correctamente
-         this.tabPanePrincipal = tabPanePrincipal;
-         this.BtnLogin = BtnLogin;
-         this.BtnCerrarSesion = BtnCerrarSesion1;
+  public LoginController(JTextField tfCorreo, JPasswordField pfClave, JComboBox<String> comboRol1,
+                       JTabbedPane tabPanePrincipal, JButton BtnLogin, JButton BtnCerrarSesion) {
+    this.tfCorreo = tfCorreo;
+    this.pfClave = pfClave;
+    this.comboRol = comboRol1;
+    this.tabPanePrincipal = tabPanePrincipal;
+    this.BtnLogin = BtnLogin;
+    this.BtnCerrarSesion = BtnCerrarSesion;
+    
 }
     public void login() {
         String correo = tfCorreo.getText();
@@ -47,7 +50,7 @@ public class LoginController {
                     for (Paciente p : pacientes) {
                         if (p.getCorreo().equalsIgnoreCase(correo) && p.getClave().equals(clave)) {
                             accesoConcedido = true;
-                            tabPanePrincipal.setSelectedIndex(1); // Pestaña de Pacientes
+                            tabPanePrincipal.setSelectedIndex(0); // Pestaña de Pacientes
                             break;
                         }
                     }
@@ -72,6 +75,7 @@ public class LoginController {
 
                             // Mostrar ventana de administrador
                             new Admin().setVisible(true);
+                            
 
                             // Ocultar botón de login y mostrar botón de cerrar sesión
                             BtnLogin.setVisible(false);

@@ -239,7 +239,7 @@ public class inicio extends javax.swing.JFrame {
                 BtnLoginActionPerformed(evt);
             }
         });
-        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 120, 30));
+        PanelInicio.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 240, 30));
 
         BtnCerrarSesion.setText("Cerrar sesion");
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -258,7 +258,7 @@ public class inicio extends javax.swing.JFrame {
                 BtnRegisterActionPerformed(evt);
             }
         });
-        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 120, 30));
+        PanelInicio.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 240, 30));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -275,7 +275,7 @@ public class inicio extends javax.swing.JFrame {
 
         TabPanePrincipal.addTab("0", jTabbedPane2);
 
-        jPanel19.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -286,7 +286,7 @@ public class inicio extends javax.swing.JFrame {
         jPanel19.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         comboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------------", "Medicina general", "Odontologia", "Pedriatria" }));
-        jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
+        jPanel19.add(comboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 290, 30));
 
         BtnSiguente.setText("Siguiente");
         BtnSiguente.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +294,7 @@ public class inicio extends javax.swing.JFrame {
                 BtnSiguenteActionPerformed(evt);
             }
         });
-        jPanel19.add(BtnSiguente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel19.add(BtnSiguente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 30));
 
         tabPaneEspecialidades.addTab("tab4", jPanel19);
 
@@ -302,6 +302,7 @@ public class inicio extends javax.swing.JFrame {
 
         jScrollPane2.setBorder(null);
 
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -391,6 +392,7 @@ public class inicio extends javax.swing.JFrame {
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -441,6 +443,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel46.setText(".");
         jPanel14.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 40, -1));
 
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

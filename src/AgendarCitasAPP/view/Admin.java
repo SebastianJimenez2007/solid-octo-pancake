@@ -26,6 +26,8 @@ public class Admin extends javax.swing.JFrame {
     
     public Admin() {
        initComponents();
+         
+       this.setLocationRelativeTo(null);
        List<Medico> listaMedicos = cargarMedicos();
        llenarTablaMedicos(listaMedicos);
        
@@ -134,7 +136,25 @@ private Medico obtenerMedicoSeleccionado() {
     }
     return null;
 }
-    
+private void buscarPacientePorId(String id) {
+    List<Paciente> todos = cargarPacientes();
+    List<Paciente> filtrados = new ArrayList<>();
+
+    for (Paciente p : todos) {
+        if (p.getId().equalsIgnoreCase(id)) {
+            filtrados.add(p);
+            break; // ID es único, salimos
+        }
+    }
+
+    if (filtrados.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "No se encontró ningún paciente con ID: " + id);
+    }
+
+    llenarTablaPacientes(filtrados);
+}
+
+
   
 
     /**
@@ -173,25 +193,28 @@ private Medico obtenerMedicoSeleccionado() {
         BtnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        txtBuscarPacientePorID = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        txtBuscarId = new javax.swing.JTextField();
+        btnBuscarId = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        btnListarPacientes = new javax.swing.JButton();
         paneGestionMedicos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel10 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtBuscarMedicoPorID = new javax.swing.JTextField();
+        txtBuscarIdMedico = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         TablaMedicos = new javax.swing.JTable();
         BtnEditarUsuarioAdmin1 = new javax.swing.JButton();
         btnEliminar1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         paneGestionCitas = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         paneReportes = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -289,7 +312,7 @@ private Medico obtenerMedicoSeleccionado() {
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel11.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -305,37 +328,58 @@ private Medico obtenerMedicoSeleccionado() {
         ));
         jScrollPane2.setViewportView(TablaPacientes);
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 730, 200));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 730, 200));
 
         jLabel9.setText(".");
         jPanel11.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
+        BtnEditar.setBackground(new java.awt.Color(49, 82, 192));
+        BtnEditar.setForeground(new java.awt.Color(255, 255, 255));
         BtnEditar.setText("Editar");
         BtnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEditarActionPerformed(evt);
             }
         });
-        jPanel11.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
+        jPanel11.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 100, 30));
 
+        btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 30));
+        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
 
         jLabel10.setText("Buscar por ID:");
-        jPanel11.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        jPanel11.add(txtBuscarPacientePorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
+        jPanel11.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel11.add(txtBuscarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, -1));
 
-        jButton2.setText("Buscar");
-        jPanel11.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+        btnBuscarId.setBackground(new java.awt.Color(49, 82, 192));
+        btnBuscarId.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarId.setText("Buscar");
+        btnBuscarId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarIdActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnBuscarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel12.setText("Gestion de Pacientes");
-        jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        btnListarPacientes.setBackground(new java.awt.Color(49, 82, 192));
+        btnListarPacientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnListarPacientes.setText("Listar");
+        btnListarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarPacientesActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnListarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
 
         jScrollPane1.setViewportView(jPanel11);
 
@@ -352,22 +396,29 @@ private Medico obtenerMedicoSeleccionado() {
 
         TabPaneAdmin.addTab("0", paneGestionUsuario);
 
-        paneGestionMedicos.setBackground(new java.awt.Color(255, 204, 204));
+        paneGestionMedicos.setBackground(new java.awt.Color(255, 255, 255));
         paneGestionMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel10.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel13.setText("Gestion de Medicos");
-        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel14.setText("Buscar por ID:");
-        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        jPanel10.add(txtBuscarMedicoPorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, -1));
+        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel10.add(txtBuscarIdMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, -1));
 
+        jButton3.setBackground(new java.awt.Color(49, 82, 192));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Buscar");
-        jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         TablaMedicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -382,27 +433,41 @@ private Medico obtenerMedicoSeleccionado() {
         ));
         jScrollPane4.setViewportView(TablaMedicos);
 
-        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 730, 200));
+        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 730, 200));
 
+        BtnEditarUsuarioAdmin1.setBackground(new java.awt.Color(49, 82, 192));
+        BtnEditarUsuarioAdmin1.setForeground(new java.awt.Color(255, 255, 255));
         BtnEditarUsuarioAdmin1.setText("Editar");
         BtnEditarUsuarioAdmin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEditarUsuarioAdmin1ActionPerformed(evt);
             }
         });
-        jPanel10.add(BtnEditarUsuarioAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 100, 30));
+        jPanel10.add(BtnEditarUsuarioAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 100, 30));
 
+        btnEliminar1.setBackground(new java.awt.Color(255, 102, 102));
+        btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar1.setText("Eliminar");
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
             }
         });
-        jPanel10.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 30));
+        jPanel10.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
+
+        jButton1.setBackground(new java.awt.Color(49, 82, 192));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Listar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
 
         jScrollPane3.setViewportView(jPanel10);
 
-        paneGestionMedicos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, -2, 800, 360));
+        paneGestionMedicos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 400));
 
         TabPaneAdmin.addTab("1", paneGestionMedicos);
 
@@ -436,12 +501,12 @@ private Medico obtenerMedicoSeleccionado() {
         );
         paneReportesLayout.setVerticalGroup(
             paneReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 395, Short.MAX_VALUE)
         );
 
         TabPaneAdmin.addTab("3", paneReportes);
 
-        jPanel1.add(TabPaneAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 390));
+        jPanel1.add(TabPaneAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 430));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
@@ -449,6 +514,14 @@ private Medico obtenerMedicoSeleccionado() {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Planifica+");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -510,20 +583,69 @@ private Medico obtenerMedicoSeleccionado() {
       
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void BtnEditarUsuarioAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdmin1ActionPerformed
-     Medico medicoSeleccionado = obtenerMedicoSeleccionado();
-    if (medicoSeleccionado == null) {
-        JOptionPane.showMessageDialog(this, "Debe seleccionar un médico para editar.");
-        return;
-    }
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+               // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    EditarMedicoFrame editarFrame = new EditarMedicoFrame(medicoSeleccionado, this);
-    editarFrame.setVisible(true);     
-    }//GEN-LAST:event_BtnEditarUsuarioAdmin1ActionPerformed
+    private void btnBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIdActionPerformed
+         String idBuscado = txtBuscarId.getText().trim();
+    if (idBuscado.isEmpty()) {
+        // Si el campo está vacío, mostrar todos
+        llenarTablaPacientes(cargarPacientes());
+    } else {
+        buscarPacientePorId(idBuscado);
+    } 
+    }//GEN-LAST:event_btnBuscarIdActionPerformed
+
+    private void btnListarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPacientesActionPerformed
+        List<Paciente> todos = cargarPacientes();
+        llenarTablaPacientes(todos);
+        txtBuscarId.setText("");
+    }//GEN-LAST:event_btnListarPacientesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        List<Medico> todos = cargarMedicos();
+        llenarTablaMedicos(todos);
+        txtBuscarIdMedico.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminar1ActionPerformed
+
+    private void BtnEditarUsuarioAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdmin1ActionPerformed
+        Medico medicoSeleccionado = obtenerMedicoSeleccionado();
+        if (medicoSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un médico para editar.");
+            return;
+        }
+
+        EditarMedicoFrame editarFrame = new EditarMedicoFrame(medicoSeleccionado, this);
+        editarFrame.setVisible(true);
+    }//GEN-LAST:event_BtnEditarUsuarioAdmin1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String idBuscado = txtBuscarIdMedico.getText().trim();
+        if (idBuscado.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingresa un ID para buscar.");
+            return;
+        }
+        List<Medico> medicos = cargarMedicos();
+        List<Medico> encontrados = new ArrayList<>();
+
+        for (Medico m : medicos) {
+            if (m.getId().equalsIgnoreCase(idBuscado)) {
+                encontrados.add(m);
+                break; // Si quieres mostrar solo uno
+            }
+        }
+
+        if (encontrados.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se encontró ningún médico con ese ID.");
+        }
+
+        llenarTablaMedicos(encontrados);  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,9 +692,12 @@ private Medico obtenerMedicoSeleccionado() {
     private javax.swing.JPanel TabPaneReportes;
     private javax.swing.JTable TablaMedicos;
     private javax.swing.JTable TablaPacientes;
+    private javax.swing.JButton btnBuscarId;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminar1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnListarPacientes;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -605,7 +730,7 @@ private Medico obtenerMedicoSeleccionado() {
     private javax.swing.JPanel paneGestionMedicos;
     private javax.swing.JPanel paneGestionUsuario;
     private javax.swing.JPanel paneReportes;
-    private javax.swing.JTextField txtBuscarMedicoPorID;
-    private javax.swing.JTextField txtBuscarPacientePorID;
+    private javax.swing.JTextField txtBuscarId;
+    private javax.swing.JTextField txtBuscarIdMedico;
     // End of variables declaration//GEN-END:variables
 }
