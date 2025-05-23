@@ -6,6 +6,7 @@ package AgendarCitasAPP.view;
 
 import AgendarCitasAPP.Dominio.Entidades.Medico;
 import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
 import AgendarCitasAPP.view.Admin;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
@@ -39,6 +40,12 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         txtCorreo.setText(medicoOriginal.getCorreo());
         txtTele.setText(medicoOriginal.getTelefono());
         
+        cmbGenero.removeAllItems();
+    for (GeneroEnum genero : GeneroEnum.values()) {
+        cmbGenero.addItem(genero.getNombre());
+    }
+    cmbGenero.setSelectedItem(medicoOriginal.getGenero());
+        
         txtClave.setText(medicoOriginal.getClave());
         cmbEspecialidad.setSelectedItem(medicoOriginal.getEspecialidad());
         // ... completar con otros campos si tienes
@@ -52,6 +59,8 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
             medicoOriginal.setCorreo(txtCorreo.getText());
             medicoOriginal.setTelefono(txtTele.getText());
             medicoOriginal.setClave(txtClave.getText());
+            String generoSeleccionado = cmbGenero.getSelectedItem().toString();
+            medicoOriginal.setGenero(generoSeleccionado);
             medicoOriginal.setEspecialidad(cmbEspecialidad.getSelectedItem().toString());
             // actualizar otros campos si tienes...
 
@@ -183,7 +192,6 @@ public class EditarMedicoFrame extends javax.swing.JFrame {
         BtnCancelar.setBorder(null);
         jPanel3.add(BtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 234, 34));
 
-        cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(cmbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 62, 230, 30));
 
         jScrollPane1.setViewportView(jPanel3);
