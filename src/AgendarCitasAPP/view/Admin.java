@@ -230,14 +230,6 @@ private void eliminarPacienteSeleccionado() throws IOException {
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        TabPaneReportes = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        PanelGestionMedicos = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        PanelGestionUsuarios = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        PanelGestionCitas1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         TabPaneAdmin = new javax.swing.JTabbedPane();
@@ -272,6 +264,14 @@ private void eliminarPacienteSeleccionado() throws IOException {
         paneReportes = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        PanelGestionUsuarios = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        PanelGestionMedicos = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        PanelGestionCitas1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        TabPaneReportes = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -288,66 +288,8 @@ private void eliminarPacienteSeleccionado() throws IOException {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 768, -1, -1));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 790, 58, -1));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TabPaneReportes.setBackground(new java.awt.Color(255, 255, 102));
-        TabPaneReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TabPaneReportes.setFocusable(false);
-        TabPaneReportes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TabPaneReportesMouseClicked(evt);
-            }
-        });
-        TabPaneReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setText("Reportes");
-        TabPaneReportes.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jPanel3.add(TabPaneReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 130, 40));
-
-        PanelGestionMedicos.setBackground(new java.awt.Color(255, 204, 204));
-        PanelGestionMedicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelGestionMedicos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelGestionMedicosMouseClicked(evt);
-            }
-        });
-        PanelGestionMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setText("Gestión de médicos");
-        PanelGestionMedicos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, 120, -1));
-
-        jPanel3.add(PanelGestionMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 140, 40));
-
-        PanelGestionUsuarios.setBackground(new java.awt.Color(204, 204, 255));
-        PanelGestionUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelGestionUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelGestionUsuariosMouseClicked(evt);
-            }
-        });
-        PanelGestionUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText(" Gestión de Pacientes");
-        PanelGestionUsuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jPanel3.add(PanelGestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
-
-        PanelGestionCitas1.setBackground(new java.awt.Color(204, 255, 204));
-        PanelGestionCitas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelGestionCitas1.setFocusable(false);
-        PanelGestionCitas1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelGestionCitas1MouseClicked(evt);
-            }
-        });
-        PanelGestionCitas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setText("Gestión de citas");
-        PanelGestionCitas1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jPanel3.add(PanelGestionCitas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 130, 40));
-
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
@@ -572,13 +514,74 @@ private void eliminarPacienteSeleccionado() throws IOException {
         jLabel2.setText("Planifica+");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        btnSalir.setBackground(new java.awt.Color(49, 82, 192));
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
         jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, -10, 100, 60));
+
+        PanelGestionUsuarios.setBackground(new java.awt.Color(204, 204, 255));
+        PanelGestionUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PanelGestionUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelGestionUsuariosMouseClicked(evt);
+            }
+        });
+        PanelGestionUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText(" Gestión de Pacientes");
+        PanelGestionUsuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel2.add(PanelGestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 130, 40));
+
+        PanelGestionMedicos.setBackground(new java.awt.Color(191, 191, 253));
+        PanelGestionMedicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PanelGestionMedicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelGestionMedicosMouseClicked(evt);
+            }
+        });
+        PanelGestionMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Gestión de médicos");
+        PanelGestionMedicos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, 120, -1));
+
+        jPanel2.add(PanelGestionMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 140, 40));
+
+        PanelGestionCitas1.setBackground(new java.awt.Color(168, 168, 249));
+        PanelGestionCitas1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PanelGestionCitas1.setFocusable(false);
+        PanelGestionCitas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelGestionCitas1MouseClicked(evt);
+            }
+        });
+        PanelGestionCitas1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("Gestión de citas");
+        PanelGestionCitas1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel2.add(PanelGestionCitas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 130, 40));
+
+        TabPaneReportes.setBackground(new java.awt.Color(172, 172, 245));
+        TabPaneReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TabPaneReportes.setFocusable(false);
+        TabPaneReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabPaneReportesMouseClicked(evt);
+            }
+        });
+        TabPaneReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setText("Reportes");
+        TabPaneReportes.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel2.add(TabPaneReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
