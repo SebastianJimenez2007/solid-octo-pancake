@@ -21,7 +21,7 @@ public class inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-      LoginController controller = new LoginController(tfCorreo, pfClave, comboRol, TabPanePrincipal, BtnLogin, BtnCerrarSesion);
+      LoginController controller = new LoginController(tfCorreo, pfClave, comboRol, TabPanePrincipal, BtnLogin, BtnCerrarSesion, this);
     BtnVentanaLogin.addActionListener(e -> controller.login());
     }
 

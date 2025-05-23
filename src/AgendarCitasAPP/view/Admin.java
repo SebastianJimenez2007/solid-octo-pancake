@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -106,6 +108,33 @@ void llenarTablaPacientes(List<Paciente> pacientes) {
 
     TablaPacientes.setModel(modelo); // Asegúrate que este sea el nombre correcto de tu JTable
 }
+private void eliminarMedicoSeleccionado() throws IOException {
+    int fila = TablaMedicos.getSelectedRow();
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(this, "Por favor selecciona un médico para eliminar.");
+        return;
+    }
+
+    String idMedico = TablaMedicos.getValueAt(fila, 0).toString(); // ID está en la columna 0
+
+    int confirmacion = JOptionPane.showConfirmDialog(this, 
+        "¿Estás seguro de eliminar este médico?", 
+        "Confirmar eliminación", 
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirmacion == JOptionPane.YES_OPTION) {
+        List<Medico> medicos = cargarMedicos();
+        boolean eliminado = medicos.removeIf(m -> m.getId().equals(idMedico));
+
+        if (eliminado) {
+            JsonUtils.guardarJson("Medicos.json", medicos);
+            llenarTablaMedicos(medicos);
+            JOptionPane.showMessageDialog(this, "Médico eliminado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró el médico en la lista.");
+        }
+    }
+}
 
 private Paciente obtenerPacienteSeleccionado() {
     int fila = TablaPacientes.getSelectedRow();
@@ -154,6 +183,34 @@ private void buscarPacientePorId(String id) {
     llenarTablaPacientes(filtrados);
 }
 
+private void eliminarPacienteSeleccionado() throws IOException {
+    int fila = TablaPacientes.getSelectedRow();
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(this, "Por favor selecciona un paciente para eliminar.");
+        return;
+    }
+
+    String idPaciente = TablaPacientes.getValueAt(fila, 0).toString(); // ID está en la columna 0
+
+    int confirmacion = JOptionPane.showConfirmDialog(this, 
+        "¿Estás seguro de eliminar este paciente?", 
+        "Confirmar eliminación", 
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirmacion == JOptionPane.YES_OPTION) {
+        List<Paciente> pacientes = cargarPacientes();
+        boolean eliminado = pacientes.removeIf(p -> p.getId().equals(idPaciente));
+
+        if (eliminado) {
+            JsonUtils.guardarJson("Pacientes.json", pacientes);
+            llenarTablaPacientes(pacientes);
+            JOptionPane.showMessageDialog(this, "Paciente eliminado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró el paciente en la lista.");
+        }
+    }
+}
+
 
   
 
@@ -191,7 +248,7 @@ private void buscarPacientePorId(String id) {
         TablaPacientes = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         BtnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        btnEliminarPaciente = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtBuscarId = new javax.swing.JTextField();
         btnBuscarId = new javax.swing.JButton();
@@ -207,7 +264,7 @@ private void buscarPacientePorId(String id) {
         jScrollPane4 = new javax.swing.JScrollPane();
         TablaMedicos = new javax.swing.JTable();
         BtnEditarUsuarioAdmin1 = new javax.swing.JButton();
-        btnEliminar1 = new javax.swing.JButton();
+        btnEliminarMedico = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         paneGestionCitas = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -343,15 +400,15 @@ private void buscarPacientePorId(String id) {
         });
         jPanel11.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 100, 30));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarPaciente.setBackground(new java.awt.Color(255, 102, 102));
+        btnEliminarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarPaciente.setText("Eliminar");
+        btnEliminarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEliminarPacienteActionPerformed(evt);
             }
         });
-        jPanel11.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
+        jPanel11.add(btnEliminarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
 
         jLabel10.setText("Buscar por ID:");
         jPanel11.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
@@ -445,15 +502,15 @@ private void buscarPacientePorId(String id) {
         });
         jPanel10.add(BtnEditarUsuarioAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 100, 30));
 
-        btnEliminar1.setBackground(new java.awt.Color(255, 102, 102));
-        btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar1.setText("Eliminar");
-        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarMedico.setBackground(new java.awt.Color(255, 102, 102));
+        btnEliminarMedico.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarMedico.setText("Eliminar");
+        btnEliminarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminar1ActionPerformed(evt);
+                btnEliminarMedicoActionPerformed(evt);
             }
         });
-        jPanel10.add(btnEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
+        jPanel10.add(btnEliminarMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
 
         jButton1.setBackground(new java.awt.Color(49, 82, 192));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -579,12 +636,20 @@ private void buscarPacientePorId(String id) {
 });     
     }//GEN-LAST:event_BtnEditarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-      
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void btnEliminarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPacienteActionPerformed
+        btnEliminarPaciente.addActionListener(e -> {
+            try {
+                eliminarPacienteSeleccionado();
+            } catch (IOException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+    }//GEN-LAST:event_btnEliminarPacienteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-                
+     this.dispose();
+    new inicio().setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIdActionPerformed
@@ -609,9 +674,16 @@ private void buscarPacientePorId(String id) {
         txtBuscarIdMedico.setText("");// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminar1ActionPerformed
+    private void btnEliminarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarMedicoActionPerformed
+       btnEliminarMedico.addActionListener(e -> {
+           try {
+               eliminarMedicoSeleccionado();
+           } catch (IOException ex) {
+               Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       });
+
+    }//GEN-LAST:event_btnEliminarMedicoActionPerformed
 
     private void BtnEditarUsuarioAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarUsuarioAdmin1ActionPerformed
         Medico medicoSeleccionado = obtenerMedicoSeleccionado();
@@ -693,8 +765,8 @@ private void buscarPacientePorId(String id) {
     private javax.swing.JTable TablaMedicos;
     private javax.swing.JTable TablaPacientes;
     private javax.swing.JButton btnBuscarId;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
+    private javax.swing.JButton btnEliminarMedico;
+    private javax.swing.JButton btnEliminarPaciente;
     private javax.swing.JButton btnListarPacientes;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton jButton1;

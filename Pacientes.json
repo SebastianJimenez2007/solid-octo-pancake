@@ -24,18 +24,6 @@
     "rol": "PACIENTE"
   },
   {
-    "id": "4",
-    "clave": "321",
-    "nombre": "Valentina",
-    "apellido": "López",
-    "fechaNacimiento": "2002-11-02",
-    "genero": "FEMENINO",
-    "direccion": "calle 80 #32-12",
-    "correo": "valentina.lopez@gmail.com",
-    "telefono": "3119988776",
-    "rol": "PACIENTE"
-  },
-  {
     "id": "9994671151",
     "clave": "mi.hijo",
     "nombre": "Javier",

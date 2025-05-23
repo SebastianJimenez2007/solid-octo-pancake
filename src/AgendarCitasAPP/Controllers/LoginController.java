@@ -24,15 +24,17 @@ public class LoginController {
     private JButton BtnLogin;
     private JButton BtnCerrarSesion;
     private JFrame ventanaInicio;
+    
 
   public LoginController(JTextField tfCorreo, JPasswordField pfClave, JComboBox<String> comboRol1,
-                       JTabbedPane tabPanePrincipal, JButton BtnLogin, JButton BtnCerrarSesion) {
+                       JTabbedPane tabPanePrincipal, JButton BtnLogin, JButton BtnCerrarSesion, JFrame ventanaInicio) {
     this.tfCorreo = tfCorreo;
     this.pfClave = pfClave;
     this.comboRol = comboRol1;
     this.tabPanePrincipal = tabPanePrincipal;
     this.BtnLogin = BtnLogin;
     this.BtnCerrarSesion = BtnCerrarSesion;
+    this.ventanaInicio = ventanaInicio;
     
 }
     public void login() {
@@ -74,6 +76,7 @@ public class LoginController {
                             accesoConcedido = true;
 
                             // Mostrar ventana de administrador
+                            ventanaInicio.dispose(); // Cierra la ventana de inicio
                             new Admin().setVisible(true);
                             
 
