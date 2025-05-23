@@ -4,95 +4,59 @@
  */
 package AgendarCitasAPP.Dominio.Entidades;
 
-import java.util.List;
-
-/**
- *
- * @author JAVIER Y KLEVER
- */
 public class Medico {
-    private int idMedico;
+    private String id;
+    private String clave;
     private String nombre;
     private String apellido;
     private String genero;
-    private String disponibilidad;
-    private String especialidad;
     private String correo;
     private String telefono;
-    private List<Citas> citasAsignadas;
-    
-    public Medico(int idMedico, String nombre, String apellido, String genero, String disponibilidad, String especialidad, String correo, String telefono){
-    this.idMedico = idMedico;
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.genero = genero;
-    this.disponibilidad = disponibilidad;
-    this.especialidad = especialidad;
-    this.correo = correo;
-    this.telefono = telefono;
+    private String rol;
+    private String especialidad;
+
+    public Medico() {
+        // Constructor vacío para Gson
     }
 
-    public void setIdMedico(int idMedico) {
-        this.idMedico = idMedico;
-    }
-
-    public void setNombre(String nombre) {
+    public Medico(String id, String clave, String nombre, String apellido, String genero,
+                  String correo, String telefono, String rol, String especialidad) {
+        this.id = id;
+        this.clave = clave;
         this.nombre = nombre;
-    }
-
-    public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public void setDisponibilidad(String disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
+        this.correo = correo;
+        this.telefono = telefono;
+        this.rol = rol;
         this.especialidad = especialidad;
     }
+public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+    public String getClave() { return clave; }
+    public void setClave(String clave) { this.clave = clave; }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public int getIdMedico() {
-        return idMedico;
-    }
+    public String getApellido() { return apellido; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public String getGenero() { return genero; }
+    public void setGenero(String genero) { this.genero = genero; }
 
-    public String getApellido() {
-        return apellido;
-    }
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
 
-    public String getGenero() {
-        return genero;
-    }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
 
-    public String getDisponibilidad() {
-        return disponibilidad;
-    }
+    public String getRol() { return rol; }
+    public void setRol(String rol) { this.rol = rol; }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
+    public String getEspecialidad() { return especialidad; }
+    public void setEspecialidad(String especialidad) { this.especialidad = especialidad;    
+    
+}
 }

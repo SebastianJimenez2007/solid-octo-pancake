@@ -1,3 +1,24 @@
-{
-    "name": "Sebastian JB"
-}
+[
+  {
+    "id": "M001",
+    "clave": "1234",
+    "nombre": "Carlos",
+    "apellido": "Sánchez",
+    "genero": "Masculino",
+    "correo": "carlos@example.com",
+    "telefono": "3120000000",
+    "rol": "Medico",
+    "especialidad": "Item 1"
+  },
+  {
+    "id": "M002",
+    "clave": "5678",
+    "nombre": "Laura",
+    "apellido": "Gómez",
+    "genero": "Femenino",
+    "correo": "laura@example.com",
+    "telefono": "3130000000",
+    "rol": "Medico",
+    "especialidad": "Pediatría"
+  }
+]

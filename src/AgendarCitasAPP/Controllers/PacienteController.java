@@ -5,24 +5,10 @@
 package AgendarCitasAPP.Controllers;
 
 
-import javax.swing.*;
-
-
-public class AdminController {
-    
-
-    public AdminController(JTable tablaUsuarios) {
-        
-        initController();
-    }
-
-    private void initController() {
-       
-        
-    }
-
+/**
+ *
+ * @author Sebastian JB
+ */
+public class PacienteController {
+   
 }
-    
-
-
-

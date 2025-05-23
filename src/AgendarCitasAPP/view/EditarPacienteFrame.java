@@ -4,103 +4,113 @@
  */
 package AgendarCitasAPP.view;
 
-import AgendarCitasAPP.Controllers.AdminController;
+
+import AgendarCitasAPP.Dominio.Entidades.Paciente;
+import AgendarCitasAPP.Dominio.Utils.JsonUtils;
+import AgendarCitasAPP.Dominio.constantes.GeneroEnum;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author sebas
  */
-public class EditarUsuarioFrame extends javax.swing.JFrame {
+public class EditarPacienteFrame extends javax.swing.JFrame {
+    private Paciente pacienteOriginal;
+    private Admin adminRef;
+    
+    
 
-    /**
-     * Creates new form EditarUsuarioFrame
-     */
-    private DefaultTableModel modeloTabla; // Añade esta línea
-
-    public EditarUsuarioFrame(String id, String nombre, String apellido, String clave, 
-        String fechaNacimiento, String direccion, String telefono, String correo,
-        DefaultTableModel modeloTabla) {
+    public EditarPacienteFrame(Paciente paciente, Admin adminRef) {
         initComponents();
-        
-        this.modeloTabla = modeloTabla;
-        
-        // Establecer valores en los campos
-        txtId.setText(id);
-        txtNombre.setText(nombre);
-        txtApellido.setText(apellido);
-        txtClave.setText(clave);
-        txtFechaNacimiento.setText(fechaNacimiento);
-        txtDireccion.setText(direccion);
-        txtTele.setText(telefono);
-        txtCorreo.setText(correo);
-        
-        // Limpiar textos por defecto incorrectos
-        txtId.setForeground(java.awt.Color.BLACK);
-        txtNombre.setForeground(java.awt.Color.BLACK);
-        txtApellido.setForeground(java.awt.Color.BLACK);
-        txtClave.setForeground(java.awt.Color.BLACK);
-        txtFechaNacimiento.setForeground(java.awt.Color.BLACK);
-        txtDireccion.setForeground(java.awt.Color.BLACK);
-        txtTele.setForeground(java.awt.Color.BLACK);
-        txtCorreo.setForeground(java.awt.Color.BLACK);
-        
-        // Configurar botón cancelar
-        BtnCancelar.addActionListener(e -> this.dispose());
-        
-        // Configurar botón guardar
-        BtnEditar.addActionListener(e -> guardarCambios());
+         
+          this.pacienteOriginal = paciente;
+        this.adminRef = adminRef;
+        cargarDatosPaciente();
+       
     }
     
-   private void guardarCambios() {
-        try {
-            // Obtener los nuevos valores
-            String id = txtId.getText();
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            String clave = txtClave.getText();
-            String fechaNacimiento = txtFechaNacimiento.getText();
-            String direccion = txtDireccion.getText();
-            String telefono = txtTele.getText();
-            String correo = txtCorreo.getText();
-            String rol = cmbRol.getSelectedItem().toString();
-            String genero = cmbGenero.getSelectedItem().toString();
-            
-            // Validación básica de campos
-            if (nombre.isEmpty() || apellido.isEmpty() || clave.isEmpty() || 
-                fechaNacimiento.isEmpty() || direccion.isEmpty() || 
-                telefono.isEmpty() || correo.isEmpty()) {
-                throw new Exception("Todos los campos son obligatorios");
-            }
-            
-            // Validación de correo electrónico
-            if (!correo.contains("@") || !correo.contains(".")) {
-                throw new Exception("El correo electrónico no es válido");
-            }
-            
-            // Actualizar en la base de datos
-            AdminController.actualizarUsuario(
-                id, nombre, apellido, clave, fechaNacimiento, 
-                direccion, telefono, correo, genero, rol
-            );
-            
-            // Actualizar la tabla en Admin
-            AdminController.cargarUsuariosEnTabla(modeloTabla);
-            
-            JOptionPane.showMessageDialog(this, 
-                "Usuario actualizado correctamente", 
-                "Éxito", 
-                JOptionPane.INFORMATION_MESSAGE);
-            
-            this.dispose();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, 
-                "Error al actualizar usuario: " + e.getMessage(), 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
-        }
+      private void cargarDatosPaciente() {
+        txtId.setText(pacienteOriginal.getId());
+        txtNombre.setText(pacienteOriginal.getNombre());
+        txtApellido.setText(pacienteOriginal.getApellido());
+        txtCorreo.setText(pacienteOriginal.getCorreo());
+        txtTele.setText(pacienteOriginal.getTelefono());
+        txtClave.setText(pacienteOriginal.getClave());
+        txtDireccion.setText(pacienteOriginal.getDireccion(txtDireccion.getText()));
+        
+        // Llenar y seleccionar el género
+    cmbGenero.removeAllItems();
+    for (GeneroEnum genero : GeneroEnum.values()) {
+        cmbGenero.addItem(genero.getNombre());
     }
+    cmbGenero.setSelectedItem(pacienteOriginal.getGenero());
+
+    // Establecer la fecha de nacimiento
+    if (pacienteOriginal.getFechaNacimiento() != null) {
+        txtFechaNacimiento.setText(pacienteOriginal.getFechaNacimiento().toString());
+    }
+
+       
+
+        
+        
+        
+        // etc. para género, fecha, rol si aplica
+    }
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {
+    try {
+        // Actualizar datos del objeto
+        pacienteOriginal.setNombre(txtNombre.getText());
+        pacienteOriginal.setApellido(txtApellido.getText());
+        pacienteOriginal.setCorreo(txtCorreo.getText());
+        pacienteOriginal.setTelefono(txtTele.getText());
+        pacienteOriginal.setClave(txtClave.getText());
+        pacienteOriginal.setDireccion(txtDireccion.getText());
+
+        // Fecha de nacimiento
+        try {
+            LocalDate fecha = LocalDate.parse(txtFechaNacimiento.getText());
+            pacienteOriginal.setFechaNacimiento(fecha);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Formato de fecha incorrecto. Usa yyyy-MM-dd");
+            return;
+        }
+
+        // Género (guardado como String)
+        String generoSeleccionado = cmbGenero.getSelectedItem().toString();
+        pacienteOriginal.setGenero(generoSeleccionado);
+
+        // Leer JSON, actualizar lista y guardar
+        java.lang.reflect.Type tipoLista = new TypeToken<List<Paciente>>(){}.getType();
+        List<Paciente> pacientes = JsonUtils.leerJson("pacientes.json", tipoLista);
+
+        for (int i = 0; i < pacientes.size(); i++) {
+            if (pacientes.get(i).getId().equals(pacienteOriginal.getId())) {
+                pacientes.set(i, pacienteOriginal);
+                break;
+            }
+        }
+
+        JsonUtils.guardarJson("Pacientes.json", pacientes);
+
+        JOptionPane.showMessageDialog(this, "Paciente actualizado.");
+        adminRef.llenarTablaPacientes(pacientes);
+        this.dispose();
+
+    } catch (IOException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al guardar cambios.");
+    }
+    }
+
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,9 +134,8 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTele = new javax.swing.JTextField();
-        cmbRol = new javax.swing.JComboBox<>();
         cmbGenero = new javax.swing.JComboBox<>();
-        BtnEditar = new javax.swing.JButton();
+        btnGuardarPaciente = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,12 +166,12 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 234, 34));
 
         txtClave.setForeground(new java.awt.Color(153, 153, 153));
-        txtClave.setText("correo");
+        txtClave.setText("clave");
         txtClave.setBorder(null);
         jPanel3.add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 234, 34));
 
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("contraseña");
+        txtNombre.setText("nombre");
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,40 +181,44 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 234, 34));
 
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido.setText("telefono");
+        txtApellido.setText("apellido");
         txtApellido.setBorder(null);
         jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 234, 34));
 
         txtFechaNacimiento.setForeground(new java.awt.Color(153, 153, 153));
-        txtFechaNacimiento.setText("telefono");
+        txtFechaNacimiento.setText("fechanacimiento");
         txtFechaNacimiento.setBorder(null);
         jPanel3.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 234, 34));
 
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        txtDireccion.setText("telefono");
+        txtDireccion.setText("direccion");
         txtDireccion.setBorder(null);
         jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 234, 34));
 
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo.setText("correo");
         txtCorreo.setBorder(null);
         jPanel3.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 234, 34));
 
         txtTele.setForeground(new java.awt.Color(153, 153, 153));
+        txtTele.setText("telefono");
         txtTele.setBorder(null);
         jPanel3.add(txtTele, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 234, 34));
 
-        cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PACIENTE", "EMPLEADO", "MEDICO", "ADMIN" }));
-        jPanel3.add(cmbRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 230, 30));
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Otros" }));
+        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 230, 30));
 
-        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MASCULINO", "FEMENINO" }));
-        jPanel3.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 230, 30));
-
-        BtnEditar.setBackground(new java.awt.Color(49, 82, 192));
-        BtnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnEditar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnEditar.setText("Editar");
-        BtnEditar.setBorder(null);
-        jPanel3.add(BtnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 234, 34));
+        btnGuardarPaciente.setBackground(new java.awt.Color(49, 82, 192));
+        btnGuardarPaciente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarPaciente.setText("Editar");
+        btnGuardarPaciente.setBorder(null);
+        btnGuardarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarPacienteActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnGuardarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 234, 34));
 
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(49, 82, 192));
@@ -226,6 +239,14 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void btnGuardarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPacienteActionPerformed
+   btnGuardarPaciente.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnGuardarActionPerformed(evt);
+    }
+});
+    }//GEN-LAST:event_btnGuardarPacienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,10 +254,9 @@ public class EditarUsuarioFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar;
-    private javax.swing.JButton BtnEditar;
     private javax.swing.JLabel LabelEditarUsuario;
+    private javax.swing.JButton btnGuardarPaciente;
     private javax.swing.JComboBox<String> cmbGenero;
-    private javax.swing.JComboBox<String> cmbRol;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
